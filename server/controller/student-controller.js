@@ -1,6 +1,7 @@
-const Student=require('../models/student-model');
+const Student= require('../models/student-model')
+var multer=require('multer')
 
-createStudnet=(req,res)=>{
+createStudnet= (req,res) => {
     const body=req.body
     if(!body)
     {
@@ -9,7 +10,7 @@ createStudnet=(req,res)=>{
             error:'You must provide a movie'
         })
     }
-    const studnet=new Student(body);
+    const student = new Student(body)
     if(!student)
     {
         return res.status(400).json({
@@ -20,7 +21,7 @@ createStudnet=(req,res)=>{
     student.save().then(()=>{
         return res.status(201).json({
             success:true,
-            id:studnet._id,
+            id:student._id,
             message:'Student created',
         })
     })
@@ -42,24 +43,26 @@ updateStudent=async(req,res)=>{
         {
             return res.status(404).json({success:false,error:err})
         }
-    })
+    
     student.username=body.username
     student.password=body.password
     student.acaId=body.acaId
     student.email=body.email
-    student.photo=body.photo
+   // student.photo=body.photo
 
     student.save().then(()=>{
-        return res.status(200).then({
+        return res.status(200).json({
             success:true,
             id:student._id,
-            message:'Student Updated'
+            message:'Student Updated',
         })
-    }).catch(error =>{
+    })
+    .catch(error => {
         return res.status(400).json({
             error,
-            message:'Student not updated!'
+            message:'Student not updated!',
         })
+    })
     })
     
 }
@@ -72,7 +75,7 @@ getStudents=async(req,res)=>{
             return res.status(404).json({success:false,error:'Students not found'})
         }
         return res.status(200).json({success:true,data:students})
-    }).catch(err=>console.log(err))
+    }).catch(err => console.log(err))
 }
 module.exports={
     getStudents,

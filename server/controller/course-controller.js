@@ -45,7 +45,7 @@ updateCourse=async(req,res)=>{
     
     course.courseId=body.courseId
     course.drEmail=body.drEmail
-   
+    course.student.push(body.student) //push el student gwa el array
 
     course.save().then(()=>{
         return res.status(200).json({
@@ -72,7 +72,10 @@ getCourses=async(req,res)=>{
             return res.status(404).json({success:false,error:'Courses not found'})
         }
         return res.status(200).json({success:true,data:courses})
-    }).catch(err => console.log(err))
+    })
+    .populate('student') //ektb hena esm el attribute el 3yz t3mlo populate
+    .exec()
+    .catch(err => console.log(err))
 }
 module.exports={
     getCourses,

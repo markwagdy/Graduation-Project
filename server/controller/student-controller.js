@@ -48,6 +48,7 @@ updateStudent=async(req,res)=>{
     student.password=body.password
     student.acaId=body.acaId
     student.email=body.email
+    student.course.push(body.course)
    // student.photo=body.photo
 
     student.save().then(()=>{
@@ -75,7 +76,10 @@ getStudents=async(req,res)=>{
             return res.status(404).json({success:false,error:'Students not found'})
         }
         return res.status(200).json({success:true,data:students})
-    }).catch(err => console.log(err))
+    })
+    .populate('course')
+    .exec()
+    .catch(err => console.log(err))
 }
 module.exports={
     getStudents,

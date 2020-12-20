@@ -35,11 +35,11 @@ console.log(Error);
 
 
 
-router.post('/student',StudentCtrl.createStudnet);
+// router.post('/student',StudentCtrl.createStudnet);
 router.put('/student/:id',StudentCtrl.updateStudent);
 router.get('/students',StudentCtrl.getStudents);
-
-
+router.post('/registerstudent',StudentCtrl.reigsiterStudent)
+router.post('/loginstudent',StudentCtrl.loginStudent);
 
 
 module.exports=router

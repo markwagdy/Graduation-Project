@@ -1,37 +1,135 @@
 const Student= require('../models/student-model')
-var multer=require('multer')
+const bcrypt=require('bcryptjs')
+const jwt=require('jsonwebtoken')
+const ValidateReigsterInput=require('../validation/register');
+const validateLoginInput=require('../validation/login');
+const { validate } = require('../models/student-model');
 
-createStudnet= (req,res) => {
-    const body=req.body
-    if(!body)
-    {
-        return res.status(400).json({
-            success:false,
-            error:'You must provide a student'
-        })
+const keys=require('../config/keys')
+
+
+
+loginStudent=(req,res)=>{
+const {errors,isValid} =validateLoginInput(req.body);
+
+
+    // Check validation
+    if (!isValid) {
+         return res.status(400).json(errors);
     }
-    const student = new Student(body)
-    if(!student)
-    {
-        return res.status(400).json({
-            success:false,
-            error:'err'
-        })
+
+     const email = req.body.email;
+     const password = req.body.password;
+
+    // Find student by email
+    Student.findOne({ email }).then(student => {
+    // Check if student exists
+    if (!student) {
+      return res.status(404).json({ emailnotfound: "Email not found" });
     }
-    student.save().then(()=>{
-        return res.status(201).json({
-            success:true,
-            id:student._id,
-            message:'Student created',
-        })
-    })
-    .catch(error=>{
-        return res.status(400).json({
-            error,
-            message:"student not created"
-        })
-    })   
+    // Check password
+    bcrypt.compare(password, student.password).then(isMatch => {
+      if (isMatch) {
+        // User matched
+        // Create JWT Payload
+        const payload = {
+          id: student.id,
+          name: student.name
+        };
+    // Sign token
+        jwt.sign(
+          payload,
+          keys.secretOrKey,
+          {
+            expiresIn: 31556926 // 1 year in seconds
+          },
+          (err, token) => {
+            res.json({
+              success: true,
+              token: "Bearer " + token
+            });
+          }
+        );
+      } else {
+        return res
+          .status(400)
+          .json({ passwordincorrect: "Password incorrect" });
+      }
+    });
+  });
+
+
 }
+
+
+
+
+
+
+reigsiterStudent=(req,res)=>{
+const {errors,isValid}=ValidateReigsterInput(req.body);
+
+
+    if(!isValid){
+        return res.status(400).json(errors);
+    }
+
+    Student.findOne({email:req.body.email}).then(student=>{
+        if(student){
+            return res.status(400).json({email:"Email already exists"});
+        }else{
+                const newstudent =new Student(req.body);
+
+        
+        //Hashing password in database
+        bcrypt.genSalt(10,(err,salt)=>{
+            bcrypt.hash(newstudent.password,salt,(err,hash)=>{
+                if (err) throw err;
+                newstudent.password = hash;
+                newstudent
+                  .save()
+                  .then(student => res.json(student))
+                  .catch(err => console.log(err));
+            })
+        })
+    }
+    })
+
+
+}
+
+
+// createStudnet= (req,res) => {
+//     const body=req.body
+//     if(!body)
+//     {
+//         return res.status(400).json({
+//             success:false,
+//             error:'You must provide a student'
+//         })
+//     }
+//     const student = new Student(body)
+//     if(!student)
+//     {
+//         return res.status(400).json({
+//             success:false,
+//             error:'err'
+//         })
+//     }
+//     student.save().then(()=>{
+//         return res.status(201).json({
+//             success:true,
+//             id:student._id,
+//             message:'Student created',
+//         })
+//     })
+//     .catch(error=>{
+//         return res.status(400).json({
+//             error,
+//             message:"student not created"
+//         })
+//     })   
+// }
 updateStudent=async(req,res)=>{
     const body=req.body
     if(!body)
@@ -84,5 +182,7 @@ getStudents=async(req,res)=>{
 module.exports={
     getStudents,
     updateStudent,
-    createStudnet
+    // createStudnet,
+    reigsiterStudent,
+    loginStudent
 }

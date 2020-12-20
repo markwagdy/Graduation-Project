@@ -9,8 +9,8 @@ const Student=new Schema(
     password:{type:String,required:true},
     acadId:{type:String,required:true},
     email:{type:mongoose.SchemaTypes.Email,required:true},
-    course:{type:mongoose.SchemaTypes.ObjectId,ref:'courses'},
-    photo:{type:String},
+    course:[{type:mongoose.SchemaTypes.ObjectId,ref:'courses'}],
+    image:{type:Buffer},
 },
     {
         timestamps:true

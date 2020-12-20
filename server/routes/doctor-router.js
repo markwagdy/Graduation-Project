@@ -16,5 +16,6 @@ const router=express.Router()
 
 router.post('/doctor',DoctorCtrl.createDoctor);
 router.put('/doctor/:id',DoctorCtrl.updateDoctor);
-router.get('/docotrs',DoctorCtrl.getDoctors);
+router.get('/doctors',DoctorCtrl.getDoctors);
+router.delete('/doctor/:id',DoctorCtrl.deleteDoctors)
 module.exports=router

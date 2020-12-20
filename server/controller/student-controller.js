@@ -46,7 +46,7 @@ updateStudent=async(req,res)=>{
     
     student.username=body.username
     student.password=body.password
-    student.acaId=body.acaId
+    student.acadId=body.acadId
     student.email=body.email
     student.course.push(body.course)
    // student.photo=body.photo

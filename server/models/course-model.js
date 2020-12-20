@@ -5,9 +5,9 @@ const Schema=mongoose.Schema
 const Course=new Schema(
 {
     courseId:{type:String,required:true},
-    student:[{type:mongoose.SchemaTypes.ObjectId,refPath:'students'}], //el ref bykon esm el collection bt3 students
+    student:[{type:mongoose.SchemaTypes.ObjectId,ref:'students'}], //el ref bykon esm el collection bt3 students
     drEmail:{type:mongoose.SchemaTypes.Email,required:true},
-    meetingId:{type:String,refPath:'meeting'},
+    meetingId:{type:String,ref:'meeting'},
 },
 {
     timestamps:true

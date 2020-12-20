@@ -10,7 +10,7 @@ const db = require('./data/db')
 const studentRouter=require('./routes/student-router')
 const courseRouter=require('./routes/course-router')
 const doctorRouter=require('./routes/doctor-router')
-
+const meetingrRouter=require('./routes/meeting-router')
 
 
 
@@ -37,5 +37,6 @@ app.use('/api',studentRouter)
 app.use('/api',courseRouter)
 
 app.use('/api',doctorRouter)
+app.use('/api',meetingRouter)
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))

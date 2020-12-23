@@ -10,7 +10,7 @@ const db = require('./data/db')
 const studentRouter=require('./routes/student-router')
 const courseRouter=require('./routes/course-router')
 const doctorRouter=require('./routes/doctor-router')
-const meetingrRouter=require('./routes/meeting-router')
+const meetingRouter=require('./routes/meeting-router')
 
 
 

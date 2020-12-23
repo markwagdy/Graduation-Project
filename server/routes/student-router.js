@@ -40,6 +40,6 @@ router.put('/student/:id',StudentCtrl.updateStudent);
 router.get('/students',StudentCtrl.getStudents);
 router.post('/registerstudent',StudentCtrl.reigsiterStudent)
 router.post('/loginstudent',StudentCtrl.loginStudent);
-
+router.get('/students/:id',StudentCtrl.getStudentById)
 
 module.exports=router

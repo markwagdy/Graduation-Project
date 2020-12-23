@@ -179,10 +179,31 @@ getStudents=async(req,res)=>{
     .exec()
     .catch(err => console.log(err))
 }
+
+getStudentById=async(req,res)=>
+{
+  await Student.findOne({_id:req.params.id},(err,student)=>{
+    if(err){
+      return res.status(400).json({success:false,error:err})
+    }
+   
+    if(!student){
+      return res.status(404).json({success:false,error:'Student not found'})
+    }
+    
+  return res.status(200).json({success:true,data:student})
+  }).populate('course')
+    .exec()
+    .catch(err=>console.log(err))
+  
+}
+
+
 module.exports={
     getStudents,
     updateStudent,
     // createStudnet,
     reigsiterStudent,
-    loginStudent
+    loginStudent,
+   getStudentById
 }

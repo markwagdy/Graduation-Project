@@ -1,0 +1,20 @@
+.form-input{
+    width: 400px;
+    margin-top: 20px;
+    height: 55px;
+    left: 140px;
+    background-color: #D5F3FE;
+    border-radius:30px ;
+    position: relative;
+    text-align: center;
+    font-family: 'roboto';
+    font-size: 25px;
+}
+::placeholder{
+    text-align: center;
+    font-size: 25px;
+    color: #89B4D5;
+    justify-content: center;
+    font-family: 'roboto';
+    
+}

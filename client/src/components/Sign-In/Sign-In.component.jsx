@@ -9,7 +9,8 @@ class SignIn extends React.Component
             super();
             this.state={
                 email:'',
-                password:''
+                password:'',
+                
             };
     }
     handleSubmit=async event=>{
@@ -39,7 +40,7 @@ class SignIn extends React.Component
                 <FormInput name='password' type='password' placeholder='PASSWORD'></FormInput>
                 <CustomButton type='submit'>LOG IN</CustomButton>            
                 <hr className='line'></hr>
-                <CustomButton>SIGN UP</CustomButton>
+                
             </form>    
         </div>);
     }

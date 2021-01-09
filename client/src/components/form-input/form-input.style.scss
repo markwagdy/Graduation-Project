@@ -1,20 +1,53 @@
 .form-input{
     width: 400px;
-    margin-top: 20px;
+    
     height: 55px;
     left: 140px;
     background-color: #D5F3FE;
     border-radius:30px ;
     position: relative;
     text-align: center;
-    font-family: 'roboto';
+    font-family: 'Staatliches';
     font-size: 25px;
-}
-::placeholder{
+
+   
+} ::placeholder{
     text-align: center;
     font-size: 25px;
     color: #89B4D5;
     justify-content: center;
-    font-family: 'roboto';
+    font-family: 'Staatliches';
+    
+}
+.form2{
+    width: 300px;
+    height: 30px;
+    background-color: #F3F3F3;
+    color: #7F7F7F;
+    position: relative;
+    left: 100px;
+    text-align: center;
+    font-family: 'arial';
+    font-size: 25px;
+    margin-right: 0px;
+    display: block;
+    
+}
+
+.unit{
+    display: inline-flex;
+    // border: 2px solid;
+    margin: 10px;
+    width: 400px;
+}
+.form-input-label{
+    position: relative;
+    margin: 0px;
+    top: 10px;
+    left: 10px;
+    color:#0F5298 ;
+   white-space: nowrap;
+    float: left;
+
     
 }

@@ -91,37 +91,7 @@ registerDoctor=(req,res)=>{
     
     }
     
-// createDoctor= (req,res) => {
-//     const body=req.body
-//     if(!body)
-//     {
-//         return res.status(400).json({
-//             success:false,
-//             error:'You must provide a doctor'
-//         })
-//     }
-//     const doctor = new Doctor(body)
-//     if(!doctor)
-//     {
-//         return res.status(400).json({
-//             success:false,
-//             error:'err'
-//         })
-//     }
-//     doctor.save().then(()=>{
-//         return res.status(201).json({
-//             success:true,
-//             id:doctor._id,
-//             message:'doctor created',
-//         })
-//     })
-//     .catch(error=>{
-//         return res.status(400).json({
-//             error,
-//             message:"doctor not created"
-//         })
-//     })   
-// }
+
 updateDoctor=async(req,res)=>{
     const body=req.body
     if(!body)

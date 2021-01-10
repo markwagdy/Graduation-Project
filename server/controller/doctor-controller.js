@@ -2,10 +2,11 @@ const Doctor= require('../models/doctor-model')
 var multer=require('multer')
 const bcrypt=require('bcryptjs')
 const jwt=require('jsonwebtoken')
-const ValidateReigsterInput=require('../validation/register');
+const ValidateRegisterInput=require('../validation/register');
 const validateLoginInput=require('../validation/login');
-const { validate } = require('../models/student-model');
-const keys=require('../config/keys')
+const { validate } = require('../models/doctor-model');
+const keys=require('../config/keys');
+// const  doctor  = require('../_helpers/role');
 
 loginDoctor=(req,res)=>{
     const {errors,isValid} =validateLoginInput(req.body);
@@ -58,21 +59,15 @@ loginDoctor=(req,res)=>{
     
     
     }
-    
-    
-    
-    
-    
-    
-    regisiterDoctor=(req,res)=>{
-    const {errors,isValid}=ValidateReigsterInput(req.body);
+registerDoctor=(req,res)=>{
+    const {errors,isValid}=ValidateRegisterInput(req.body);
     
     
         if(!isValid){
             return res.status(400).json(errors);
         }
     
-        Doctor.findOne({email:req.body.email}).then(student=>{
+        Doctor.findOne({email:req.body.email}).then(doctor=>{
             if(doctor){
                 return res.status(400).json({email:"Email already exists"});
             }else{

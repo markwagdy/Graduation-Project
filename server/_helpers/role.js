@@ -1,5 +1,5 @@
 module.exports = {
-    Doctor: 'Doctor',
-    Ta:'Ta',
-    Student: 'Student'
+    doctor: 'doctor',
+    ta:'ta',
+    student: 'student'
   }

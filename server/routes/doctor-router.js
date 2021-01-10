@@ -14,8 +14,10 @@ var storage=multer.diskStorage({
 
 const router=express.Router()
 
-router.post('/doctor',DoctorCtrl.createDoctor);
+// router.post('/student',StudentCtrl.createStudnet);
 router.put('/doctor/:id',DoctorCtrl.updateDoctor);
 router.get('/doctors',DoctorCtrl.getDoctors);
-router.delete('/doctor/:id',DoctorCtrl.deleteDoctors)
+router.post('/registerdoctor',DoctorCtrl.registerDoctor)
+router.post('/logindocotr',DoctorCtrl.loginDoctor);
+//router.get('/docotrs/:id',DoctorCtrl.getDoctorbyid)
 module.exports=router

@@ -12,10 +12,6 @@ const courseRouter=require('./routes/course-router')
 const doctorRouter=require('./routes/doctor-router')
 const meetingRouter=require('./routes/meeting-router')
 
-
-
-
-
 const app = express()
 const apiPort = 3000
 

@@ -1,10 +1,10 @@
 .slogan{
-    font-family: 'roboto';
-    font-size: 130px;
+    font-family:'Staatliches';
+    font-size: 150px;
     position: relative;
     top: 300px;
     color: white;
-    left: 50px;
+    left: 100px;
 }
 
 .img{
@@ -23,7 +23,7 @@
     height: 100vh;
     display: flex;
     width: 100%;
-    flex-direction: row;
+    flex-direction: column;
     margin: 0%;
     outline: 0px;
     border: 0px;
@@ -50,6 +50,13 @@
     margin: 90px auto;   
     font-size: 60px;
  }
+ .title2{
+    color:#0F5298;
+    text-align: center;
+    margin: 30px  0px;   
+    font-size: 40px;
+     
+ }
  .line{
     height: 2px;
     border-width:0px ;
@@ -62,5 +69,15 @@
     position: relative;
     margin-top: 100px;
 }
-
+.signUp{
+    position: relative;
+    top: 350px;
+    border: 2px solid;
+    border-radius: 30px;
+    width: 200px;
+    height: 50px;
+    background-color: #0F5298;
+    color:white;
+    left:333px;
+}
  

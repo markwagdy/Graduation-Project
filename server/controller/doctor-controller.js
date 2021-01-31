@@ -189,7 +189,7 @@ module.exports={
     updateDoctor,
     //createDoctor,
     deleteDoctors,
-    registerDoctor,
+    regisiterDoctor,
     loginDoctor
 }
 // router.post('/registerdoctor',DoctorCtrl.reigsiterdoctor)

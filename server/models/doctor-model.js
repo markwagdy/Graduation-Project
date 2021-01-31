@@ -7,7 +7,7 @@ const Doctor=new Schema(
 {
     username:{type:String,required:true},
     password:{type:String,required:true},
-    role:{type: String,default:role.Doctor},
+    // role:{type: String,default:role.Doctor},
     email:{type:mongoose.SchemaTypes.Email,required:true},
     course:{type:mongoose.SchemaTypes.ObjectId,ref:'courses'},
 },

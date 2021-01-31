@@ -29,6 +29,7 @@ loginDoctor=(req,res)=>{
         // Check password
         bcrypt.compare(password, doctor.password).then(isMatch => {
           if (isMatch) {
+           // req.user =  Doctor.findOne({ email })
             // User matched
             // Create JWT Payload
             const payload = {
@@ -36,10 +37,8 @@ loginDoctor=(req,res)=>{
               name: doctor.name
             };
         // Sign token
-            jwt.sign(
-              payload,
-              keys.secretOrKey,
-              {
+           let accessToken = jwt.sign(payload,keys.secretOrKey,
+              { algorithm: "HS256",
                 expiresIn: 31556926 // 1 year in seconds
               },
               (err, token) => {
@@ -49,6 +48,15 @@ loginDoctor=(req,res)=>{
                 });
               }
             );
+            //create the refresh token with the longer lifespan
+        let refreshToken = jwt.sign(payload, dhw782wujnd99ahmmakhanjkajikhiwn2n, {
+        algorithm: "HS256",
+        expiresIn: 864001321215
+    })
+    //store the refresh token in the user array
+   // users[username].refreshToken = refreshToken
+    res.cookie("jwt", accessToken, {secure: true, httpOnly: true})
+    res.send()
           } else {
             return res
               .status(400)
@@ -90,38 +98,6 @@ registerDoctor=(req,res)=>{
     
     
     }
-    
-// createDoctor= (req,res) => {
-//     const body=req.body
-//     if(!body)
-//     {
-//         return res.status(400).json({
-//             success:false,
-//             error:'You must provide a doctor'
-//         })
-//     }
-//     const doctor = new Doctor(body)
-//     if(!doctor)
-//     {
-//         return res.status(400).json({
-//             success:false,
-//             error:'err'
-//         })
-//     }
-//     doctor.save().then(()=>{
-//         return res.status(201).json({
-//             success:true,
-//             id:doctor._id,
-//             message:'doctor created',
-//         })
-//     })
-//     .catch(error=>{
-//         return res.status(400).json({
-//             error,
-//             message:"doctor not created"
-//         })
-//     })   
-// }
 updateDoctor=async(req,res)=>{
     const body=req.body
     if(!body)

@@ -4,7 +4,7 @@
  position: relative;
  left: 120px;
  top:0px;
- height: 400px;
+ height: 600px;
  width: 700px;
  display: block;
 
@@ -21,6 +21,7 @@
   width: 250px;
   height: 50px;
   margin: auto;
+  box-shadow:2px 2px 10px 2px  grey;
 }
 .btn{
     border: none;
@@ -30,12 +31,13 @@
     position: relative;
     width: 50%;
     height: 100%;
+    cursor: pointer;
 }
 .btn1{
     border: none;
-    // border-bottom-left-radius: 30px;
-    // border-top-left-radius: 30px;
-    
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    cursor: pointer;
     // background-color: #0F5298;
     // color:white;
     color:  #0F5298;
@@ -47,10 +49,111 @@
 .form{
     position: absolute;
     margin-top: 40px;
-    left: -100px;
-    top: 20px;
+    left:  -140px;
+    top: 45px;
 }
-.name{
-    background-color: #7A7A7A;
-    
+
+.genderUnit{
+  display: inline-flex;
+  // border: 2px solid;
+  margin: 8px;
+  width: 550px;
+  left: 10px;
+  padding:1px ;
+}
+.genderLabel{
+  position: relative;
+  margin: 0px;
+  top: 10px;
+  left: 8px;
+  color:#0F5298 ;
+  white-space: nowrap;
+  float: left;
+  width: 40px;
+  margin-right: 30px;
+}
+.buttons{
+  // border: 2px solid;
+  width: 350px;
+     
+  left: 110px;
+ display: flex;
+  border-radius:30px ;
+  position: relative;
+  text-align: center;
+  
+  font-size: 25px;
+}
+.btnM{
+  color: white;
+  background-color: #0F5298;
+  width: 170px;
+  border: none;
+  border-radius: 30px;
+  position: relative;
+  left: 0px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+.btnF{
+  background-color: #F7F7F7;
+  color: black;
+  width: 170px;
+  border: none;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+.yourPhoto{
+  display: inline-flex;
+  // border: 2px solid;
+  margin: 8px;
+  width: 550px;
+  left: 10px;
+  padding:1px ;
+}
+.dragphoto{
+  border: 2px dashed;
+  border-radius: 30px;
+  width: 350px;
+     
+  left: 110px;
+ display: flex;
+  border-radius:30px ;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 18px;
+
+
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'browse';
+  display: inline-block;
+  // background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  position: relative;
+  left: 85px;
+  cursor: pointer;
+  color: #0F5298;
+  text-decoration: underline;
+}
+.pa{
+position: relative;;
+left: 75px;
+}
+.trans{
+  background-color:white;
+  // border: 2px solid;
+  position: absolute;
+  color: white;
+  left: 300px;
+  border-radius: 30px;
+  width: 50px;
+}
+#signup{
+  left: 185px;
 }

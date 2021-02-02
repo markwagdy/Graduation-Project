@@ -28,7 +28,9 @@ handleChange=(event)=>{
             :
             <SignUp></SignUp>
         }
-        <CustomButton className='signUp' onClick={this.handleChange} >SIGN UP</CustomButton>
+          
+            <CustomButton className='signUp' onClick={this.handleChange} >SIGN UP</CustomButton>
+        
         
         </div>
         </div>

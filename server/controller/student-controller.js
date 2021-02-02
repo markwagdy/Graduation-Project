@@ -1,6 +1,6 @@
 const Student= require('../models/student-model')
 const bcrypt=require('bcryptjs')
-const jwt=require('jsonwebtoken')
+const jwt = require('json-web-token')
 const ValidateReigsterInput=require('../validation/register');
 const validateLoginInput=require('../validation/login');
 const { validate } = require('../models/student-model');
@@ -30,6 +30,7 @@ const {errors,isValid} =validateLoginInput(req.body);
     // Check password
     bcrypt.compare(password, student.password).then(isMatch => {
       if (isMatch) {
+        
         // User matched
         // Create JWT Payload
         const payload = {
@@ -37,7 +38,7 @@ const {errors,isValid} =validateLoginInput(req.body);
           name: student.name
         };
     // Sign token
-        jwt.sign(
+    let accessToken = jwt.sign(
           payload,
           keys.secretOrKey,
           {
@@ -50,6 +51,15 @@ const {errors,isValid} =validateLoginInput(req.body);
             });
           }
         );
+               //create the refresh token with the longer lifespan
+        let refreshToken = jwt.sign(payload,dhw782wujnd99ahmmakhanjkajikhiwn2n, {
+            algorithm: "HS256",
+            expiresIn: 864001515
+                  })
+                //store the refresh token in the user array
+                // users[username].refreshToken = refreshToken
+                  res.cookie("jwt", accessToken, {secure: true, httpOnly: true})
+                  res.send()
       } else {
         return res
           .status(400)

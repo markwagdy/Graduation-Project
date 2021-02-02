@@ -4,7 +4,9 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const passport=require("passport")
 const db = require('./data/db')
+require('dotenv').config()
 
+const cookieParser = require('cookie-parser')
 
 //routers
 const studentRouter=require('./routes/student-router')
@@ -12,13 +14,9 @@ const courseRouter=require('./routes/course-router')
 const doctorRouter=require('./routes/doctor-router')
 const meetingRouter=require('./routes/meeting-router')
 
-
-
-
-
 const app = express()
 const apiPort = 3000
-
+app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(bodyParser.json())

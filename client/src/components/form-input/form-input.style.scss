@@ -7,47 +7,76 @@
     border-radius:30px ;
     position: relative;
     text-align: center;
-    font-family: 'Staatliches';
+    
     font-size: 25px;
 
-   
-} ::placeholder{
-    text-align: center;
-    font-size: 25px;
-    color: #89B4D5;
-    justify-content: center;
-    font-family: 'Staatliches';
-    
 }
+.form-input::placeholder{
+   text-align: center;
+   font-size: 25px;
+   color: #89B4D5;
+   justify-content: center;
+   
+}    
+   
 .form2{
-    width: 300px;
+    
     height: 30px;
     background-color: #F3F3F3;
     color: #7F7F7F;
     position: relative;
     left: 100px;
     text-align: center;
-    font-family: 'arial';
+    
     font-size: 25px;
-    margin-right: 0px;
+    // margin-right: 0px;
     display: block;
+    // ::placeholder{
+    //     color:  #7F7F7F;
+    // }
     
 }
+.form2::placeholder{
+        color:  #7F7F7F;
+    }
 
 .unit{
     display: inline-flex;
     // border: 2px solid;
-    margin: 10px;
-    width: 400px;
+    margin: 8px;
+    width: 550px;
+    left: 10px;
+    padding:1px ;
 }
 .form-input-label{
     position: relative;
     margin: 0px;
     top: 10px;
-    left: 10px;
+    left: 8px;
     color:#0F5298 ;
-   white-space: nowrap;
+    white-space: nowrap;
     float: left;
+    width: 40px;
+    margin-right: 30px;
+}
 
-    
+#id{
+    width: 200px;
+    left: 170px;
+    margin-top: 1px;
+}
+#password{
+    width: 450px;
+    left: 100px;
+    margin-top: 1px;
+}
+#name{
+    width: 450px;
+    left: 90px;
+    margin-top: 1px;
+}
+#email{
+    width: 450px;
+    left: 100px;
+    margin-top: 1px;
 }

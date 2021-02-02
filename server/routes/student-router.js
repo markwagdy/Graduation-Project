@@ -20,7 +20,7 @@ const router=express.Router()
 
 router.post('/:studentId/image',storage.single('image'),async(req,res)=>{
 try{
-    const {studentId}=req.params;;
+    const {studentId}=req.params;
     const student=await Student.findById(studentId);
     const image=req.file.buffer ? req.file.buffer :'' ;
     student.image=image;

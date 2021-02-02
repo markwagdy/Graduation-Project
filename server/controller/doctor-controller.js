@@ -64,7 +64,7 @@ loginDoctor=(req,res)=>{
     
     
     
-    regisiterDoctor=(req,res)=>{
+    registerDoctor=(req,res)=>{
     const {errors,isValid}=ValidateReigsterInput(req.body);
     
     
@@ -189,7 +189,7 @@ module.exports={
     updateDoctor,
     //createDoctor,
     deleteDoctors,
-    regisiterDoctor,
+    registerDoctor,
     loginDoctor
 }
 // router.post('/registerdoctor',DoctorCtrl.reigsiterdoctor)

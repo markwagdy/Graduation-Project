@@ -3,6 +3,7 @@ var multer=require('multer')
 
 createMeeting= (req,res) => {
     const body=req.body
+    
     if(!body)
     {
         return res.status(400).json({
@@ -12,7 +13,7 @@ createMeeting= (req,res) => {
     }
     const meeting = new Meeting(body)
     if(!meeting)
-    {
+    {   
         return res.status(400).json({
             success:false,
             error:'err'

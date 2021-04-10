@@ -12,14 +12,14 @@ class App extends React.Component {
 
   render(){
   return (
-    <div>
+    <Router> 
+      <div>
+      <Route exact path='/' component={HomePage}></Route>
+     
 
-    <HomePage>
-    </HomePage>
+      </div>
+    </Router>
 
-
-    </div>
-      
       
       
     );

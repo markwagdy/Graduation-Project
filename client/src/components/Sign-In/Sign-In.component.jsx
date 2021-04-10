@@ -8,36 +8,31 @@ class SignIn extends React.Component
     constructor(){
             super();
             this.state={
-                email:'',
-                password:'',
-                
+                email:"",
+                password:"",
+                errors:{}
             };
     }
-    handleSubmit=async event=>{
-        event.preventDefault();
-        const {email,password}=this.state;
-        
-        try{
-            this.setState({email:'',password:''});
-        }catch(err)
-        {
-            console.log(err);
-        }
-    };
-    handleChange=event=>{
-        const {value,name}=event.target;
-        this.setState({[name]:value});
-    };
-
-
-
+   handleChange=(e)=>{
+    //    console.log("baby"+e.target.value)
+    this.setState({[e.target.id]:e.target.value})
+   }
+   onSubmuit=e=>{
+    e.preventDefault();    
+    const userData={
+    email:this.state.email,
+    password:this.state.password    
+    }
+    console.log(userData);
+    }
 
     render(){
+        const {errors}=this.state;
         return(
         <div className='sign-in'>
-            <form className='login-form' >
-                <FormInput name='email' type='email' placeholder='EMAIL'></FormInput>
-                <FormInput name='password' type='password' placeholder='PASSWORD'></FormInput>
+            <form className='login-form' onSubmit={this.onSubmuit}>
+                <FormInput name='email' type='email' placeholder='EMAIL' handleChange={this.handleChange} value={this.state.email} errors={errors.email} id="email"></FormInput>
+                <FormInput name='password' type='password' placeholder='PASSWORD' handleChange={this.handleChange} value={this.state.password} errors={errors.password} id="password"></FormInput>
                 <CustomButton type='submit'>LOG IN</CustomButton>            
                 <hr className='line'></hr>
                 

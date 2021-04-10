@@ -1,6 +1,6 @@
 const Student= require('../models/student-model')
 const bcrypt=require('bcryptjs')
-const jwt = require('json-web-token')
+const jwt = require('jsonwebtoken')
 const ValidateReigsterInput=require('../validation/register');
 const validateLoginInput=require('../validation/login');
 const { validate } = require('../models/student-model');
@@ -51,15 +51,6 @@ const {errors,isValid} =validateLoginInput(req.body);
             });
           }
         );
-               //create the refresh token with the longer lifespan
-        let refreshToken = jwt.sign(payload,dhw782wujnd99ahmmakhanjkajikhiwn2n, {
-            algorithm: "HS256",
-            expiresIn: 864001515
-                  })
-                //store the refresh token in the user array
-                // users[username].refreshToken = refreshToken
-                  res.cookie("jwt", accessToken, {secure: true, httpOnly: true})
-                  res.send()
       } else {
         return res
           .status(400)
@@ -109,37 +100,7 @@ const {errors,isValid}=ValidateReigsterInput(req.body);
 }
 
 
-// createStudnet= (req,res) => {
-//     const body=req.body
-//     if(!body)
-//     {
-//         return res.status(400).json({
-//             success:false,
-//             error:'You must provide a student'
-//         })
-//     }
-//     const student = new Student(body)
-//     if(!student)
-//     {
-//         return res.status(400).json({
-//             success:false,
-//             error:'err'
-//         })
-//     }
-//     student.save().then(()=>{
-//         return res.status(201).json({
-//             success:true,
-//             id:student._id,
-//             message:'Student created',
-//         })
-//     })
-//     .catch(error=>{
-//         return res.status(400).json({
-//             error,
-//             message:"student not created"
-//         })
-//     })   
-// }
+
 updateStudent=async(req,res)=>{
     const body=req.body
     if(!body)

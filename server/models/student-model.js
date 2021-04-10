@@ -25,7 +25,7 @@ const Student=new Schema(
     },
 );
 
-Object.assign(Student.statics,{Gender,});
+Object.assign(Student.statics,{Gender,});   
 
 
 

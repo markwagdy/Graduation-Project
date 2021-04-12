@@ -2,6 +2,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import HomePage from './pages/Homepage/Homepage.component';
+// import Student from './pages/Student/Student.component';
 
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 
@@ -16,7 +17,8 @@ class App extends React.Component {
 
     <HomePage>
     </HomePage>
-
+    
+    {/* <Student></Student> */}
 
     </div>
       

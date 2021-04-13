@@ -40,8 +40,9 @@ class SignIn extends React.Component
                 <FormInput name='email' type='email' placeholder='EMAIL' handleChange={this.handleChange} value={this.state.email} errors={errors.email} id="email"></FormInput>
                 <FormInput name='password' type='password' placeholder='PASSWORD' handleChange={this.handleChange} value={this.state.password} errors={errors.password} id="password"></FormInput>
 
-                <Link to = "../Navbar/Nav-bar.component"> <CustomButton type ="submit">LOG IN</CustomButton></Link>          
+                <Link to='/student'>                       
                 <CustomButton type='submit'>LOG IN</CustomButton>            
+                </Link>
                 <hr className='line'></hr>
                 
             </form>    

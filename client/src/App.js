@@ -4,9 +4,10 @@ import React, { Component } from 'react';
 import HomePage from './pages/Homepage/Homepage.component';
 
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
+import Meeting from './pages/Meeting/Meeting.component.jsx';
 
 const api=require('./api/index')
-class App extends React.Component {
+class App extends Component {
 
  
 
@@ -15,7 +16,7 @@ class App extends React.Component {
     <Router> 
       <div>
       <Route exact path='/' component={HomePage}></Route>
-     
+      <Route exact path='/meeting' component={Meeting}></Route>
 
       </div>
     </Router>

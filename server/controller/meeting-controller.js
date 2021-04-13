@@ -1,5 +1,6 @@
 const Meeting= require('../models/meeting-model')
 var multer=require('multer')
+const { v4: uuidV4 } = require('uuid')
 
 createMeeting= (req,res) => {
     const body=req.body
@@ -89,9 +90,13 @@ deleteMeetings=async(req,res)=>{
       
     }).catch(err => console.log(err))
 }
+createRoom=async(req,res)=>{
+    res.redirect(`/${uuidV4()}`)
+}
 module.exports={
     getMeetings,
     updateMeeting,
     createMeeting,
-    deleteMeetings
+    deleteMeetings,
+    createRoom
 }

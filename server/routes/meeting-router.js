@@ -8,4 +8,5 @@ router.post('/meeting',verify,MeetingCtrl.createMeeting);
 router.put('/meeting/:id',verify,MeetingCtrl.updateMeeting);
 router.get('/meetings',verify,MeetingCtrl.getMeetings);
 router.delete('/meeting/:id',verify,MeetingCtrl.deleteMeetings)
+router.get('/meeting/',MeetingCtrl.createRoom)
 module.exports=router

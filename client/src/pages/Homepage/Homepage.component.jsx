@@ -3,7 +3,7 @@ import './Homepage.style.scss';
 import SignIn from '../../components/Sign-In/Sign-In.component';
 import SignUp from '../../components/Sign-Up/Sign-Up.component';
 import CustomButton from '../../components/CustomButton/Custom-Button.component';
-import { Link } from 'react-router-dom';
+
 class HomePage extends Component
 {   constructor(props){
     super(props);
@@ -11,7 +11,7 @@ class HomePage extends Component
         isSignedUp:true
     }
 }
-handleChange=(event)=>{
+handleChange=()=>{
     this.setState({isSignedUp:false})
 }
 

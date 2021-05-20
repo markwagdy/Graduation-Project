@@ -1,17 +1,17 @@
 import React from 'react';
 import './form-input.style.scss';
 
-const FormInput=({handlChange,label,placeholder,id,type,...otherProps})=>(
+const FormInput=({handlChange,label,placeholder,id,type,name,value,...otherProps})=>(
         <div className='unit'>
-                {console.log(label)}
+                {console.log('label '+label)}
         {label?
         (
                 <label className='form-input-label'>{label}  </label>
         ):null
         }
-        <input className={`${label?'form2':'form-input'}` } id={`${id}`} onChange={handlChange} placeholder={placeholder} type={type}/>
+        <input className={`${label?'form2':'form-input'}` } id={`${id}`} onChange={handlChange} {...otherProps} value={value} name={name} placeholder={placeholder} type={type}/>
        {
-               console.log(id)
+        //        console.log('name        '+name+'        value   '+value)
        
        }
         </div>

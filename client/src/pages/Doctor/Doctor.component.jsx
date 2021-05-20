@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import './Student.style.scss';
+import './Doctor.style.scss';
 import Navbar from  '../../components/Navbar/Nav-bar.component';
 import CourseCard from  '../../components/CourseCard/CourseCard.component';
 import { FaSuperscript } from 'react-icons/fa';
 import ReactDom from 'react-dom';
-import CardAlert from '../../components/CardAlert/CardAlert.component';
+import CreateCourseAlert from '../../components/createcourseAlert/createcourseAlert.component';
 
 document.body.style.backgroundColor = "#0f5298";
 
-class Student extends React.Component {
+class Doctor extends React.Component {
 
   constructor(props){
     super(props);
@@ -17,7 +17,7 @@ class Student extends React.Component {
     }
     this.openNav=this.openNav.bind(this);
   }
-
+  
   openNav(){
     this.setState({show:true})
   }
@@ -29,7 +29,7 @@ class Student extends React.Component {
         <div className="Hbar">
           <div style={{overflow: "hidden", display:"flex", justifyContent: "space-between" }}> 
               <h1 style={{display: "inline-block"}}>EsmElProject</h1>
-              <h2 style={{display: "inline-block", marginRight: "100px"}}> Welcome Student Name</h2>
+              <h2 style={{display: "inline-block", marginRight: "100px"}}> Welcome Doctor Name</h2>
           </div>
         </div>
         <span onClick={this.openNav}>       
@@ -39,8 +39,9 @@ class Student extends React.Component {
       {
        this.state.show?
        <div>
-         <CardAlert/>
-       </div>:""
+        <CreateCourseAlert></CreateCourseAlert>
+       </div>
+        :""
       }
       </div>
           
@@ -48,4 +49,4 @@ class Student extends React.Component {
       );
     }
   }
-  export default Student;
+  export default Doctor;

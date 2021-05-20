@@ -1,0 +1,29 @@
+.BWBoarder{
+    border-radius: 54px 0px 0px 54px;
+    position: fixed;
+    background-color: white;
+    width: 95%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    box-shadow: -18px 0px 26px rgba(0, 0, 0, 0.16);
+}
+
+h1{
+    color: #0F5298;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+}
+.Hbar{
+    
+    position: -webkit-sticky sticky;
+    //position: relative;
+    //margin: auto;
+    border-radius: 54px 0px 0px 0px;
+    background-color: white;
+    box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.21);
+    border-bottom: 1px solid #0F5298;
+    padding-left: 90px; padding-top: 7px;
+    height: 11.5%;
+}

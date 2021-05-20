@@ -4,10 +4,10 @@ const Schema=mongoose.Schema
 
 const Meeting=new Schema(
 {   
-    meetingId:{type:String,required:true},
+    
     courseId:{type:mongoose.SchemaTypes.ObjectId,ref:'courses'},
-    date: { type: Date, required:true},
- 
+    date: { type: String, required:true},
+    roomId:{type:String}
 },
 {
     timestamps:true

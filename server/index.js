@@ -1,4 +1,4 @@
-  
+// import roomid from '../client/src/pages/CallPage/CallPage.Component.jsx';
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
@@ -6,7 +6,7 @@ const passport=require("passport")
 const db = require('./data/db')
 require('dotenv').config()
 
-const cookieParser = require('cookie-parser')
+// const cookieParser = require('cookie-parser')
 
 //routers
 const studentRouter=require('./routes/student-router')
@@ -18,11 +18,11 @@ const app = express()
 const apiPort = 3000
 const server=require('http').Server(app)
 const io=require('socket.io')(server)
-const {v4:uuidV4}=require('uuid4')
+const {v4:uuidV4}=require('uuid')
 const {ExpressPeerServer}=require('peer')
 const peerServer=ExpressPeerServer(server,{debug:true});
 
-app.use(cookieParser())
+// app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(bodyParser.json())
@@ -36,9 +36,8 @@ require('./config/passport')(passport);
 //database config
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+
+// console.log(roomid);
 
 app.use('/api',studentRouter)
 app.use('/api',courseRouter)

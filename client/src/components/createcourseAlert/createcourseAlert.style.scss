@@ -1,14 +1,67 @@
 
-.inputt[type=text] {
-    width: 80%;
-    height: 5%;
+.btn1{
+    position: relative;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-left: 70px;
+    border-radius: 30px;
+    width: 200px;
+    height: 50px;
+    background-color: #0F5298;
+    color:white;
+    cursor: pointer;
+    display: inline-block;
+}
+
+option{
+    color:#0F5298;
+}
+
+select{
+color: white;
+}
+
+.txtarea{
+    //position: relative;
+    width: 200px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 70px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 20px 50px;
+    display: inline-block;
+    background-color: rgb(147, 150, 153);
+}
+
+
+.in1{
+    width: 300px;
+    height: 20px;
     padding: 20px 50px;
     margin-left: 70px;
     margin-top: 10px;
-    display: inline-block;
     border: 1px solid #ccc;
     border-radius: 2px;
     box-sizing: border-box;
+    display: inline-block;
+    background-color: rgb(147, 150, 153);
+
+  }
+
+  .in2{
+    position: relative;
+    width: 100px;
+    height: 20px;
+    padding: 20px 50px;
+    margin-right: 100px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+    display: inline-block;
+    background-color: rgb(147, 150, 153);
+   
+
   }
   
 
@@ -69,7 +122,7 @@
     border: 1px solid #888;
     border-radius: 30px;
     width: 50%; 
-    height: 40%;
+    height: 70%;
   }
   
 

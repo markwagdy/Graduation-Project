@@ -4,7 +4,6 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button,Aler
 import * as TiIcons from 'react-icons/ti';
 import './CourseCard.style.scss';
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
-import CardAlert from '../CardAlert/CardAlert.component';
 
 class CourseCard extends Component 
 {
@@ -12,10 +11,6 @@ class CourseCard extends Component
     super(props);
    
 }
-// handleChange=()=>{
- 
-// }
-
 
   render(){
  return (
@@ -23,7 +18,7 @@ class CourseCard extends Component
       <Card className="addcard">
         <CardBody > 
          
-          <Button className=" button " /*onClick={this.handleChange}*/><TiIcons.TiPlus className="icon"/></Button>
+          <Button className=" button "><TiIcons.TiPlus className="icon"/></Button>
          </CardBody>
       </Card>
     </div>

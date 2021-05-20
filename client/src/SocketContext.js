@@ -79,6 +79,9 @@ const ContextProvider = ({ children }) => {
 
     window.location.reload();
   };
+  const joinMeet=()=>{
+   
+  }
 
   return (
     <SocketContext.Provider value={{

@@ -7,7 +7,6 @@ import {BrowserRouter as Router,Redirect,Route} from "react-router-dom";
 import Meeting from './pages/Meeting/Meeting.component.jsx';
 import Student from './pages/Student/Student.component.jsx';
 import CallPage from './pages/CallPage/CallPage.Component';
-import { ContextProvider } from './SocketContext';
 
 class App extends Component {
 
@@ -25,6 +24,8 @@ class App extends Component {
       
       <Route path='/meeting/live/:room' component={CallPage} render={props => <App {...props}/>}/>
       
+      
+    
     
     </div>
     </Router>

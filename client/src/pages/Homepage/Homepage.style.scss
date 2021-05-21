@@ -33,7 +33,7 @@
 .right-half{
     // border: 0px solid;
     border-style: double;
-    border-radius: 40px;
+    border-radius: 40px 0px 0px 40px;
     width: 58%;
     height: 100vh;
     display: flex;
@@ -71,7 +71,7 @@
 }
 .signUp{
     position: relative;
-    top: 350px;
+    top: 351px;
     // border: 2px solid;
     border-radius: 30px;
     width: 200px;

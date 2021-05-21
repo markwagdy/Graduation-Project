@@ -12,7 +12,7 @@ class HomePage extends Component
         isSignedUp:true
     }
 }
-handleChange=(event)=>{
+handleChange=()=>{
     this.setState({isSignedUp:false})
 }
 

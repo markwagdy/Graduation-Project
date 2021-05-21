@@ -4,7 +4,8 @@ const { v4: uuidV4 } = require('uuid')
 
 createMeeting= (req,res) => {
     const body=req.body
-    
+   console.log(body);
+//    console.log(body)
     if(!body)
     {
         return res.status(400).json({
@@ -13,6 +14,7 @@ createMeeting= (req,res) => {
         })
     }
     const meeting = new Meeting(body)
+    
     if(!meeting)
     {   
         return res.status(400).json({
@@ -28,6 +30,7 @@ createMeeting= (req,res) => {
         })
     })
     .catch(error=>{
+        
         return res.status(400).json({
             error,
             message:"meeting not created"
@@ -46,10 +49,9 @@ updateMeeting=async(req,res)=>{
             return res.status(404).json({success:false,error:err})
         }
         
-    meeting.meetingId=body.meetingId
-    meeting.courseId=body.courseId
+    
     meeting.date=body.date
-
+    meeting.roomId=body.roomId
 
     meeting.save().then(()=>{
         return res.status(200).json({
@@ -67,6 +69,26 @@ updateMeeting=async(req,res)=>{
     })
     
 }
+getMeetingById=async(req,res)=>{
+    const body=req.body;
+    if(!body)
+    {
+        return res.status(400).json({success:false,message:'you must provide a body to update'})
+    }
+    const roomId=body.roomId;
+    await Meeting.findOne({roomId},(err,meeting)=>{
+        if(err)
+        {
+            return res.status(404).json({success:false,error:err})
+        }});
+        if(!meeting)
+        {
+            return res.status(404).json({success:false,error:'Movie not found'})
+        }
+    return res.status(200).json({success:true,data:meeting}).catch(err=>{console.log(err)})
+
+
+}
 getMeetings=async(req,res)=>{
     await Meeting.find({},(err,meetings)=>{
         if(err){
@@ -78,6 +100,7 @@ getMeetings=async(req,res)=>{
         return res.status(200).json({success:true,data:meetings})
     }).catch(err => console.log(err))
 }
+
 deleteMeetings=async(req,res)=>{
     await Meeting.findOneAndDelete({ _id: req.params.id},(err,meetings)=>{
         if(err){
@@ -90,13 +113,12 @@ deleteMeetings=async(req,res)=>{
       
     }).catch(err => console.log(err))
 }
-createRoom=async(req,res)=>{
-    res.redirect(`/${uuidV4()}`)
-}
+
 module.exports={
     getMeetings,
     updateMeeting,
     createMeeting,
     deleteMeetings,
-    createRoom
+    getMeetingById
+  
 }

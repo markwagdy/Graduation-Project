@@ -1,7 +1,7 @@
 import React from 'react';
 import './form-input.style.scss';
 
-const FormInput=({handlChange,label,placeholder,id,type,...otherProps})=>(
+const FormInput=({handlChange,label,placeholder,id,type,name,value,...otherProps})=>(
         <div className='unit'>
                 
         {label?

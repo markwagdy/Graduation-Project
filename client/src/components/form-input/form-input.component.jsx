@@ -3,7 +3,7 @@ import './form-input.style.scss';
 
 const FormInput=({handlChange,label,placeholder,id,type,name,value,...otherProps})=>(
         <div className='unit'>
-                {console.log('label '+label)}
+                {/* {console.log('label '+label)} */}
         {label?
         (
                 <label className='form-input-label'>{label}  </label>

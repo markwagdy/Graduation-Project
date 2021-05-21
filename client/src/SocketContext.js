@@ -80,8 +80,9 @@ const ContextProvider = ({ children }) => {
     window.location.reload();
   };
   const joinMeet=()=>{
-   
-  }
+  const peer =new Peer({initiator:true,trickle:false,stream})
+    
+}
 
   return (
     <SocketContext.Provider value={{

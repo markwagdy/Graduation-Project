@@ -38,7 +38,7 @@ class CreateCourseAlert extends Component
               <input className="in1" type="text" name="courseName" required/> <br></br> 
               <div>
                   <label>Course Code :</label>
-                <CustomButton type= "button" className="btn1">Course Designator <select className="select"> <option>CSE</option><option>HUM</option><option>PHM</option></select></CustomButton>
+                <CustomButton type= "button" className="btn11">Course Designator <select className="select"> <option>CSE</option><option>HUM</option><option>PHM</option></select></CustomButton>
                 <input className="in2" type="text" name="coursecode" required/>
             </div><br></br>
             <label>

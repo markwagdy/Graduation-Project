@@ -52,7 +52,7 @@ class CreateCourseAlert extends Component
 
                   <div>
                     <h1 className="fontsC" style={{display: "inline-block"}}> Course Code : </h1>
-                    <CustomButton type= "button" className="btn1">Course Designator <select className="select"> <option>CSE</option><option>HUM</option><option>PHM</option></select></CustomButton>
+                    <CustomButton type= "button" className="bdesign">Course Designator <select className="select"> <option>CSE</option><option>HUM</option><option>PHM</option></select></CustomButton>
                     <input className="N1" type="number"   required/> 
                     <input className="N1" type="number"   required/> 
                     <input className="N1" type="number"   required/> <br></br>
@@ -65,7 +65,7 @@ class CreateCourseAlert extends Component
 
                   <div style={{marginTop:"5px"}}>
                     <h1 className="fontsC" style={{display: "inline-block"}}> Semester : </h1>
-                    <CustomButton type= "button" className="btn2">Select Semester Type <select className="select"> <option>Fall</option><option>Spring</option><option>Summer</option></select></CustomButton>
+                    <CustomButton type= "button" className="bsem">Select Semester Type <select className="select"> <option>Fall</option><option>Spring</option><option>Summer</option></select></CustomButton>
                     <input className="N2" type="number"  placeholder="year" required/> <br></br>
                   </div>
 

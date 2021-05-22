@@ -6,6 +6,7 @@ import { FaSuperscript } from 'react-icons/fa';
 import ReactDom from 'react-dom';
 import CardAlert from '../../components/CardAlert/CardAlert.component';
 
+
 document.body.style.backgroundColor = "#0f5298";
 
 class Student extends React.Component {

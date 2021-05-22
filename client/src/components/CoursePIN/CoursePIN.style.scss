@@ -1,0 +1,143 @@
+
+.inputP {
+    width: 450px;
+    height: 20px;
+    padding: 20px 50px;
+    text-align: center;
+    position: relative;
+    border: none;
+    margin-left: 150px;
+    box-sizing: border-box;
+    display: inline-block;
+    background-color: #F3F3F3;
+  
+    }
+    
+  
+    .bannerP{
+      background-color:#0F5298;
+      position: relative;
+      width: 100%;
+      height: 20%;
+      color: white;
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 30px;
+      padding-top: 20px;
+      margin: auto;
+      text-align: center;
+    }
+    
+    // .container {
+    //   padding: 16px;
+    //   color: #0F5298;
+    // }
+    
+    .fontsP{
+      margin-left: 300px;
+      font-family:  sans-serif;
+      font-weight: normal;
+      color: #0F5298;
+      font-size: 30px;
+      position: relative;
+      //'Rubik Mono One',
+    }
+    
+  
+  .EnterbtnP{
+      margin-top: 30px;
+      margin-left: 275px;
+      border-radius: 30px;
+      width: 200px;
+      height: 50px;
+      background-color: #0F5298;
+      color:white;
+      cursor: pointer;
+  }
+    
+    
+    .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+    }
+    
+  
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+      position: relative;
+    }
+    
+    
+
+    
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+    
+   
+    .modalP {
+      display: block; 
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      padding-top: 60px;
+    }
+    
+    
+    .modalP-content{
+      background-color:white;
+      margin-left: 25%;
+      margin-top: 5%;
+      border-radius: 0px 0px 97px 97px;
+      width: 50%; 
+      height: 50%;
+      box-shadow: 0px 16px 51px rgba(0, 0, 0, 0.4);
+    }
+  
+    .close {
+      position: absolute;
+      right: 25px;
+      top: 0;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      
+      cursor: pointer;
+    }
+    
+      .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+    }
+    
+    @-webkit-keyframes animatezoom {
+      from {-webkit-transform: scale(0)} 
+      to {-webkit-transform: scale(1)}
+    }
+      
+    @keyframes animatezoom {
+      from {transform: scale(0)} 
+      to {transform: scale(1)}
+    }
+    
+    @media screen and (max-width: 300px) {
+      span.psw {
+         display: block;
+         float: none;
+      }
+      .cancelbtn {
+         width: 100%;
+      }
+    }
+  

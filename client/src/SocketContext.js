@@ -14,6 +14,7 @@ const ContextProvider = ({ children }) => {
   const [name, setName] = useState('');
   const [call, setCall] = useState({});
   const [me, setMe] = useState('');
+  const [roomID,setRoomID]=useState('');
 
   const myVideo = useRef();
   const userVideo = useRef();
@@ -80,8 +81,9 @@ const ContextProvider = ({ children }) => {
     window.location.reload();
   };
   const joinMeet=()=>{
-   
-  }
+  const peer =new Peer({initiator:true,trickle:false,stream})
+    
+}
 
   return (
     <SocketContext.Provider value={{

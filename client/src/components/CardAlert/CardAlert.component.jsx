@@ -16,7 +16,7 @@ class CardAlert extends Component
 
   closepopup(){
     this.setState({show:false})
-    {console.log(this.state.show)}
+    // {console.log(this.state.show)}
   }
 
 

@@ -6,8 +6,7 @@ import { FaSuperscript } from 'react-icons/fa';
 import ReactDom from 'react-dom';
 import CardAlert from '../../components/CardAlert/CardAlert.component';
 
-
-document.body.style.backgroundColor = "#0f5298";
+// document.body.style.backgroundColor = "#0f5298";
 
 class Student extends React.Component {
 
@@ -25,15 +24,17 @@ class Student extends React.Component {
 
     render(){
     return (
-      <div className="BWBoarder">
-        {/* <div> <Navbar></Navbar> </div> */}
-        <div className="Hbar">
-          <div style={{overflow: "hidden", display:"flex", justifyContent: "space-between" }}> 
+      <div className="bGs">
+
+        <div className="BWBoarder">
+          {/* <div> <Navbar></Navbar> </div> */}
+          <div className="Hbar">
+            <div style={{overflow: "hidden", display:"flex", justifyContent: "space-between" }}> 
               <h1 style={{display: "inline-block"}}>EsmElProject</h1>
               <h2 style={{display: "inline-block", marginRight: "100px"}}> Welcome Student Name</h2>
+            </div>
           </div>
-        </div>
-        <span onClick={this.openNav}>       
+          <span onClick={this.openNav}>       
           <CourseCard></CourseCard>
           
         </span>
@@ -45,7 +46,7 @@ class Student extends React.Component {
       }
       </div>
           
-        
+      </div>
       );
     }
   }

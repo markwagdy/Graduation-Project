@@ -7,7 +7,7 @@ import ReactDom from 'react-dom';
 import CreateCourseAlert from '../../components/createcourseAlert/createcourseAlert.component';
 import CoursePIN from '../../components/CoursePIN/CoursePIN.component';
 
-document.body.style.backgroundColor = "#0f5298";
+// document.body.style.backgroundColor = "#0f5298";
 
 class Doctor extends React.Component {
 
@@ -25,8 +25,7 @@ class Doctor extends React.Component {
 
     render(){
     return (
-
-    
+      <div className="bGd">
       <div className="BWBoarder">
         {/* <div> <Navbar></Navbar> </div> */}
         <div className="Hbar">
@@ -48,7 +47,7 @@ class Doctor extends React.Component {
       }
       </div>
           
-        
+      </div>
       );
     }
   }

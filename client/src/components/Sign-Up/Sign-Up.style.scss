@@ -73,16 +73,19 @@
   margin-right: 30px;
 }
 .buttons{
-  // border: 2px solid;
   width: 350px;
-     
-  left: 110px;
- display: flex;
-  border-radius:30px ;
+  left: 60px;
+  display: flow-root;
+  border-radius: 30px;
   position: relative;
   text-align: center;
-  
-  font-size: 25px;
+  font-size: 22px
+}
+.buttons input{
+  margin-left: 60px;
+}
+span {
+  margin-left: 0px;
 }
 .btnM{
   color: white;

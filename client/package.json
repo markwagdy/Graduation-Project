@@ -9,7 +9,11 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@types/uuid": "^8.3.0",
+<<<<<<< HEAD
     "axios": "^0.21.0",
+=======
+    "axios": "^0.21.1",
+>>>>>>> d54db6722dd52a69cc0e1f64b99efd236d40a5c6
     "bootstrap": "^4.6.0",
     "calender": "^1.0.3",
     "express": "^4.17.1",
@@ -34,6 +38,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "rxjs": "^6.6.7",
+    "sass": "^1.33.0",
     "simple-peer": "^9.11.0",
     "socket.io": "^4.0.1",
     "socket.io-client": "^4.0.1",

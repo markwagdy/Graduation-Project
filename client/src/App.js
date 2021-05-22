@@ -9,6 +9,7 @@ import Student from './pages/Student/Student.component.jsx';
 import Doctor from './pages/Doctor/Doctor.component.jsx';
 
 import CallPage from './pages/CallPage/CallPage.Component';
+import MeetingPage from './pages/meetingPage/meetingPage.component.jsx';
 
 class App extends Component {
 
@@ -18,18 +19,18 @@ class App extends Component {
     <Router> 
       <div>
       <Route exact path='/' component={HomePage}></Route>
-      <Route exact path='/meeting' component={Meeting}></Route>
+      {/* <Route exact path='/meeting' component={Meeting}></Route> */}
       <Route exact path='/student' component={Student}></Route>
       <Route exact path='/doctor' component={Doctor}></Route>  
       
 
       <Route exact path='/meeting' component={Meeting}>
-      <Redirect to={`/meeting/live/${uuidv4()}`}></Redirect>
+      <Redirect to={`/meeting/live/:room${uuidv4()}`}></Redirect>
       </Route>
       
       <Route exact path='/student' component={Student}></Route>  
       
-      <Route path='/meeting/live/:room' component={Meeting} render={props => <App {...props}/>}/>
+      <Route path='/meeting/live/:room' component={MeetingPage} render={props => <App {...props}/>}/>
       
       
     

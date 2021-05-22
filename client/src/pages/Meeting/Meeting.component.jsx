@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CallPage from '../CallPage/CallPage.Component';
 import Options from '../CallPage/Options';
 import Notifications from '../CallPage/Notification';
-import { ContextProvider } from '../../SocketContext';
+// import { ContextProvider } from '../../SocketContext';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -37,18 +37,23 @@ const Meeting = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.wrapper}>
-        <ContextProvider>
-        <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography variant="h2" align="center">Video Chat</Typography>
-      </AppBar>
-      <CallPage />
-      <Options>
-        <Notifications />
-      </Options>
-      </ContextProvider>
+   <div className={classes.wrapper}>
+     {/* <ContextProvider> */}
+     <AppBar className={classes.appBar} position="static" color="inherit">
+     <Typography variant="h2" align="center">Video Chat</Typography>
+   </AppBar>
+   <CallPage />
+   <Options>
+     <Notifications />
+   </Options>
+   {/* </ContextProvider> */}
   
-    </div>
+   </div>
+    // <div className="main">
+
+    //   <button>hello</button>
+      
+    // </div>
   );
 };
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './CardAlert.style.scss';
-//import { Alert } from 'reactstrap';
 import CustomButton from '../CustomButton/Custom-Button.component';
 
 
@@ -23,23 +22,29 @@ class CardAlert extends Component
 
     render(){
         return(
-          <div id="id01" className="modal" style={{display: this.state.show? 'block' : 'none' }}>
+          <div id="id011" className="modall" style={{display: this.state.show? 'block' : 'none' }}>
              
-            <form className="modal-content animate"  >
-            <div className="imgcontainer">
-           <span onClick={this.closepopup} className="close" title="Close Modal">&times;</span>
-           </div>
-            <div className="container">
-              <h1>Add New Course</h1>
-              <h3>Enter Course PIN</h3>
-              <input className="inputt"type="text" placeholder="Please Enter Course PIN" name="PIN" required/>
-              <CustomButton className="Enterbtn">Enter</CustomButton>
-           
+          <form className="modall-content animate">
+          <div className="imgcontainer">
+         <span onClick={this.closepopup} class="close" title="Close Modal">&times;</span>
+         </div>
+         <div className="bannerl"> Add New Course</div>
+            <div style={{paddingLeft:"20px",paddingTop:"40px"}}> 
+               <div>
+                  <h1 className="fontsl" style={{display: "inline-block"}}> Enter Course PIN</h1>
+                 <br></br> 
+                </div>
+
+                <div style={{marginTop:"30px"}}>
+                  <input className="inputl" type="text" required/> <br></br> 
+                </div>
+                <CustomButton className="Enterbtn">Enter</CustomButton>
+
             </div>
-            </form>
-           
-        </div>
-      
+        
+          </form>
+         
+      </div>
         
 
         );

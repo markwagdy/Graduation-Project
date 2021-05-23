@@ -1,14 +1,46 @@
 
-.inputt[type=text] {
-    width: 80%;
-    height: 5%;
-    padding: 20px 50px;
-    margin-left: 70px;
-    margin-top: 10px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    box-sizing: border-box;
+.inputl {
+  width: 450px;
+  height: 20px;
+  padding: 20px 50px;
+  text-align: center;
+  position: relative;
+  border: none;
+  margin-left: 150px;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: #F3F3F3;
+
+  }
+  
+
+  .bannerl{
+    background-color:#0F5298;
+    position: relative;
+    width: 100%;
+    height: 20%;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    padding-top: 20px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  // .container {
+  //   padding: 16px;
+  //   color: #0F5298;
+  // }
+  
+  .fontsl{
+    margin-left: 250px;
+    font-family:  sans-serif;
+    font-weight: normal;
+    color: #0F5298;
+    font-size: 30px;
+    position: relative;
+    //'Rubik Mono One',
   }
   
 
@@ -38,7 +70,7 @@
   
   
   
-  .container {
+  .containerr {
     padding: 16px;
   }
   
@@ -48,7 +80,7 @@
   }
   
  
-  .modal {
+  .modall {
     display: block; 
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -56,28 +88,27 @@
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    //overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding-top: 60px;
   }
   
   
-  .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; 
-    border: 1px solid #888;
-    border-radius: 30px;
+  .modall-content{
+    background-color:white;
+    margin-left: 25%;
+    margin-top: 5%;
+    border-radius: 0px 0px 97px 97px;
     width: 50%; 
-    height: 40%;
+    height: 50%;
+    box-shadow: 0px 16px 51px rgba(0, 0, 0, 0.4);
   }
-  
 
   .close {
     position: absolute;
     right: 25px;
     top: 0;
-    color: #000;
+    color:white;
     font-size: 35px;
     font-weight: bold;
   }

@@ -59,9 +59,10 @@ onChangeacadID(e) {
          password2: this.state.password2,
          gender: this.state.gender
       };
-      console.log(userObject)
+      
       axios.post('http://localhost:3000/api/registerstudent', userObject)
           .then((res) => {
+             
             if (res.status === 200) {
                this.state.islogin=true
                window.location = "/student";

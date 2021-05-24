@@ -5,10 +5,11 @@ import {BsListNested} from 'react-icons/bs';
 import {BiCommentDots} from 'react-icons/bi';
 import {useParamas, useParams} from 'react-router-dom';
 import axios from 'axios';
+
 const MeetingPage=()=>{
     const dummy=['+20','MJ','KO','ZM','AK','KA','MW','AG','MM','SN'];
     let {room}=useParams();
-    axios.post({method:'post',url:'http://localhost:3000/getRoom',data:{roomId:room}});
+    // axios.post({method:'post',url:'http://localhost:3000/getRoom',data:{roomId:room}});
     
     const dummyList=dummy.map((e)=>
     <div className='placeholderDummy'>{e}</div>);

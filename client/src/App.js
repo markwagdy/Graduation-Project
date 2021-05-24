@@ -30,7 +30,7 @@ class App extends Component {
       
       <Route exact path='/student' component={Student}></Route>  
       
-      <Route path='/meeting/live/:room' component={MeetingPage} render={props => <App {...props}/>}/>
+      <Route path='/meeting/live/:room' component={CallPage} render={props => <App {...props}/>}/>
       
       
     

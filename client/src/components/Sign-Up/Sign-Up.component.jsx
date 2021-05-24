@@ -63,9 +63,12 @@ onChangeacadID(e) {
          gender: this.state.gender
       };
       
+
       if(this.state.role==='student'){
+
       axios.post('http://localhost:3000/api/registerstudent', userObject)
           .then((res) => {
+             
             if (res.status === 200) {
                this.setState({ islogin: true })
                window.location = "/student";

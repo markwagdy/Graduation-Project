@@ -52,6 +52,19 @@ onSubmit(e){
         console.log(error)
    
     });
+    if(this.state.islogin===false){
+        axios.post('http://localhost:3000/api/logindoctor', userData)
+    .then((res) => {
+        if (res.status === 200) {
+            this.state.islogin=true
+            window.location = "/doctor";
+    }
+        console.log(res.data)
+    }).catch((error) => {
+        console.log(error)
+   
+    });
+    }
  
 /*this.setState({ 
 password:'',

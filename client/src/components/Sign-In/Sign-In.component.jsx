@@ -44,7 +44,7 @@ onSubmit(e){
     axios.post('http://localhost:3000/api/loginstudent', userData)
     .then((res) => {
         if (res.status === 200) {
-            this.state.islogin.setState(true)
+            this.setState({ islogin: true })
             window.location = "/student";
     }
         console.log(res.data)
@@ -56,7 +56,7 @@ onSubmit(e){
         axios.post('http://localhost:3000/api/logindoctor', userData)
     .then((res) => {
         if (res.status === 200) {
-            this.state.islogin.setState(true)
+            this.setState({ islogin: true })
             window.location = "/doctor";
     }
         console.log(res.data)

@@ -1,4 +1,6 @@
 const Student= require('../models/student-model')
+const Doctor= require('../models/doctor-model')
+
 const bcrypt=require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const ValidateReigsterInput=require('../validation/register');
@@ -74,6 +76,11 @@ const {errors,isValid}=ValidateReigsterInput(req.body);
     if(!isValid){
         return res.status(400).json(errors);
     }
+    Doctor.findOne({email:req.body.email}).then(doctor=>{
+      if(doctor){
+          return res.status(400).json({email:"Email already exists"});
+      }
+  else{
 
     Student.findOne({email:req.body.email}).then(student=>{
         if(student){
@@ -95,7 +102,7 @@ const {errors,isValid}=ValidateReigsterInput(req.body);
         })
     }
     })
-
+  }})
 
 }
 

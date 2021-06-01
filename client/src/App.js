@@ -24,13 +24,13 @@ class App extends Component {
       <Route exact path='/doctor' component={Doctor}></Route>  
       
 
-      <Route exact path='/meeting' component={Meeting}>
-      <Redirect to={`/meeting/live/:room${uuidv4()}`}></Redirect>
+      <Route exact path='/meeting' >
+      <Redirect to={`/meeting/live/${uuidv4()}`}></Redirect>
       </Route>
       
       <Route exact path='/student' component={Student}></Route>  
       
-      <Route path='/meeting/live/:room' component={CallPage} render={props => <App {...props}/>}/>
+      <Route path='/meeting/live/:room' component={Meeting} render={props => <App {...props}/>}/>
       
       
     

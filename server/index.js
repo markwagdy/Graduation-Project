@@ -28,25 +28,29 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
                 
                 
 const PORT = process.env.PORT || 3000;
-
+let roomID='';
 app.get('/', (req, res) => {
     res.send('Running');
 });
 
 io.on("connection", (socket) => {
-    // socket.emit("me", socket.id);
+    socket.emit("me", socket.id);
     
-    // socket.on("disconnect", () => {
-    //     socket.broadcast.emit("callEnded")
-    // });
+    socket.on("disconnect", () => {
+        socket.broadcast.emit("callEnded")
+    });
     
-    // socket.on("callUser", ({ userToCall, signalData, from, name }) => {
-    //     io.to(userToCall).emit("callUser", { signal: signalData, from, name });
-    // });
+    socket.on("callUser", ({ userToCall, signalData, from, name }) => {
+        io.to(userToCall).emit("callUser", { signal: signalData, from, name });
+    });
     
-    // socket.on("answerCall", (data) => {
-    //     io.to(data.to).emit("callAccepted", data.signal)
-    // });
+    socket.on("answerCall", (data) => {
+        io.to(data.to).emit("callAccepted", data.signal)
+    });
+
+
+    socket.on('roomId',(roomId)=>{roomID=roomId;console.log("Room ID in server side ==" +roomID)})
+
     socket.on('join-room',(roomId,userId)=>{
         socket.join(roomId);
         socket.to(roomId).broadcast.emit('user-connected',userId);

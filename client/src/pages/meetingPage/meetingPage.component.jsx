@@ -1,19 +1,20 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import '../meetingPage/meetingPage.style.scss';
 import {HiChevronLeft} from 'react-icons/hi';
 import {BsListNested} from 'react-icons/bs';
 import {BiCommentDots} from 'react-icons/bi';
 import {useParamas, useParams} from 'react-router-dom';
-import axios from 'axios';
+import {ContextProvider, SocketContext} from '../../SocketContext';
+
+// import axios from 'axios';
 
 const MeetingPage=()=>{
     const dummy=['+20','MJ','KO','ZM','AK','KA','MW','AG','MM','SN'];
-    let {room}=useParams();
-    // axios.post({method:'post',url:'http://localhost:3000/getRoom',data:{roomId:room}});
-    
+       
     const dummyList=dummy.map((e)=>
     <div className='placeholderDummy'>{e}</div>);
     return(
+        
         <div className="mMS">
             <div className="bBW">
                 <button type='button' className="backButton"> <HiChevronLeft style={{color:"#0F5298",fontSize:"25px"}}/> </button>
@@ -41,6 +42,7 @@ const MeetingPage=()=>{
             </button>
             
         </div>
+    
         
     )
 }

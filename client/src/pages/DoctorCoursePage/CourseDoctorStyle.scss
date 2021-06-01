@@ -1,0 +1,226 @@
+h1{
+    color: #0F5298;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+}
+.BWBoarder{
+    border-radius: 54px 0px 0px 54px;
+    position: fixed;
+    background-color: white;
+    min-width: 95%;
+    min-height: 100%;
+    max-width: 95%;
+    max-height: 100%;
+    top: 0;
+    right: 0;
+    box-shadow: -18px 0px 26px rgba(0, 0, 0, 0.16);
+    overflow: auto;
+    overflow: hidden;
+}
+
+.Hbar{
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    border-radius: 54px 0px 0px 0px;
+    background-color: white;
+    box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.21);
+    border-bottom: 1px solid #0F5298;
+    padding-left: 90px; padding-top: 20px;
+    height: 100px;
+}
+
+.CourseAB{
+    border: none;
+    background: none;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.20);
+    border-radius: 20px;
+    width: 300px ; height: 70px;
+}
+
+button{
+    border: none;
+    background: none;
+}
+
+.SideSection{
+    border-radius: 54px 0px 0px 54px;
+    position: fixed;
+    z-index: 1500;
+    background-color:#F7F7F7;
+    width: 28.7%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    padding-left: 20px; padding-top: 15px;
+    box-shadow: -13px 0px 27px rgba(0, 0, 0, 0.07);
+}
+
+.OldMeetCard{
+    border-radius: 54px 54px 54px 54px;
+    background-color:#F7F7F7;
+    width: 750px;
+    height: 160px;
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.16);
+    padding-left: 40px;
+    padding-top: 10px;
+    position: relative;
+}
+
+.grid-item{
+    padding-left: 80px;
+    padding-bottom: 20px;
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    text-align: left;
+}
+
+.grid-in-card {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 23% 20% ;
+    padding: 0px;
+  }
+
+  .grid-item-in-card {
+    padding-left: 20px;
+  }
+
+  .report{
+    border-radius: 54px 54px 54px 54px;
+    background-color:white;
+    width: 200px;
+    height: 170px;
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.12);
+    position: absolute;
+    top: 0; right: 15%;
+    z-index: 150;
+  }
+
+.report:hover{
+    border-radius: 54px 54px 54px 54px;
+    background-color:#B8312F;
+    width: 200px;
+    height: 170px;
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.12);
+    position: absolute;
+    top: 0; right: 15%;
+    z-index: 150;
+}
+
+.meetanalbutt{
+    border-radius: 45px;
+    background-color:white;
+    width: 200px;
+    height: 170px;
+    box-shadow: 50px 0px 9px rgba(0, 0, 0, 0.12);
+    position: absolute;
+    top: 0; right: 0;
+}
+
+.CreateMeetButton{
+    border-radius: 40px;
+    background-color: #0F5298;
+    width: 680px;
+    height: 130px;
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.16);
+    position: relative;
+}
+
+.Notes{
+    border-radius: 45px;
+    background-color:white;
+    width: 440px;
+    height: 345px;
+    box-shadow: 0px 19px 26px rgba(0, 0, 0, 0.03);
+    position: fixed;
+    overflow: auto;
+    overflow: hidden;
+}
+
+.NotesHead{
+    border-radius: 45px 45px 0px 0px;
+    background-color:white;
+    width: 440px;
+    height: 60px;
+    box-shadow: 0px 19px 26px rgba(0, 0, 0, 0.16);
+    position: fixed;
+    text-align: center;
+    color: #0F5298;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 90%;
+    padding-top: 10px;
+    z-index: 1550;
+}
+
+.SendNotes{
+    border-radius: 0px 0px 45px 45px;
+    background-color: #F7F7F7;
+    width: 440px;
+    height: 45px;
+    box-shadow: 0px 19px 26px rgba(0, 0, 0, 0.16);
+    position: relative;
+    text-align: left;
+    font-family:  sans-serif;
+    font-size: 20px;
+    line-height: 90%;
+    padding-top: 15px;
+    z-index: 1550;
+}
+
+.Notaya{
+    border-radius: 0px 45px 45px 45px;
+    background-color: #F7F7F7;
+    width: 300px;
+    height: 80px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    position: relative;
+    top: -45px;
+    padding-left: 10px;
+}
+
+.NotayaSora{
+    border-radius: 80px;
+    background-color: white;
+    width: 70px; height: 70px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    border: 1px solid #FBA026;
+    position: relative;
+}
+
+.NoteSenderName{
+    color: #FBA026;
+    width: 280px;
+    font-family:  sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 72px;
+}
+
+.hr1{
+    width: 350px;
+    position: relative;
+    margin: 0px;
+    top:-30px;
+    margin-left: 20px;
+}
+
+.Blackout{
+    position: fixed;
+    border-radius: 54px;
+    width: 100%; height: 84.3%;
+    top: 124px; left: 77px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.DropCI{
+    position: fixed;
+    top: 121px; left: 77px;
+    border-radius: 0px 0px 54px 54px;
+    background-color: white;
+    padding-left: 90px; padding-top: 20px;
+    height: 420px; width: 100%;
+}

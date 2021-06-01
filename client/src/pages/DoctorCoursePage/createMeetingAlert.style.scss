@@ -1,289 +1,249 @@
-.btn1{
-    position: relative;
-    margin-top: 30px;
-    margin-right: 20px;
-    margin-left: 70px;
-    border-radius: 30px;
-    width: 200px;
-    height: 50px;
-    background-color: #0F5298;
-    color:white;
-    cursor: pointer;
-    display: inline-block;
-}
-.btn2{
-    position: relative;
-    margin-top: 30px;
-    margin-right: 20px;
-    margin-left: 110px;
-    border-radius: 30px;
-    width: 200px;
-    height: 50px;
-    background-color: #0F5298;
-    color:white;
-    cursor: pointer;
-    display: inline-block;
-}
-option{
-    color:#0F5298;
-}
-
-label{
-    font-family: 'Staatliches';
-    font-size: large;
-    display: inline-block;
-}
-
-select{
-  background-color: white;
-  color: #0F5298;
-}
-
 .txtarea{
-    //position: relative;
-    width: 200px;
-    height: 30px;
-    margin-top: 20px;
-    margin-left: 40px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    padding: 20px 50px;
-    display: inline-block;
-    background-color: rgb(147, 150, 153);
-    display: inline-block;
+  //position: relative;
+  width: 200px;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 40px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 20px 50px;
+  display: inline-block;
+  background-color: rgb(147, 150, 153);
+  display: inline-block;
 }
 
 
 .MeetingNameInput{
-    width: 350px;
-    height: 20px;
-    padding: 20px 50px;
-    text-align: center;
-    margin-left: 110px;
-    border: none;
-    box-sizing: border-box;
-    display: inline-block;
-    background-color: #F3F3F3;
-  }
+  width: 350px;
+  height: 20px;
+  padding: 20px 50px;
+  text-align: center;
+  margin-left: 110px;
+  border: none;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: #F3F3F3;
+}
 
-  .CreatedBy{
-    width: 350px;
-    height: 20px;
-    padding: 20px 50px;
-    text-align: center;
-    margin-left: 155px;
-    box-sizing: border-box;
-    display: inline-block;
-    background-color: #F3F3F3;
-  }
+.CreatedBy{
+  width: 350px;
+  height: 20px;
+  padding: 20px 50px;
+  text-align: center;
+  margin-left: 155px;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: #F3F3F3;
+}
 
-  .DurationH{
-    width: 80px;
-    height: 20px;
-    padding: 20px;
-    text-align: center;
-    margin-left: 58px;
-    border: none;
-    box-sizing: border-box;
-    display: inline-block;
-    background-color: #F3F3F3;
-  }
+.DurationH{
+  width: 80px;
+  height: 20px;
+  padding: 20px;
+  text-align: center;
+  margin-left: 58px;
+  border: none;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: #F3F3F3;
+}
+
+.DurationM{
+  width: 80px;
+  height: 20px;
+  padding: 20px;
+  text-align: center;
+  margin-left: 54px;
+  border: none;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: #F3F3F3;
+}
+
+.DurationS{
+  width: 80px;
+  height: 20px;
+  padding: 20px;
+  text-align: center;
+  margin-left: 54px;
+  border: none;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: #F3F3F3;
+}
+
+.hr2{
+  width: 650px;
+  background-color: #0F5298;
+  position: relative;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+}
+
+
+.imgcontainerD {
+  text-align: center;
+  position: relative;
+}
+
+
+.banner{
+  background-color:#0F5298;
+  position: relative;
+  width: 100%;
+  height: 7%;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.container {
+  padding: 16px;
+  color: #0F5298;
+}
+
+.fonts{
+  font-family:  sans-serif;
+  font-weight: normal;
+  color: #0F5298;
+  font-size: 30px;
+  position: relative;
+}
+
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+.modalS {
+  display: block; 
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+
+.modal-contentS {
+  background-color:white;
+  margin-left: 25%;
+  margin-top: -2.1%;
+  border-radius: 0px 0px 97px 97px;
+  width: 50%; 
+  box-shadow: 0px 16px 51px rgba(0, 0, 0, 0.4);
+  overflow: auto;
+}
+
+.close {
+  position: absolute;
+  z-index: 1;
+  right: 25px;
+  top: 15px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
   
-  .DurationM{
-    width: 80px;
-    height: 20px;
-    padding: 20px;
-    text-align: center;
-    margin-left: 54px;
-    border: none;
-    box-sizing: border-box;
-    display: inline-block;
-    background-color: #F3F3F3;
-  }
+  cursor: pointer;
+}
 
-  .DurationS{
-    width: 80px;
-    height: 20px;
-    padding: 20px;
-    text-align: center;
-    margin-left: 54px;
-    border: none;
-    box-sizing: border-box;
-    display: inline-block;
-    background-color: #F3F3F3;
-  }
+  .animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
 
-  .hr2{
-    width: 650px;
-    background-color: #0F5298;
-    position: relative;
-    margin-top: 40px;
-    margin-left: 20px;
-  }
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
 
-  
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-  }
-  
-
-  .imgcontainer {
-    text-align: center;
-    position: relative;
-  }
-  
-  
-  .banner{
-    background-color:#0F5298;
-    position: relative;
-    width: 100%;
-    height: 10%;
-    color: white;
-    font-family: 'Rubik Mono One', sans-serif;
-    font-weight: bold;
-    font-size: 30px;
-    padding-top: 15px;
-    text-align: center;
-  }
-  
-  .container {
-    padding: 16px;
-    color: #0F5298;
-  }
-  
-  .fonts{
-    font-family: 'Rubik Mono One', sans-serif;
-    font-weight: normal;
-    color: #0F5298;
-    font-size: 30px;
-    position: relative;
-  }
-
-
+@media screen and (max-width: 300px) {
   span.psw {
-    float: right;
-    padding-top: 16px;
+     display: block;
+     float: none;
   }
-  
- 
-  .modal {
-    display: block; 
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
+  .cancelbtn {
+     width: 100%;
   }
-  
-  
-  .modal-content {
-    background-color:white;
-    margin-left: 25%;
-    margin-top: -2.1%;
-    border-radius: 0px 0px 97px 97px;
-    width: 50%; 
-    height: 100%;
-    box-shadow: 0px 16px 51px rgba(0, 0, 0, 0.4);
-    overflow: auto;
-  }
-  
-  .close {
-    position: absolute;
-    z-index: 1;
-    right: 25px;
-    top: 15px;
-    color: white;
-    font-size: 35px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    
-    cursor: pointer;
-  }
-  
-    .animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-  }
-  
-  @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
-  }
-    
-  @keyframes animatezoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
-  }
-  
-  @media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-  }
+}
 
-  .Partioning{
-    border-radius: 30px;
-    background-color: white;
-    width: 650px;
-    height: 90px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
-    position: relative;
-    padding-top: 15px;
-    padding-left: 30px;
-    margin-left: 30px;
-    margin-top: 10px;
+.Partioning{
+  border-radius: 30px;
+  background-color: white;
+  width: 650px;
+  height: 90px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+  position: relative;
+  padding-top: 15px;
+  padding-left: 30px;
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .partinput{
-    position: relative;
-    border-radius: 30px;
-    background-color: #F3F3F3;
-    width: 95%;
-    height: 80%;
-    border: none;
-    text-align: center;
+  position: relative;
+  border-radius: 30px;
+  background-color: #F3F3F3;
+  width: 95%;
+  height: 80%;
+  border: none;
+  text-align: center;
 }
 .plusbutton{
-    border-radius: 30px;
-    background-color: #0F5298;
-    width: 650px;
-    height: 40px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
-    position: relative;
-    margin-left: 30px;
-    margin-top: 20px;
-    color: white;
-    font-family: 'Rubik Mono One', sans-serif;
-    font-weight: bold;
-    font-size: 30px;
-    text-align: center;
+  border-radius: 30px;
+  background-color: #0F5298;
+  width: 650px;
+  height: 40px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+  position: relative;
+  margin-left: 30px;
+  margin-top: 20px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
 }
 
 .createbutton{
-    border-radius: 30px;
-    background-color: #0F5298;
-    width: 150px;
-    height: 45px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
-    position: relative;
-    margin-left: 37%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: white;
-    font-family: 'Rubik Mono One', sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
+  border-radius: 30px;
+  background-color: #0F5298;
+  width: 150px;
+  height: 45px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+  position: relative;
+  margin-left: 37%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+  font-family:  sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
 }

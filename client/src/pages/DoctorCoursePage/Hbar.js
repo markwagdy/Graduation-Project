@@ -8,7 +8,8 @@ class Hbar extends Component {
         return ( 
 
             <div className="Hbar" style={{overflow: "hidden",display:"block"}}>
-                <BackButton/>
+                
+                <div style={{display: "inline-block"}}> <BackButton/></div>
                 <h1 style={{display: "inline-block"}} >CSE100, Course Name</h1>
                 <div style={{display: "inline-block"}}> <DropButton/></div>
                 <div style={{display: "inline-block"}}> <CourseAnalButton/></div>

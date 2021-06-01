@@ -19,14 +19,14 @@ class DropCI extends Component {
                     Doctor: 
                     </h1>
 
-                <h1 style={{color:"black",fontSize:"20px", marginTop:"-10px",paddingLeft:"180px",fontWeight:"normal" }}>
+                <h1 style={{color:"black",fontSize:"20px",paddingLeft:"180px",fontWeight:"normal" }}>
                     TA: 
                     </h1>
                     
         <h1 style={{color:"black",fontSize:"30px",paddingTop:"25px",display: "inline-block"}}>
             Course Description:
         </h1>   
-                <h1 style={{color:"black",fontSize:"20px", marginTop:"-10px",paddingLeft:"15px",fontWeight:"normal",width:"800px",textIndent:"50px",textAlign:"justify"}}>
+                <h1 style={{color:"black",fontSize:"20px",paddingLeft:"15px",fontWeight:"normal",width:"800px",textIndent:"50px",textAlign:"justify"}}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
                         do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 

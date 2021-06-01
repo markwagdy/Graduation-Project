@@ -6,7 +6,7 @@ class CourseAnalButton extends Component {
     render() { 
         return ( 
             <button className="CourseAB">
-                <img style={{maxWidth:"100%"}} src={analytics} alt="Course Overall Analytics" onClick={this.myfunction}/>
+                <img style={{maxWidth:"100%",verticalAlign:"middle"}} src={analytics} alt="Course Overall Analytics" onClick={this.myfunction}/>
             </button>
          );
     }

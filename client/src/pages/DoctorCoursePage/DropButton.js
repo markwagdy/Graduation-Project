@@ -18,7 +18,7 @@ class DropButton extends Component {
     render() { 
         return ( 
            <div>
-                <button ><img style={{width:"75%",height:"75%"}} src={Drop} alt="drop" onClick={this.myfunction}/></button>
+                <button ><img style={{width:"65%"}} src={Drop} alt="drop" onClick={this.myfunction}/></button>
            
               {
                 this.state.show?

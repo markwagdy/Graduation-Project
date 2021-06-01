@@ -4,6 +4,8 @@ import SideSection from './SideSection'
 import OldMeeting from './OldMeeting'
 import CreateMeetButton from './CreateMeetButton'
 import Scrollbars  from 'react-custom-scrollbars';
+import './CourseDoctorStyle.scss';
+
 
 document.body.style.backgroundColor = "#0f5298";
 

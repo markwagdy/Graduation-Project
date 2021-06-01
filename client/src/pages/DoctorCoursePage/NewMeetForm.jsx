@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './createMeetingAlert.style.scss';
+import Scrollbars  from 'react-custom-scrollbars';
 
-
-const Partarray = [];
+const Partarray = ['x'];
 class NewMeetForm extends Component
 {
   constructor(props){
@@ -31,8 +31,8 @@ class NewMeetForm extends Component
   }
   
   closepopup(){
-    this.setState({show:false})
-    {console.log(this.state.show)}
+    this.setState({show:false});
+    Partarray.splice(1,Partarray.length)
   }
   meetNameHandler(e){
     this.setState({MeetingName:e.target.value})
@@ -74,10 +74,10 @@ class NewMeetForm extends Component
          </div> )
         return(
           
-          <div id="id01" className="modal" style={{display: this.state.show? 'block' : 'none' }}>
+          <div id="id01" className="modalS" style={{display: this.state.show? 'block' : 'none' }}>
              
-            <form className="modal-content animate"  >
-            <div className="imgcontainer">
+            <form className="modal-contentS animate"  >
+            <div className="imgcontainerD">
            <span onClick={this.closepopup} className="close" title="Close Modal">&times;</span>
            </div>
            <div className="banner"> Create New Meeting </div>
@@ -101,16 +101,17 @@ class NewMeetForm extends Component
 
                   <hr className="hr2"></hr>  
 
-                  <h1 style={{color:"black",fontSize:"25px",marginTop:"15px"}}>
+                  <h1 style={{color:"black",fontSize:"25px",marginBottom:"5px"}}>
                       Session Partitioning
                   </h1>         
                   
-                  
+                  <Scrollbars autoHeight>
                   {<div>
                     {PartList}
                   </div> }
+                  </Scrollbars>
 
-                  <span onClick={this.addPart.bind(this)} className="plusbutton" type="button" > + </span>
+                  <button onClick={this.addPart.bind(this)} className="plusbutton" type="button" > + </button>
                   <button className="createbutton">  Create  </button>
 
               </div>

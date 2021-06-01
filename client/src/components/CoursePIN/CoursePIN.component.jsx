@@ -9,7 +9,6 @@ class CoursePIN extends Component
     super(props);
     this.state={
       show:true,
-      random: null,
     }
     this.closepopup=this.closepopup.bind(this);
 
@@ -19,11 +18,8 @@ class CoursePIN extends Component
     this.setState({show:false})
     {console.log(this.state.show)}
   }
-  handle(){
-    this.setState({random: this.min + (Math.random() * (this.max - this.min))})
-  }
-min =1;
-max =10000;
+
+
 
     render(){
         return(
@@ -40,8 +36,9 @@ max =10000;
                  <br></br> 
                 </div>
 
-                <div  style={{marginTop:"30px"}}>
-                <h1 className="fontsP" style={{display: "inline-block"}}>{this.state.random}</h1>
+
+                <div style={{marginTop:"30px", marginLeft:"30px"}}>
+                <h1 className="fontsP" id="pin" style={{display: "inline-block"}}>{Math.floor(Math.random() * 100000) + 1}</h1>
                 </div>
                 <CustomButton class="EnterbtnP">Copy</CustomButton>
 

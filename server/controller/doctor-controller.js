@@ -1,11 +1,13 @@
 const Doctor= require('../models/doctor-model')
+const Student= require('../models/student-model')
 var multer=require('multer')
 const bcrypt=require('bcryptjs')
 const jwt=require('jsonwebtoken')
-const ValidateReigsterInput=require('../validation/register');
+const validateRegisterInput=require('../validation/register');
 const validateLoginInput=require('../validation/login');
 const { validate } = require('../models/student-model');
-const keys=require('../config/keys')
+const keys=require('../config/keys');
+
 
 loginDoctor=(req,res)=>{
     const {errors,isValid} =validateLoginInput(req.body);
@@ -64,15 +66,19 @@ loginDoctor=(req,res)=>{
     
     
     
-    registerDoctor=(req,res)=>{
-    const {errors,isValid}=ValidateReigsterInput(req.body);
+registerDoctor=(req,res)=>{
+    const {errors,isValid}=validateRegisterInput(req.body);
     
     
         if(!isValid){
             return res.status(400).json(errors);
         }
-    
-        Doctor.findOne({email:req.body.email}).then(student=>{
+        Student.findOne({email:req.body.email}).then(student=>{
+            if(student){
+                return res.status(400).json({email:"Email already exists"});
+            }
+        else{
+        Doctor.findOne({email:req.body.email}).then(doctor=>{
             if(doctor){
                 return res.status(400).json({email:"Email already exists"});
             }else{
@@ -91,10 +97,10 @@ loginDoctor=(req,res)=>{
                 })
             })
         }
-        })
+            })    
     
-    
-    }
+    }})
+}
     
 // createDoctor= (req,res) => {
 //     const body=req.body

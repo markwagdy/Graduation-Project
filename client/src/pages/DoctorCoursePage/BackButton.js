@@ -10,7 +10,7 @@ class BackButton extends Component {
 
     render() { 
         return ( 
-            <a href="https://www.google.com/" target="_blank" rel="noreferrer" class="button"> 
+            <a  href="https://www.google.com/" target="_blank" rel="noreferrer"> 
                  <img src={back} alt="back" onClick={this.myfunction}/>
             </a>
 

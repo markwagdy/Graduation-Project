@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import Hbar from './Hbar'
 import SideSection from './SideSection'
 import OldMeeting from './OldMeeting'
-import CreateMeetButton from './CreateMeetButton'
+import JoinMeetButton from './JoinMeetButton'
 import Scrollbars  from 'react-custom-scrollbars';
-import './CourseDoctorStyle.scss';
+import './CourseStudentStyle.scss';
 
 
 document.body.style.backgroundColor = "#0f5298";
 
-class CourseDoctor extends Component {
+class CourseStudent extends Component {
   render(){
   return ( 
     <div className="BWBoarder">
@@ -18,7 +18,7 @@ class CourseDoctor extends Component {
 
       <Scrollbars style={{ height: 700 , width: 990}}>
       <OldMeeting/>
-      <CreateMeetButton/>
+      <JoinMeetButton/>
       </Scrollbars>
 
     </div>
@@ -27,4 +27,4 @@ class CourseDoctor extends Component {
 }
 }
 
-export default CourseDoctor;
+export default CourseStudent;

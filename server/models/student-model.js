@@ -2,6 +2,7 @@ const mongoose= require('mongoose');
 const { model } = require('../data/db');
 require('mongoose-type-email');
 const Schema=mongoose.Schema
+const  role  = require('../_helpers/role')
 
 const Gender=Object.freeze({
     Male:'male',
@@ -17,6 +18,7 @@ const Student=new Schema(
     email:{type:mongoose.SchemaTypes.Email,required:true},
     course:[{type:mongoose.SchemaTypes.ObjectId,ref:'courses'}],
     image:{type:Buffer},
+    role:{type:String,default:role.student},
     gender:{type:String,enum:Object.values(Gender)},
     online:{type:Boolean,default:false}
 },

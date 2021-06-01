@@ -18,6 +18,6 @@ const router=express.Router()
 router.put('/doctor/:id',DoctorCtrl.updateDoctor);
 router.get('/doctors',DoctorCtrl.getDoctors);
 router.post('/registerdoctor',DoctorCtrl.registerDoctor)
-router.post('/logindocotr',DoctorCtrl.loginDoctor);
+router.post('/logindoctor',DoctorCtrl.loginDoctor);
 //router.get('/docotrs/:id',DoctorCtrl.getDoctorbyid)
 module.exports=router

@@ -17,16 +17,19 @@ class  SignUp extends Component {
       this.onChangeGender = this.onChangeGender.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
 
+
       this.state = {
          username:'',
          password:'',
          password2:'',
          acadId:'',
          email:'',
-         gender:''
+         gender:'',
+         role:''
       
       }
   }
+
   onChangeGender(e) {
    this.setState({ gender: e.target.value })
 }
@@ -59,18 +62,38 @@ onChangeacadID(e) {
          password2: this.state.password2,
          gender: this.state.gender
       };
-      console.log(userObject)
+      
+
+      if(this.state.role==='student'){
+
       axios.post('http://localhost:3000/api/registerstudent', userObject)
           .then((res) => {
+             
             if (res.status === 200) {
-               this.state.islogin=true
+               this.setState({ islogin: true })
                window.location = "/student";
        }
               console.log(res.data)
           }).catch((error) => {
               console.log(error)
           });
-         
+      }
+      else if (this.state.role==='doctor'){
+         console.log(userObject)
+         axios.post('http://localhost:3000/api/registerdoctor', userObject)
+         .then((res) => {
+           if (res.status === 200) {
+            this.setState({ islogin: true })
+            window.location = "/doctor";
+      }
+             console.log(res.data)
+         }).catch((error) => {
+             console.log(error)
+         });
+      }
+      else{
+         console.log("ROLE not assigned")
+      }
     /* this.setState({ 
       username:'',
       password:'',
@@ -84,8 +107,8 @@ onChangeacadID(e) {
       return (
             <div className='sign-up'>
             <div className='student-dr'>
-               <button className='btn'>Student</button> 
-               <button className='btn1'>Doctor/Ta</button>  
+               <button className='btn' onClick={() => this.setState({role:'student'})}>Student</button> 
+               <button className='btn1' onClick={() => this.setState({role:'doctor'})}>Doctor/Ta</button>  
                <form className='form'onSubmit={this.onSubmit} >
                <FormInput label='Name' value={this.state.username} handlChange={this.onChangeUserName} placeholder='Name' id='name' type='string'></FormInput>               
                <FormInput label='Id' value={this.state.acadId} handlChange={this.onChangeacadID} placeholder='Id' className='id' id='id' type='string'></FormInput>               
@@ -96,7 +119,7 @@ onChangeacadID(e) {
                   <label className='genderLabel'>Gender</label>
                   <div className='buttons'>
                   <input type="radio"  onChange={this.onChangeGender} name="sex" value="male" /><span >Male</span>   
-                  <input type="radio" name="sex" value="female"/><span >Female</span>                  
+                  <input type="radio" onChange={this.onChangeGender} name="sex" value="female"/><span >Female</span>                  
                   
                   </div>
                </div> 

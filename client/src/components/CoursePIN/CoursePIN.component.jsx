@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import './CardAlert.style.scss';
+import './CoursePIN.style.scss';
 import CustomButton from '../CustomButton/Custom-Button.component';
 
 
-class CardAlert extends Component
+class CoursePIN extends Component
 {
   constructor(props){
     super(props);
     this.state={
-      show:true
+      show:true,
     }
     this.closepopup=this.closepopup.bind(this);
 
@@ -16,29 +16,31 @@ class CardAlert extends Component
 
   closepopup(){
     this.setState({show:false})
-    // {console.log(this.state.show)}
+    {console.log(this.state.show)}
   }
+
 
 
     render(){
         return(
-          <div id="id011" className="modall" style={{display: this.state.show? 'block' : 'none' }}>
+          <div id="id012" className="modalP" style={{display: this.state.show? 'block' : 'none' }}>
              
-          <form className="modall-content animate">
+          <form className="modalP-content animate">
           <div className="imgcontainer">
          <span onClick={this.closepopup} class="close" title="Close Modal">&times;</span>
          </div>
-         <div className="bannerl"> Add New Course</div>
+         <div className="bannerP"> Add New Course</div>
             <div style={{paddingLeft:"20px",paddingTop:"40px"}}> 
                <div>
-                  <h1 className="fontsl" style={{display: "inline-block"}}> Enter Course PIN</h1>
+                  <h1 className="fontsP" style={{display: "inline-block"}}>Course PIN</h1>
                  <br></br> 
                 </div>
 
-                <div style={{marginTop:"30px"}}>
-                  <input className="inputl" type="text" required/> <br></br> 
+
+                <div style={{marginTop:"30px", marginLeft:"30px"}}>
+                <h1 className="fontsP" id="pin" style={{display: "inline-block"}}>{Math.floor(Math.random() * 100000) + 1}</h1>
                 </div>
-                <CustomButton className="Enterbtn">Enter</CustomButton>
+                <CustomButton class="EnterbtnP">Copy</CustomButton>
 
             </div>
         
@@ -50,4 +52,4 @@ class CardAlert extends Component
         );
     }
 }
-export default CardAlert;
+export default CoursePIN;

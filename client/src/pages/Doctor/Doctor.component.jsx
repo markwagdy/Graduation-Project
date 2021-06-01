@@ -5,6 +5,7 @@ import CourseCard from  '../../components/CourseCard/CourseCard.component';
 import { FaSuperscript } from 'react-icons/fa';
 import ReactDom from 'react-dom';
 import CreateCourseAlert from '../../components/createcourseAlert/createcourseAlert.component';
+import CoursePIN from '../../components/CoursePIN/CoursePIN.component';
 
 // document.body.style.backgroundColor = "#0f5298";
 
@@ -40,7 +41,7 @@ class Doctor extends React.Component {
       {
        this.state.show?
        <div>
-        <CreateCourseAlert></CreateCourseAlert>
+        <CreateCourseAlert/>
        </div>
         :""
       }

@@ -5,7 +5,6 @@ const bcrypt=require('bcryptjs')
 const jwt=require('jsonwebtoken')
 const validateRegisterInput=require('../validation/register');
 const validateLoginInput=require('../validation/login');
-const { validate } = require('../models/student-model');
 const keys=require('../config/keys');
 
 

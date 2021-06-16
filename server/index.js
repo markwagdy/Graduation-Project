@@ -1,12 +1,15 @@
+
+const express = require('express')
+
 const passport=require("passport")
 const db = require('./data/db')
 require('dotenv').config()
 
 const cookieParser = require('cookie-parser')
-const path =require('path');
- const bodyParser = require('body-parser')
+
+const bodyParser = require('body-parser')
  
- const app = require("express")();
+const app = require("express")();
 const server = require("http").createServer(app);
 const cors = require("cors");
 const io = require("socket.io")(server, {
@@ -16,6 +19,8 @@ const io = require("socket.io")(server, {
         methods: [ "GET", "POST" ]
     }
 });
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 //passport middleware
 app.use(passport.initialize());
 require('./config/passport')(passport);

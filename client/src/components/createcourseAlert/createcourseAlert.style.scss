@@ -35,17 +35,18 @@ background-color:#0F5298;
 color: white;
 }
 
-.txtarea{
-  //position: relative;
-  width: 350px;
-  height: 30px;
-  margin-left: 30px;
-  padding: 20px 50px;
+.txtarea1{
+  resize: none;
+  width: 180px;
+  height: 62px;
+  margin-top: 20px;
+  margin-left: 40px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 0px 38px;
   display: inline-block;
-  background-color: #F3F3F3;
-  text-align: center;
-  //box-sizing: border-box;
-  border: none;
+  background-color: #f7f7f7;
+  display: inline-block;
 }
 
 

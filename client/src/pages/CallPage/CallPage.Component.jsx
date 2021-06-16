@@ -1,8 +1,7 @@
-import React, { useContext ,useEffect,useState} from 'react';
+import React, { useContext } from 'react';
 import { Grid, Typography, Paper, makeStyles } from '@material-ui/core';
 
 import { SocketContext } from '../../SocketContext';
-import { useParams } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
   video: {
@@ -25,19 +24,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CallPage = () => {
-  const {room}=useParams();
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call,setRoomID } = useContext(SocketContext);
+  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
   const classes = useStyles();
-  useEffect(()=>{
-    setRoomID(room);
-    
-  },[room,setRoomID]);
-   
-  
- 
-      return (
-    //     <Grid container className={classes.gridContainer}>
 
+  return (
+    // <Grid container className={classes.gridContainer}>
     //   {stream && (
     //     <Paper className={classes.paper}>
     //       <Grid item xs={12} md={6}>
@@ -54,12 +45,10 @@ const CallPage = () => {
     //       </Grid>
     //     </Paper>
     //   )}
-       
-       
     // </Grid>
-    <div id='vide-grid'>
-
-    </div>
+    <Grid>
+      <video ref={myVideo} autoPlay playsInline muted />
+    </Grid>
   );
 };
 

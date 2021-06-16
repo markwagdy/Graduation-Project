@@ -40,13 +40,11 @@ const Meeting = () => {
   return (
    <div className={classes.wrapper}>
      <ContextProvider>
-     <AppBar className={classes.appBar} position="static" color="inherit">
-     <Typography variant="h2" align="center">Video Chat</Typography>
-   </AppBar>
-   <CallPage/>
-   <Options>
-     <Notifications />
-   </Options>
+     
+   <MeetingPage/>
+   {/* <Options>
+     <Notifications/>
+   </Options> */}
    </ContextProvider>
   
    </div>

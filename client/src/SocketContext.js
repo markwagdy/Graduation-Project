@@ -1,12 +1,12 @@
 import React, { createContext, useState, useRef, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
-import { id } from '../../server/data/db';
+
 
 const SocketContext = createContext();
 
 const socket = io('http://localhost:3000');
-
+// const socket = io('https://warm-wildwood-81069.herokuapp.com');
 
 const ContextProvider = ({ children }) => {
   const [callAccepted, setCallAccepted] = useState(false);
@@ -15,100 +15,85 @@ const ContextProvider = ({ children }) => {
   const [name, setName] = useState('');
   const [call, setCall] = useState({});
   const [me, setMe] = useState('');
-  const [roomID,setRoomID]=useState('');
-
+  const [join,setJoin]=useState('');
+  const [RoomId,setRoomId]=useState('');
   const myVideo = useRef();
   const userVideo = useRef();
   const connectionRef = useRef();
+  const videoGrid=useRef();
   
-
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
         setStream(currentStream);
-
         myVideo.current.srcObject = currentStream;
+        
+        
       });
-     const peer=new Peer({initiator:false,trickle:false,stream});
+
     // socket.on('me', (id) => setMe(id));
-    socket.emit('roomId',roomID);
-    peer.on('call',call=>{
-      call.answer(stream)
-      userVideo.current.srcObject=stream;     
-    })
-    socket.on('user-connected',userId=>{
-        const call=peer.call(userId,stream);
-        userVideo.current.srcObject=stream;
-        call.on('close',()=>{
-          connectionRef.current.destroy();
-        })
 
-    })
-    
     // socket.on('callUser', ({ from, name: callerName, signal }) => {
-      //   setCall({ isReceivingCall: true, from, name: callerName, signal });
-      // });
-      
-      
-      peer.on('open',id=>{
-        socket.emit('join-room',roomID,id)
-      })
-    connectionRef.current=peer;
-  }, [roomID,stream]);
+    //   setCall({ isReceivingCall: true, from, name: callerName, signal });
+    // });
+  }, []);
 
+  const answerCall = () => {
+    setCallAccepted(true);
 
+    const peer = new Peer({ initiator: false, trickle: false, stream });
 
+    peer.on('signal', (data) => {
+      socket.emit('answerCall', { signal: data, to: call.from });
+    });
 
+    peer.on('stream', (currentStream) => {
+      userVideo.current.srcObject = currentStream;
+    });
+
+    peer.signal(call.signal);
+
+    connectionRef.current = peer;
+  };
   
+  const joinRoom=()=>{
+      const peer=new Peer({initiator:true,trickle:false,stream});
+      peer.on('open',id=>{
+        socket.emit('join-room',RoomId,id);
 
+      })
+  
+  };
+ 
+  
+  
+  const callUser = (id) => {
+    const peer = new Peer({ initiator: true, trickle: false, stream });
 
+    peer.on('signal', (data) => {
+      socket.emit('callUser', { userToCall: id, signalData: data, from: me, name });
+    });
 
+    peer.on('stream', (currentStream) => {
+      userVideo.current.srcObject = currentStream;
+    });
 
-  // const answerCall = () => {
-  //   setCallAccepted(true);
+    socket.on('callAccepted', (signal) => {
+      setCallAccepted(true);
 
-  //   const peer = new Peer({ initiator: false, trickle: false, stream });
+      peer.signal(signal);
+    });
 
-  //   peer.on('signal', (data) => {
-  //     socket.emit('answerCall', { signal: data, to: call.from });
-  //   });
+    connectionRef.current = peer;
+  };
 
-  //   peer.on('stream', (currentStream) => {
-  //     userVideo.current.srcObject = currentStream;
-  //   });
+  const leaveCall = () => {
+    setCallEnded(true);
 
-  //   peer.signal(call.signal);
+    connectionRef.current.destroy();
 
-  //   connectionRef.current = peer;
-  // };
-
-  // const callUser = (id) => {
-  //   const peer = new Peer({ initiator: true, trickle: false, stream });
-
-  //   peer.on('signal', (data) => {
-  //     socket.emit('callUser', { userToCall: id, signalData: data, from: me, name });
-  //   });
-
-  //   peer.on('stream', (currentStream) => {
-  //     userVideo.current.srcObject = currentStream;
-  //   });
-
-  //   socket.on('callAccepted', (signal) => {
-  //     setCallAccepted(true);
-
-  //     peer.signal(signal);
-  //   });
-
-  //   connectionRef.current = peer;
-  // };
-
-  // const leaveCall = () => {
-  //   setCallEnded(true);
-
-  //   connectionRef.current.destroy();
-
-  //   window.location.reload();
-  // };
+    window.location.reload();
+  };
 
   return (
     <SocketContext.Provider value={{
@@ -121,11 +106,12 @@ const ContextProvider = ({ children }) => {
       setName,
       callEnded,
       me,
-      // callUser,
-      // leaveCall,
-      // answerCall,
-      roomID,
-      setRoomID
+      callUser,
+      leaveCall,
+      answerCall,
+      setRoomId,
+      joinRoom,
+      videoGrid
     }}
     >
       {children}

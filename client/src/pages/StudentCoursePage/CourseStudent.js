@@ -7,7 +7,7 @@ import Scrollbars  from 'react-custom-scrollbars';
 import './CourseStudentStyle.scss';
 
 
-document.body.style.backgroundColor = "#0f5298";
+// document.body.style.backgroundColor = "#0f5298";
 
 class CourseStudent extends Component {
   render(){

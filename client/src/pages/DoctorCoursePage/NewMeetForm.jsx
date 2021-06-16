@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './createMeetingAlert.style.scss';
 import Scrollbars  from 'react-custom-scrollbars';
+import { v1 as uuid } from "uuid";
 
 const Partarray = ['x'];
 class NewMeetForm extends Component
 {
   constructor(props){
     super(props);
+    
+
     this.state={
       show:true,
       change:false,
@@ -17,9 +20,11 @@ class NewMeetForm extends Component
       second:'',
       parts:[],
       Partions:'x',
-      inputLinkClicked: false
-      
+      inputLinkClicked: false,
+      meetingCreated:false
+            
     }
+    
     this.closepopup=this.closepopup.bind(this);
     this.meetNameHandler=this.meetNameHandler.bind(this);
     this.startTimenadlerHour=this.startTimenadlerHour.bind(this);
@@ -27,11 +32,11 @@ class NewMeetForm extends Component
   
     this.startTimenadlerSecond=this.startTimenadlerSecond.bind(this);
     this.partHandler=this.partHandler.bind(this);
-    
-  }
   
+  }
+ 
   closepopup(){
-    this.setState({show:false});
+    this.setState({show:false,meetingCreated:true});
     Partarray.splice(1,Partarray.length)
   }
   meetNameHandler(e){
@@ -112,8 +117,9 @@ class NewMeetForm extends Component
                   </Scrollbars>
 
                   <button onClick={this.addPart.bind(this)} className="plusbutton" type="button" > + </button>
-                  <button className="createbutton">  Create  </button>
-
+                   
+                   <button type="button" className="createbutton">  Create  </button> 
+                   
               </div>
           
             </form>

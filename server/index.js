@@ -1,11 +1,9 @@
-
-
 const passport=require("passport")
 const db = require('./data/db')
 require('dotenv').config()
 
 const cookieParser = require('cookie-parser')
-
+const path =require('path');
  const bodyParser = require('body-parser')
  
  const app = require("express")();
@@ -29,9 +27,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
                 
 const PORT = process.env.PORT || 3000;
 let roomID='';
-app.get('/', (req, res) => {
-    res.send('Running');
-});
+
 
 io.on("connection", (socket) => {
     socket.emit("me", socket.id);
@@ -49,18 +45,21 @@ io.on("connection", (socket) => {
     });
 
 
-    socket.on('roomId',(roomId)=>{roomID=roomId;console.log("Room ID in server side ==" +roomID)})
+    
 
     socket.on('join-room',(roomId,userId)=>{
         socket.join(roomId);
-        socket.to(roomId).broadcast.emit('user-connected',userId);
+        
+        io.to(roomId).broadcast.emit('user-connected');
         socket.on('disconnect',()=>{
-            socket.to(roomId).broadcast.emit('user-disconnected',userId);
+            io.to(roomId).broadcast.emit('user-disconnected',userId);
         })
     })
 });
-//Get Room Id api
-        
+
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname+'/trial.html'));
+})
 
 // //routers
 const studentRouter=require('./routes/student-router')

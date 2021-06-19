@@ -1,24 +1,21 @@
+require('dotenv').config();//yes
+const express = require("express");//yes
+const http = require("http"); //yes
+const app = express();//yes
 
-const express = require('express')
+const server = require('http').Server(app)
+const io = require('socket.io')(server)
+const { v4: uuidV4 } = require('uuid')
 
 const passport=require("passport")
 const db = require('./data/db')
-require('dotenv').config()
 
 const cookieParser = require('cookie-parser')
 
 const bodyParser = require('body-parser')
  
-const app = require("express")();
-const server = require("http").createServer(app);
 const cors = require("cors");
-const io = require("socket.io")(server, {
-    cors: {
-        
-        origin: "*",
-        methods: [ "GET", "POST" ]
-    }
-});
+
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 //passport middleware
@@ -29,42 +26,84 @@ app.use(cors());
 //database config
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
                 
-                
-const PORT = process.env.PORT || 3000;
-let roomID='';
-
-
-io.on("connection", (socket) => {
-    socket.emit("me", socket.id);
-    
-    socket.on("disconnect", () => {
-        socket.broadcast.emit("callEnded")
-    });
-    
-    socket.on("callUser", ({ userToCall, signalData, from, name }) => {
-        io.to(userToCall).emit("callUser", { signal: signalData, from, name });
-    });
-    
-    socket.on("answerCall", (data) => {
-        io.to(data.to).emit("callAccepted", data.signal)
-    });
-
-
-    
-
-    socket.on('join-room',(roomId,userId)=>{
-        socket.join(roomId);
-        
-        io.to(roomId).broadcast.emit('user-connected');
-        socket.on('disconnect',()=>{
-            io.to(roomId).broadcast.emit('user-disconnected',userId);
-        })
-    })
+//port config
+const PORT = process.env.PORT || 8000;
+const {ExpressPeerServer}=require('peer')
+const peerServer=ExpressPeerServer(server,{
+  debug:true
 });
-
-app.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname+'/trial.html'));
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use('/peerjs',peerServer)
+app.get('/', (req, res) => {
+  res.redirect(`/${uuidV4()}`)
 })
+app.get('/:room', (req, res) => {
+    res.render('room', { roomId: req.params.room })
+  })
+io.on('connection', socket => {
+    
+    socket.on('join-room', (roomId, userId) => {
+      socket.join(roomId)
+      socket.to(roomId).broadcast.emit('user-connected', userId)
+  
+      socket.on('disconnect', () => {
+        socket.to(roomId).broadcast.emit('user-disconnected', userId)
+      })
+     
+    })
+  })
+
+// //socket part
+// let lol=0;
+// const users = {};
+
+// const socketToRoom = {};
+
+// io.on('connection', socket => {
+//     console.log("connected "+socket.id);
+//     socket.on("join room", roomID => {
+//         console.log("connection established"); 
+//         if (users[roomID]) {
+//             const length = users[roomID].length;
+//             if (length === 6) {
+//                 socket.emit("room full");
+//                 return;
+//             }
+//             users[roomID].push(socket.id);
+//         } else {
+//             users[roomID] = [socket.id];
+//         }
+//         socketToRoom[socket.id] = roomID;
+//         const usersInThisRoom = users[roomID].filter(id => id !== socket.id);
+
+//         socket.emit("all users", usersInThisRoom);
+//         console.log("all user event trigered");
+//     });
+
+//     socket.on("sending signal", payload => {
+//         io.to(payload.userToSignal).emit('user joined', { signal: payload.signal, callerID: payload.callerID });
+//         console.log("sending event trigered");
+//     });
+
+//     socket.on("returning signal", payload => {
+//         io.to(payload.callerID).emit('receiving returned signal', { signal: payload.signal, id: socket.id });
+//         console.log("returning event trigered");
+//     });
+
+//     socket.on('disconnect', () => {
+//         const roomID = socketToRoom[socket.id];
+//         let room = users[roomID];
+//         if (room) {
+//             room = room.filter(id => id !== socket.id);
+//             users[roomID] = room;
+//         }
+//     });
+
+// });
+// app.get('/',(req,res)=>{
+//     res.sendFile(path.join(__dirname+'/trial.html'));
+// })
 
 // //routers
 const studentRouter=require('./routes/student-router')

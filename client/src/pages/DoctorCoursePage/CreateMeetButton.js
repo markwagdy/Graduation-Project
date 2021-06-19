@@ -20,8 +20,8 @@ class CreateMeetButton extends Component {
     }
     changeRoute(props){
       // const id = uuid();
-      // this.props.history.push(`/meeting/live/${id}`);
-      // window.location.assign('http://localhost:3000/');
+      // this.props.history.push(`/meeting/live/${uuid()}`);
+      window.location.assign('http://localhost:8000/');
       
     }
     
@@ -29,13 +29,11 @@ class CreateMeetButton extends Component {
   render(){
   return ( 
     <div style={{paddingLeft:"80px", paddingBottom:"40px"}}>
-    <Link to={{pathname:`/meeting/live/${uuid()}`,
-                state:true
-                }}>
+    
         <button  onClick={this.changeRoute} className="CreateMeetButton">
             <img style={{maxWidth:"100%"}}  src={newmeet} alt="Create New Meeting" />
         </button>
-        </Link>
+      
         {
           this.state.show?
           <div style={{position:"fixed", zIndex:"1500"}}> <NewMeetForm/>  </div>

@@ -2,8 +2,8 @@ import '../meetingPage/meetingPage.style.scss';
 import {HiChevronLeft} from 'react-icons/hi';
 import {BsListNested} from 'react-icons/bs';
 import {BiCommentDots} from 'react-icons/bi';
-import { useLocation } from 'react-router-dom';
-
+import io from 'socket.io-client';
+import Peer from 'simple-peer';
 
 
 const MeetingPage=(props)=>{
@@ -49,6 +49,9 @@ const MeetingPage=(props)=>{
 
 
             </button>
+            <div className="VideoConatiner">
+                {dummyList}
+            </div>
             
             
         </div>

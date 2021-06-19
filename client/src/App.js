@@ -2,16 +2,16 @@ import './App.css';
 import React, { Component } from 'react';
 import HomePage from './pages/Homepage/Homepage.component';
 
-import {v4 as uuidv4} from 'uuid';
-import {BrowserRouter as Router,Redirect,Route} from "react-router-dom";
-import Meeting from './pages/Meeting/Meeting.component.jsx';
+
+import {BrowserRouter as Router,Route, Switch} from "react-router-dom";
 import Student from './pages/Student/Student.component.jsx';
 import Doctor from './pages/Doctor/Doctor.component.jsx';
 
-import CallPage from './pages/CallPage/CallPage.Component';
-import MeetingPage from './pages/meetingPage/meetingPage.component.jsx';
+
+// import MeetingPage from './pages/meetingPage/meetingPage.component.jsx';
 import CourseStudent from './pages/StudentCoursePage/CourseStudent';
 import CourseDoctor from './pages/DoctorCoursePage/CourseDoctor';
+import Room from './pages/Room/Room';
 
 class App extends Component {
 
@@ -19,7 +19,7 @@ class App extends Component {
   render(){
   return (
     <Router> 
-      <div>
+      <Switch>
       <Route exact path='/' component={HomePage}></Route>
       {/* <Route exact path='/meeting' component={Meeting}></Route> */}
       <Route exact path='/student' component={Student}></Route>
@@ -33,12 +33,12 @@ class App extends Component {
       
       <Route exact path='/student' component={Student}></Route>  
       
-      <Route path='/meeting/live/:room' component={MeetingPage} render={props => <App {...props}/>}/>
+      <Route path='/meeting/live/:roomID' component={Room} render={props => <App {...props}/>}/>
       
       
     
     
-    </div>
+    </Switch>
     </Router>
 
       

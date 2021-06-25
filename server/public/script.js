@@ -4,6 +4,9 @@ const myPeer = new Peer(undefined)
 const myVideo = document.createElement('video')
 myVideo.muted = true
 
+let canvas=document.querySelector('#canvas');
+let contect=canvas.getContext('2d');
+
 navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
@@ -19,6 +22,7 @@ navigator.mediaDevices.getUserMedia({
     socket.on('user-connected', userId => {
     connectToNewUser(userId, stream)
   })
+
 })
 
 
@@ -44,6 +48,7 @@ function connectToNewUser(userId, stream) {
   
 }
 
+
 function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
@@ -51,3 +56,5 @@ function addVideoStream(video, stream) {
   })
   videoGrid.append(video)
 }
+
+

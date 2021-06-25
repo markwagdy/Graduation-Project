@@ -1,21 +1,29 @@
-import React,{useContext} from 'react';
 import '../meetingPage/meetingPage.style.scss';
 import {HiChevronLeft} from 'react-icons/hi';
 import {BsListNested} from 'react-icons/bs';
 import {BiCommentDots} from 'react-icons/bi';
-import {useParamas, useParams} from 'react-router-dom';
-import {ContextProvider, SocketContext} from '../../SocketContext';
+import io from 'socket.io-client';
+import Peer from 'simple-peer';
 
-// import axios from 'axios';
 
-const MeetingPage=()=>{
+const MeetingPage=(props)=>{
     const dummy=['+20','MJ','KO','ZM','AK','KA','MW','AG','MM','SN'];
-       
     const dummyList=dummy.map((e)=>
     <div className='placeholderDummy'>{e}</div>);
+   
+    let meetingCreator=false;
+    const {state}=props.location;
+    meetingCreator=state;
+    
     return(
         
         <div className="mMS">
+            { meetingCreator?
+             <button className="join-room" >
+                Join Room 
+            </button>
+            :""
+            }  
             <div className="bBW">
                 <button type='button' className="backButton"> <HiChevronLeft style={{color:"#0F5298",fontSize:"25px"}}/> </button>
                 <div className="sWrap">
@@ -27,12 +35,13 @@ const MeetingPage=()=>{
             <button className="statNav">
                 <BsListNested style={{color:'white',fontSize:"30px",position:"relative",top:'0px',padding:"1px"}}/>
             </button>
-            <div className="videoPlayer">
-               <span className="MiS"> Meeting is Starting ........</span>
+            <div className="videoPlayer" >
+               <video  className="MiS" autoPlay playsInline muted /> 
 
             </div>
-            <div className="usersPlaceholder">
-                {dummyList}
+            <div className="usersPlaceholder" >
+                {/* {dummyList} */}
+
             </div>
             
             <button className="cNB">
@@ -40,6 +49,10 @@ const MeetingPage=()=>{
 
 
             </button>
+            <div className="VideoConatiner">
+                {dummyList}
+            </div>
+            
             
         </div>
     

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Cal from './ico/cal.png'
 
-document.body.style.backgroundColor = "#FFFFFF";
+// document.body.style.backgroundColor = "#FFFFFF";
 
 class Calender extends Component {
   render(){

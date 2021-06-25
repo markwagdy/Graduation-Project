@@ -7,7 +7,7 @@ import Scrollbars  from 'react-custom-scrollbars';
 import './CourseDoctorStyle.scss';
 
 
-document.body.style.backgroundColor = "#0f5298";
+// document.body.style.backgroundColor = "#0f5298";
 
 class CourseDoctor extends Component {
   render(){
@@ -18,7 +18,7 @@ class CourseDoctor extends Component {
 
       <Scrollbars style={{ height: 700 , width: 990}}>
       <OldMeeting/>
-      <CreateMeetButton/>
+      <CreateMeetButton history={this.props.history}/>
       </Scrollbars>
 
     </div>

@@ -65,20 +65,20 @@ font-weight: bolder;
     // border: 2px solid;
     border-radius: 30px;
     width: 1000px;
-    height: 400px;
+    height: 500px;
     background-color: #919191;
     color: white;
     position: relative;
     left: 250px;
-    top: -120px;
+    top: -180px;
     
     
 }
 .MiS{
-    font-size: 60px;
-    font-weight: bolder;
-    position: relative;
-    top: 150px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotateY(180deg);
 }
 .placeholderDummy{
     width: 70px;
@@ -87,30 +87,54 @@ font-weight: bolder;
     border-radius: 30px;
     background-color: #0F5298;
     color: white;
-    margin-left: 20px;
+    
     font-size: 40px;
     padding-top: 10px;
     padding-left: 5px;
     padding-right: 5px;
+    margin: auto;
 }
 .usersPlaceholder{
-    display: flex;
-    flex-direction: row;
-    // border: 2px solid;
-    width: 1200px;
-    height: 80px;
+    
     padding-left:20px ;
     position: relative;
     left: 220px;
-    top: -80px;
+    top: -100px;
+    width: 80%;
+    height: 80px;
+
 }
 .cNB{
     // border: 2px solid;
     border-radius: 20px;
     width: 70px;
-    height: 700px;
+    height: 600px;
     background-color:#0F5298 ;
     position: relative;
     left: 1440px;
-    top: -750px;
+    top: -800px;
+}
+.join-room{
+    position: relative;
+    border-radius: 30px;
+    border: none;
+    width: 200px;
+    height: 60px;
+    background-color: black;
+    color: white;
+    left:800px ;
+    top: 50px;
+    cursor: pointer;
+}
+.VideoConatiner{
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin:auto;
+    border: 2px solid black;
+    padding: 20px;
+    width: 80%;
+    height: auto;
+    position: relative;
+    top: -850px;
 }

@@ -32,23 +32,28 @@ loginDoctor=(req,res)=>{
             // User matched
             // Create JWT Payload
             const payload = {
-              id: doctor.id,
-              name: doctor.name
+              email: doctor.email,
+              acadId: doctor.acadId
             };
         // Sign token
-            jwt.sign(
+          var accesstoken=  jwt.sign(
               payload,
               keys.secretOrKey,
-              {
-                expiresIn: 31556926 // 1 year in seconds
-              },
-              (err, token) => {
-                res.json({
-                  success: true,
-                  token: "Bearer " + token
-                });
-              }
+              { algorithm:"HS256",
+                expiresIn: 31556926 }// 1 year in seconds
+            //   },
+            //   (err, token) => {
+            //     res.json({
+            //       success: true,
+            //       token: "Bearer " + token
+                  
+            //     }
             );
+                
+            res.cookie('jwt',accesstoken)
+            //}
+            //);
+
           } else {
             return res
               .status(400)

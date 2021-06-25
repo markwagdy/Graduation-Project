@@ -19,6 +19,7 @@ const io = require("socket.io")(server, {
         methods: [ "GET", "POST" ]
     }
 });
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 //passport middleware

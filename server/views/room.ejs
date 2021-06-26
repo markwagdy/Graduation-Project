@@ -8,8 +8,12 @@
     </script>
         <script src="/socket.io/socket.io.js" defer></script>
         <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js" defer></script>
+        <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
         <script src="script.js" defer></script>
-        
+    
         <title>Document</title>
     <style>
         #video-grid{
@@ -26,10 +30,8 @@
 </head>
 <body>
     <div id='video-grid'></div>
-    <button id='snap'>Snap</button>
+    <canvas id="canvas" width="640p" height="480"></canvas>
+    <button id='snap'>Take Shot</button>
     <canvas id="canvas" width="640" height="480"></canvas>
 </body>
-<script>
-     
-</script>
 </html>

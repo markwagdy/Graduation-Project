@@ -12,17 +12,19 @@ import './CourseDoctorStyle.scss';
 class CourseDoctor extends Component {
   render(){
   return ( 
-    <div className="BWBoarder">
+      <div className="BlueBG">
+       <div className="BWBoarder">
       <Hbar />
       <SideSection/>
 
       <Scrollbars style={{ height: 700 , width: 990}}>
       <OldMeeting/>
       <CreateMeetButton history={this.props.history}/>
+
       </Scrollbars>
 
     </div>
-
+    </div>
   );
 }
 }

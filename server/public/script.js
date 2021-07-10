@@ -1,5 +1,3 @@
-
-
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined)
@@ -11,6 +9,8 @@ let context=canvas.getContext("2d");
 var dataUrl=canvas.toDataURL("image/png");
 var xht=new XMLHttpRequest()
 let form=new FormData();
+const studentId=Math.floor(Math.random() * 1000) + 1;
+console.log("student: "+studentId);
 
 navigator.mediaDevices.getUserMedia({
   video: true,
@@ -36,11 +36,16 @@ function AzhryZoz(){
   console.log("Azhry Counter"+azhryCounter)
   img.onload=()=>{
     context.drawImage(myVideo,0,0,540,380)
-    console.log(canvas.toDataURL())
+    var student={
+      url:canvas.toDataURL(),
+      id:studentId
+    }
+    console.log(student)
     $.ajax({
       url:'http://localhost:5000/maskImage',
       type:'POST',
-      data:canvas.toDataURL(),
+      data:JSON.stringify(student),
+      dataType:'json',
       cache:false,
       processData:false,
       contentType:false,
@@ -48,8 +53,8 @@ function AzhryZoz(){
             console.log("upload error" , data);
             console.log(data.getAllResponseHeaders());
           },
-      success: function(data){
-          console.log(data['status'])
+      success: function(){
+          console.log("success")
   }
     })
   };
@@ -57,16 +62,10 @@ function AzhryZoz(){
   
   
   
-  console.log(dataUrl)
+  
 }
 
-setInterval(
-
- 
-AzhryZoz
-
-
-,60000);
+setInterval(AzhryZoz,60000);
 
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id)

@@ -4,7 +4,6 @@ const Schema=mongoose.Schema
 
 const Meeting=new Schema(
 {   
-    
     courseId:{type:mongoose.SchemaTypes.ObjectId,ref:'courses'},
     date: { type: String, required:true},
     roomId:{type:String}

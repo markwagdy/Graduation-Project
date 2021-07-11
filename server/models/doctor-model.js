@@ -9,7 +9,7 @@ const Gender=Object.freeze({
     Other:'other',
 });
 const Doctor=new Schema(
-{    username:{type:String,required:true},
+{   username:{type:String,required:true},
     password:{type:String,required:true},
     acadId:{type:String,required:true},
     email:{type:mongoose.SchemaTypes.Email,required:true},
@@ -17,7 +17,7 @@ const Doctor=new Schema(
     image:{type:Buffer},
     gender:{type:String,enum:Object.values(Gender)},
     online:{type:Boolean,default:false},
-    course:{type:mongoose.SchemaTypes.ObjectId,ref:'courses'},
+    courses:[{type:mongoose.SchemaTypes.ObjectId,ref:'courses'}],
 },
     {
         timestamps:true

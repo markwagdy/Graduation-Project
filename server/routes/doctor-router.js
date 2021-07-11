@@ -16,7 +16,8 @@ const router=express.Router()
 
 // router.post('/student',StudentCtrl.createStudnet);
 router.put('/doctor/:id',DoctorCtrl.updateDoctor);
-router.get('/doctors',DoctorCtrl.getDoctors);
+router.put('/addCourse/:id',DoctorCtrl.addCourse);
+router.get('/getdoctor/:email',DoctorCtrl.getDoctor);
 router.post('/registerdoctor',DoctorCtrl.registerDoctor)
 router.post('/logindoctor',DoctorCtrl.loginDoctor);
 //router.get('/docotrs/:id',DoctorCtrl.getDoctorbyid)

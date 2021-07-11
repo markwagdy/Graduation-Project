@@ -37,7 +37,7 @@ console.log(Error);
 
 // router.post('/student',StudentCtrl.createStudnet);
 router.put('/student/:id',StudentCtrl.updateStudent);
-router.get('/students',StudentCtrl.getStudents);
+router.get('/getstudent/:email',StudentCtrl.getStudent);
 router.post('/registerstudent',StudentCtrl.reigsiterStudent)
 router.post('/loginstudent',StudentCtrl.loginStudent);
 router.get('/students/:id',StudentCtrl.getStudentById)

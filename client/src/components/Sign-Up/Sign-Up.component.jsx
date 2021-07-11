@@ -3,6 +3,7 @@ import CustomButton from '../CustomButton/Custom-Button.component';
 import FormInput from '../form-input/form-input.component';
 import './Sign-Up.style.scss';
 import axios from 'axios';
+import { withRouter } from "react-router-dom";
 import { Component } from 'react';
 
 class  SignUp extends Component {
@@ -66,12 +67,13 @@ onChangeacadID(e) {
 
       if(this.state.role==='student'){
 
-      axios.post('http://localhost:3000/api/registerstudent', userObject)
+      axios.post('http://localhost:8000/api/registerstudent', userObject)
           .then((res) => {
              
             if (res.status === 200) {
                this.setState({ islogin: true })
-               window.location = "/student";
+             //  window.location = "/student";
+             this.props.history.push('/student', { email:this.state.email })
        }
               console.log(res.data)
           }).catch((error) => {
@@ -80,11 +82,12 @@ onChangeacadID(e) {
       }
       else if (this.state.role==='doctor'){
          console.log(userObject)
-         axios.post('http://localhost:3000/api/registerdoctor', userObject)
+         axios.post('http://localhost:8000/api/registerdoctor', userObject)
          .then((res) => {
            if (res.status === 200) {
             this.setState({ islogin: true })
-            window.location = "/doctor";
+            //window.location = "/doctor";
+            this.props.history.push('/doctor', { email:this.state.email })
       }
              console.log(res.data)
          }).catch((error) => {
@@ -141,4 +144,4 @@ onChangeacadID(e) {
       )
    }   
 }
-export default SignUp;
+export default withRouter(SignUp);

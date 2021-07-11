@@ -15,7 +15,7 @@ class CreateCourseAlert extends Component
       show:true,
       clicked: false,
       courseName:"",
-      doctorName:"",
+      doctorName:this.props.doctordata.username,
       courseCode:"",
       courseDesignator:"",
       courseDescription:"",
@@ -25,12 +25,14 @@ class CreateCourseAlert extends Component
       creditHours:"",
       courseId:"",
       drEmail:"",
-      doctor:"",
+      doctor:this.props.doctordata,
     //  meetingId:""
     }
     this.onSubmit = this.onSubmit.bind(this);
     this.closepopup=this.closepopup.bind(this);
     this.handleChange=this.handleChange.bind(this);
+    
+    this.showpin=this.showpin.bind(this);
   }
  handleChange(evt) {
     const value = evt.target.value;
@@ -47,9 +49,11 @@ class CreateCourseAlert extends Component
   showpin(){
     this.setState({clicked:true})
   }
-  onSubmit(e){
+ onSubmit(e){
     e.preventDefault(); 
    // console.log(this.state.coursePin)
+  //  const coursedata={
+  //   courseId:this.state.courseId};
     const userData={
       courseName:this.state.courseName,
       doctorName:this.state.doctorName,
@@ -60,23 +64,33 @@ class CreateCourseAlert extends Component
       semesterYear:this.state.semesterYear,
       semesterType:this.state.semesterType,
       creditHours:this.state.creditHours,
-      courseId:this.state.courseId,
+    //courseId:this.state.courseId,
       //drEmail:"",
-      //doctor:"",
+      doctor:this.state.doctor
       //meetingId:"" 
     } 
-    console.log(userData)
-    axios.post('http://localhost:3000/api/Course', userData)
+  axios.post('http://localhost:8000/api/Course', userData)
+    .then((res) => {
+        if (res.status === 201) {
+       this.setState({courseId:res.data.id})
+       axios.put(`http://localhost:8000/api/addCourse/${this.props.doctordata._id}`, {courseId:this.state.courseId} )
     .then((res) => {
         if (res.status === 200) {
-       
-          
+      this.state.doctor.courses.push(res.data.id)
+      console.log(this.state.doctor)
+      this.props.parentCallback(this.state.doctor);
     }
-        console.log(res.data)
     }).catch((error) => {
         console.log(error)
    
     });
+    }
+    }).catch((error) => {
+        console.log(error)
+   
+    });
+
+  
     this.showpin(); 
     
     }
@@ -88,15 +102,15 @@ class CreateCourseAlert extends Component
         return(
           <div id="id00" className="modalC" style={{display: this.state.show? 'block' : 'none' }}>
              
-            <form className="modal-contentC animate"  onSubmit={this.onSubmit}>
+            <form className="modal-contentC animate"  onSubmit={this.onSubmit.bind(this)}>
             <div className="imgcontainer">
            <span onClick={this.closepopup} class="close" title="Close Modal">&times;</span>
            </div>
-           <div className="bannerC"> Create New Meeting </div>
+           <div className="bannerC"> Create New Course </div>
               <div style={{paddingLeft:"20px",paddingTop:"40px"}}> 
                  <div>
                     <h1 className="fontsC" style={{display: "inline-block"}}> Course Name : </h1>
-                    <input name="courseName" className="MeetingNameInput" onChange={this.handleChange} value={this.state.courseName} type="text" placeholder="Meeting Name" required/> <br></br> 
+                    <input name="courseName" className="MeetingNameInput" onChange={this.handleChange} value={this.state.courseName} type="text" placeholder="Course Name" required/> <br></br> 
                   </div>
 
                   <div>

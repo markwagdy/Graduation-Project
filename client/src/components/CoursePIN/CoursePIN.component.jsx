@@ -13,8 +13,15 @@ class CoursePIN extends Component
       show:true,
     }
     this.closepopup=this.closepopup.bind(this);
-    this.onSubmit=this.onSubmit.bind(this);
-
+    // this.onSubmit1=this.onSubmit1.bind(this);
+    var dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = this.props.pin;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+    console.log(this.props.pin)
+  
 
   }
 
@@ -23,16 +30,16 @@ class CoursePIN extends Component
     //{console.log(this.state.show)}
   }
 
-  onSubmit = (e) => {
-    var dummy = document.createElement("textarea");
-    document.body.appendChild(dummy);
-    dummy.value = this.props.pin;
-    dummy.select();
-    document.execCommand("copy");
-    document.body.removeChild(dummy);
-    console.log(this.props.pin)
+//   onSubmit1 = (e) => {
+//     var dummy = document.createElement("textarea");
+//     document.body.appendChild(dummy);
+//     dummy.value = this.props.pin;
+//     dummy.select();
+//     document.execCommand("copy");
+//     document.body.removeChild(dummy);
+//     console.log(this.props.pin)
    
-}
+// }
 
     render(){
         return(
@@ -52,8 +59,10 @@ class CoursePIN extends Component
                 <div style={{marginTop:"30px", marginLeft:"30px"}}>
                 <h1 className="fontsP" id="pin" style={{display: "inline-block"}}>{this.props.pin}</h1>
                 </div>
-                <CustomButton onClick={() => this.onSubmit()} class="EnterbtnP">Copy</CustomButton>
-
+                {/* <CustomButton onClick={() => this.onSubmit1.bind(this)} class="EnterbtnP">Copy</CustomButton> */}
+                <h1 className="fontsP" style={{display: "inline-block"}}>copied to your clipboard</h1>
+                 <br></br> 
+               
             </div>
          
       </div>

@@ -142,15 +142,17 @@ updateStudent=async(req,res)=>{
     })
     
 }
-getStudents=async(req,res)=>{
-    await Student.find({},(err,students)=>{
+getStudent=async(req,res)=>{
+  
+  const email = req.params.email;
+    await Student.findOne({email},(err,student)=>{
         if(err){
             return res.status(400).json({success:false,error:err})
         }
-        if(!students.length){
+        if(!student){
             return res.status(404).json({success:false,error:'Students not found'})
         }
-        return res.status(200).json({success:true,data:students})
+        return res.status(200).json({success:true,username:student.username})
     })
     .populate('course')
     .exec()
@@ -177,7 +179,7 @@ getStudentById=async(req,res)=>
 
 
 module.exports={
-    getStudents,
+    getStudent,
     updateStudent,
     // createStudnet,
     reigsiterStudent,

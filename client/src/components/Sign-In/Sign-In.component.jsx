@@ -5,6 +5,7 @@ import CustomButton from '../CustomButton/Custom-Button.component';
 //import Navbar from  '../Navbar/Nav-bar.component';
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import axios from 'axios';
+import { withRouter } from "react-router-dom";
 
 class SignIn extends React.Component
 {
@@ -41,11 +42,12 @@ onSubmit(e){
     password:this.state.password    
     } 
     console.log(userData)
-    axios.post('http://localhost:3000/api/loginstudent', userData)
+    axios.post('http://localhost:8000/api/loginstudent', userData)
     .then((res) => {
         if (res.status === 200) {
             this.setState({ islogin: true })
-            window.location = "/student";
+        //    window.location = "/student";
+        this.props.history.push('/student', { email:this.state.email })
     }
         console.log(res.data)
     }).catch((error) => {
@@ -53,11 +55,13 @@ onSubmit(e){
    
     });
     if(this.state.islogin===false){
-        axios.post('http://localhost:3000/api/logindoctor', userData)
+
+    axios.post('http://localhost:8000/api/logindoctor', userData)
     .then((res) => {
         if (res.status === 200) {
             this.setState({ islogin: true })
-            window.location = "/doctor";
+         //   window.location = "/doctor";
+         this.props.history.push('/doctor', { email:this.state.email })
     }
         console.log(res.data)
     }).catch((error) => {
@@ -90,4 +94,4 @@ email:''
         </div>);
     }
 }
-export default SignIn;
+export default withRouter(SignIn);

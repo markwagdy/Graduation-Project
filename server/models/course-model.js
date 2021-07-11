@@ -16,7 +16,7 @@ const Course=new Schema(
    // courseId:{type:String,required:true},
     student:[{type:mongoose.SchemaTypes.ObjectId,ref:'students'}], //el ref bykon esm el collection bt3 students
     //drEmail:{type:mongoose.SchemaTypes.Email,required:true},
-    doctor:[{type:mongoose.SchemaTypes.ObjectId,ref:'doctors'}],
+    doctor:{type:mongoose.SchemaTypes.ObjectId,ref:'doctors'},
     meetingId:{type:String,ref:'meeting'}
 },
 {

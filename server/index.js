@@ -15,13 +15,7 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
  
 const cors = require("cors");
-const io = require("socket.io")(server, {
-    cors: {
-        
-        origin: "*",
-        methods: [ "GET", "POST" ]
-    }
-});
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())

@@ -8,7 +8,7 @@ let canvas=document.querySelector('#canvas')
 let context=canvas.getContext("2d");
 var dataUrl=canvas.toDataURL("image/png");
 var xht=new XMLHttpRequest()
-let form=new FormData();
+let studentSocketId;
 const studentId=Math.floor(Math.random() * 1000) + 1;
 console.log("student: "+studentId);
 
@@ -26,23 +26,25 @@ navigator.mediaDevices.getUserMedia({
       addVideoStream(video, userVideoStream)
     })  })
     socket.on('user-connected', userId => {
-    connectToNewUser(userId, stream)
+    connectToNewUser(userId, stream),
+    studentSocketId=userId,
+    console.log("Id intialized :"+studentSocketId) 
   })
 })
 var azhryCounter=0;
 function AzhryZoz(){
   azhryCounter++;
-
+  
   console.log("Azhry Counter"+azhryCounter)
   img.onload=()=>{
-    context.drawImage(myVideo,0,0,540,380)
+    context.drawImage(myVideo,0,0,640,480)
     var student={
       url:canvas.toDataURL(),
       id:studentId
     }
     console.log(student)
     $.ajax({
-      url:'http://localhost:5000/maskImage',
+      url:'https://flask-emotion-service.herokuapp.com/getEmotion',
       type:'POST',
       data:JSON.stringify(student),
       dataType:'json',
@@ -53,8 +55,8 @@ function AzhryZoz(){
             console.log("upload error" , data);
             console.log(data.getAllResponseHeaders());
           },
-      success: function(){
-          console.log("success")
+      success: function(response){
+          console.log(response)
   }
     })
   };
@@ -78,6 +80,10 @@ myPeer.on('open', id => {
 function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
+  if(video.id=='myvideo')
+  {
+    console.log("MyVideo")
+  }
   call.on('stream', userVideoStream => {
     addVideoStream(video, userVideoStream)
   })

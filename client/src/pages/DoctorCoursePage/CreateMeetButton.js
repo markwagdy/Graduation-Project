@@ -21,7 +21,7 @@ class CreateMeetButton extends Component {
     changeRoute(props){
       // const id = uuid();
       // this.props.history.push(`/meeting/live/${uuid()}`);
-      window.location.assign('http://localhost:8000/');
+      window.location.assign('http://localhost:8000/?doctor=true');
       
     }
     

@@ -87,37 +87,6 @@ button{
     padding-left: 20px;
   }
 
-  .report{
-    border-radius: 54px 54px 54px 54px;
-    background-color:white;
-    width: 200px;
-    height: 170px;
-    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.12);
-    position: absolute;
-    top: 0; right: 15%;
-    z-index: 150;
-  }
-
-.report:hover{
-    border-radius: 54px 54px 54px 54px;
-    background-color:#B8312F;
-    width: 200px;
-    height: 170px;
-    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.12);
-    position: absolute;
-    top: 0; right: 15%;
-    z-index: 150;
-}
-
-.meetanalbutt{
-    border-radius: 45px;
-    background-color:white;
-    width: 200px;
-    height: 170px;
-    box-shadow: 50px 0px 9px rgba(0, 0, 0, 0.12);
-    position: absolute;
-    top: 0; right: 0;
-}
 
 .JoinMeetButton{
     border-radius: 40px;
@@ -157,20 +126,7 @@ button{
     z-index: 1550;
 }
 
-.SendNotes{
-    border-radius: 0px 0px 45px 45px;
-    background-color: #F7F7F7;
-    width: 440px;
-    height: 45px;
-    box-shadow: 0px 19px 26px rgba(0, 0, 0, 0.16);
-    position: relative;
-    text-align: left;
-    font-family:  sans-serif;
-    font-size: 20px;
-    line-height: 90%;
-    padding-top: 15px;
-    z-index: 1550;
-}
+
 
 .Notaya{
     border-radius: 0px 45px 45px 45px;
@@ -224,4 +180,5 @@ button{
     background-color: white;
     padding-left: 90px; padding-top: 20px;
     height: 420px; width: 100%;
+
 }

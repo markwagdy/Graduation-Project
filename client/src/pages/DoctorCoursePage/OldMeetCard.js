@@ -8,8 +8,10 @@ class OldMeetCard extends Component {
     <div>
         <div className="OldMeetCard">
              
+            <MeetingAnalButton/>
              <ReportButton/>
 
+             
              <h1 style={{display: "inline-block",  fontSize: "30px"}}>Lecture X, Name</h1>
              <h5 style={{display: "inline-block", paddingLeft:"50px"}} >Finished</h5>
 
@@ -34,7 +36,7 @@ class OldMeetCard extends Component {
                     </div>
                 </div>
         
-            <MeetingAnalButton/>
+            
         
         </div>
 

@@ -14,7 +14,7 @@ class CourseDoctor extends Component {
   return ( 
       <div className="BlueBG">
        <div className="BWBoarder">
-      <Hbar />
+      <Hbar coursedata={this.props.location.state.coursedata}/>
       <SideSection/>
 
       <Scrollbars style={{ height: 700 , width: 990}}>

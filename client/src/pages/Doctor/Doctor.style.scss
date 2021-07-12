@@ -5,3 +5,33 @@
     background: cover;
     
 }
+ .CreatedCourseCard{
+    border-radius: 40px;
+    width: 120px;
+    height: 100px;
+    padding: 20px; 
+    padding-top: 50px;
+    margin-left: 30px;
+    position: relative;
+    background-color: #D5F3FE;
+    color: black;
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+ }
+
+ .CreatedCourseName{
+    border-radius: 50px;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    padding-top: 10px;
+    bottom: 0;
+    left: 0;
+    background-color: #0F5298;
+    color: white;
+    text-align: center;
+    font-size: medium;
+    font-weight: normal;
+ }

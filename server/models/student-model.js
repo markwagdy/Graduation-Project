@@ -16,7 +16,7 @@ const Student=new Schema(
     password:{type:String,required:true},
     acadId:{type:String,required:true},
     email:{type:mongoose.SchemaTypes.Email,required:true},
-    course:[{type:mongoose.SchemaTypes.ObjectId,ref:'courses'}],
+    courses:[{type:mongoose.SchemaTypes.ObjectId,ref:'courses'}],
     image:{type:Buffer},
     role:{type:String,default:role.student},
     gender:{type:String,enum:Object.values(Gender)},

@@ -10,10 +10,10 @@ class Hbar extends Component {
             <div className="Hbar" style={{overflow: "hidden",display:"block"}}>
                 
                 <div style={{display: "inline-block"}}> <BackButton/></div>
-                <h1 style={{display: "inline-block"}} >CSE100, Course Name</h1>
+                <h1 style={{display: "inline-block"}} >{this.props.coursedata.courseDesignator+this.props.coursedata.courseCode}, {this.props.coursedata.courseName}</h1>
                 <div style={{display: "inline-block"}}> <DropButton/></div>
                 <div style={{display: "inline-block"}}> <CourseAnalButton/></div>
-                <h6>EsmElProject Welcome DR.Yasser Sami</h6>
+                <h6>RAVEN Welcome DR.{this.props.coursedata.doctorName}</h6>
             </div>
          );
     }

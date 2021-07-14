@@ -63,6 +63,31 @@ updateCourse=async(req,res)=>{
     })
     
 }
+getCourse=async(req,res)=>{
+
+    const id = req.params._id;
+    await Course.findOne({ _id:req.params._id},(err,course)=>{
+        if(err){
+            return res.status(400).json({success:false,error:err})
+        }
+        if(!course){
+            return res.status(404).json({success:false,error:'course not found'})
+        }
+        return res.status(200).json({success:true,coursedata:course})
+    }).catch(err => console.log(err))
+}
+getCourseByPin=async(req,res)=>{
+
+    await Course.findOne({ coursePin:req.params.coursePin},(err,course)=>{
+        if(err){
+            return res.status(400).json({success:false,error:err})
+        }
+        if(!course){
+            return res.status(404).json({success:false,error:'course not found'})
+        }
+        return res.status(200).json({success:true,coursedata:course})
+    }).catch(err => console.log(err))
+}
 getCourses=async(req,res)=>{
     await Course.find({},(err,courses)=>{
         if(err){
@@ -80,5 +105,7 @@ getCourses=async(req,res)=>{
 module.exports={
     getCourses,
     updateCourse,
+    getCourse,
+    getCourseByPin,
     createCourse
 }

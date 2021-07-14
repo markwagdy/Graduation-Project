@@ -11,6 +11,10 @@ import Doctor from './pages/Doctor/Doctor.component.jsx';
 // import MeetingPage from './pages/meetingPage/meetingPage.component.jsx';
 import CourseStudent from './pages/StudentCoursePage/CourseStudent';
 import CourseDoctor from './pages/DoctorCoursePage/CourseDoctor';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6f781786b8cafde5cb0e13ebabc05c8b7e146a60
 
 class App extends Component {
 

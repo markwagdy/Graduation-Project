@@ -11,10 +11,6 @@ import Doctor from './pages/Doctor/Doctor.component.jsx';
 // import MeetingPage from './pages/meetingPage/meetingPage.component.jsx';
 import CourseStudent from './pages/StudentCoursePage/CourseStudent';
 import CourseDoctor from './pages/DoctorCoursePage/CourseDoctor';
-<<<<<<< HEAD
-
-=======
->>>>>>> b5cc3805007501caa2921b767705faf8f0e7049d
 
 class App extends Component {
 
@@ -36,12 +32,6 @@ class App extends Component {
       
       <Route exact path='/student' component={Student}></Route>  
       
-<<<<<<< HEAD
-     {/* <Route path='/meeting/live/:roomID' component={Room} render={props => <App {...props}/>}/>
-       */}
-      
-=======
->>>>>>> b5cc3805007501caa2921b767705faf8f0e7049d
     
     
     </Switch>

@@ -22,7 +22,7 @@ class DropButton extends Component {
            
               {
                 this.state.show?
-                <DropCI/>
+                <DropCI coursedata={this.props.coursedata}/>
                 :""
               }
            </div>

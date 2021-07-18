@@ -4,8 +4,7 @@ const { v4: uuidV4 } = require('uuid')
 
 createMeeting= (req,res) => {
     const body=req.body
-   console.log(body);
-//    console.log(body)
+    console.log(body);
     if(!body)
     {
         return res.status(400).json({
@@ -27,9 +26,9 @@ createMeeting= (req,res) => {
             success:true,
             id:meeting._id,
             message:'meeting created',
+            meeting:meeting
         })
-    })
-    .catch(error=>{
+    }).catch(error=>{
         
         return res.status(400).json({
             error,
@@ -70,24 +69,16 @@ updateMeeting=async(req,res)=>{
     
 }
 getMeetingById=async(req,res)=>{
-    const body=req.body;
-    if(!body)
-    {
-        return res.status(400).json({success:false,message:'you must provide a body to update'})
-    }
-    const roomId=body.roomId;
-    await Meeting.findOne({roomId},(err,meeting)=>{
-        if(err)
-        {
-            return res.status(404).json({success:false,error:err})
-        }});
-        if(!meeting)
-        {
-            return res.status(404).json({success:false,error:'Movie not found'})
+    const id = req.params._id;
+    await Meeting.findOne({ _id:req.params._id},(err,meeting)=>{
+        if(err){
+            return res.status(400).json({success:false,error:err})
         }
-    return res.status(200).json({success:true,data:meeting}).catch(err=>{console.log(err)})
-
-
+        if(!meeting){
+            return res.status(404).json({success:false,error:'meeting not found'})
+        }
+        return res.status(200).json({success:true,data:meeting})
+    }).catch(err => console.log(err))
 }
 getMeetings=async(req,res)=>{
     await Meeting.find({},(err,meetings)=>{

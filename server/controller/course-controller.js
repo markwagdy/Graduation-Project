@@ -102,8 +102,40 @@ getCourses=async(req,res)=>{
     .exec()
     .catch(err => console.log(err))
 }
+addmeeting=async(req,res)=>{
+    const body=req.body
+    if(!body)
+    {
+        return res.status(400).json({success:false,message:'you must provide a meeting to add'})
+    }
+    Course.findOne( {_id:req.params.id},(err,course)=>{
+        if(err)
+        {
+            return res.status(404).json({success:false,error:err})
+        }
+    console.log(Course)    
+    course.meetings.push(body.meetingId)
+    // doctor.photo=body.photo
+
+    course.save().then(()=>{
+        return res.status(200).json({
+            success:true,
+            id:body.meetingId,
+            message:'meeting add',
+        })
+    })
+    .catch(error => {
+        return res.status(400).json({
+            error,
+            message:'meeting not added!',
+        })
+    })
+    })
+    
+}
 module.exports={
     getCourses,
+    addmeeting,
     updateCourse,
     getCourse,
     getCourseByPin,

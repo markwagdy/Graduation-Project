@@ -71,7 +71,7 @@ class Doctor extends React.Component {
         <div>
           <span>   
           {
-            this.state.doc.courses.map((index) => <div style={{display: "inline-block"}}> <CreatedCourse courses={index}></CreatedCourse> </div>)
+            this.state.doc.courses.map((index) => <div style={{display: "inline-block"}}> <CreatedCourse user={this.state.doc}courses={index}></CreatedCourse> </div>)
           }  
           </span>
 

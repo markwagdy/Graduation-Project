@@ -62,7 +62,7 @@ class Student extends React.Component {
           <div>
           <span>   
           {
-            this.state.student.courses.map((index) => <div style={{display: "inline-block"}}>  <CreatedCourse courses={index}></CreatedCourse> </div>)
+            this.state.student.courses.map((index) => <div style={{display: "inline-block"}}>  <CreatedCourse user={this.state.student.role} courses={index}></CreatedCourse> </div>)
           }  
           </span>
 

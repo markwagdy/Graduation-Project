@@ -12,7 +12,6 @@ import Doctor from './pages/Doctor/Doctor.component.jsx';
 import CourseStudent from './pages/StudentCoursePage/CourseStudent';
 import CourseDoctor from './pages/DoctorCoursePage/CourseDoctor';
 
-
 class App extends Component {
 
 

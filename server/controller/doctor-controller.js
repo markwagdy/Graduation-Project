@@ -176,7 +176,6 @@ addCourse=async(req,res)=>{
         {
             return res.status(404).json({success:false,error:err})
         }
-    console.log(Doctor)    
     doctor.courses.push(body.courseId)
     // doctor.photo=body.photo
 
@@ -203,7 +202,6 @@ getDoctor=async(req,res)=>{
         if(err){
             return res.status(400).json({success:false,error:err})
         }
-        console.log(doctor)
         if(!doctor){
             return res.status(404).json({success:false,error:'Doctor not found'})
         }

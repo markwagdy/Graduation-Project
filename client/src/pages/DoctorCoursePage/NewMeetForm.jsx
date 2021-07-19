@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './createMeetingAlert.style.scss';
-import Scrollbars  from 'react-custom-scrollbars';
-import { v1 as uuid } from "uuid";
-import axios from 'axios';
+// import Scrollbars  from 'react-custom-scrollbars';
+// import { v1 as uuid } from "uuid";
+ import axios from 'axios';
 
 const Partarray = ['x'];
 class NewMeetForm extends Component

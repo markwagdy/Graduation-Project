@@ -146,7 +146,7 @@ class NewMeetForm extends Component
                   <div style={{marginTop:"15px"}}>
                     <h1 className="fonts" style={{display: "inline-block",top:"-10px"}}> Created By </h1>
                     
-                    <input className="Doctorname" type="text" placeholder="Doctor Name" onChange={this.handleChange} name="doctorName" value= {this.state.doctorName}   required/> <br></br> 
+                    <input className="Doctorname" type="text" placeholder="Doctor Name" onChange={this.handleChange} name="doctorName" value= {this.state.doctorName}/> <br></br> 
                         
                   </div> 
 

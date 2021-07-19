@@ -31,7 +31,7 @@ class MeetingAnal extends Component {
        
         <div style={{paddingTop:"10px",marginLeft:"80px"}}>
             <div>
-                 <div style={{width:"550px",boxShadow:"0px 2px 5px rgba(0, 0, 0, 0.2)",display: "inline-block"}}> <LineCH /> </div>
+                 <div style={{width:"550px",boxShadow:"0px 2px 5px rgba(0, 0, 0, 0.2)",display: "inline-block"}}> <LineCH lineInfo={this.props.lineChart}/> </div>
                  <div style={{width:"275px",boxShadow:"0px 2px 5px rgba(0, 0, 0, 0.2)",display: "inline-block",marginLeft:"20px"}}><PieChart pieInfo={this.props.pie}/> </div>
             </div>
 

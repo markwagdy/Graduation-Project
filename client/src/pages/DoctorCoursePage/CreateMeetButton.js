@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import newmeet from "./ico/NewMeeting.png"
 import NewMeetForm from './NewMeetForm'
-import { v1 as uuid } from "uuid";
-import {Link} from 'react-router-dom';
+
 class CreateMeetButton extends Component {
 
     constructor(props){
@@ -21,7 +20,7 @@ class CreateMeetButton extends Component {
     changeRoute(props){
       // const id = uuid();
       // this.props.history.push(`/meeting/live/${uuid()}`);
-      window.location.assign('http://localhost:8000/?doctor=true');
+      window.location.assign('http://localhost:8000/');
       
     }
     

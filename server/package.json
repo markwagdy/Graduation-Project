@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Graduation Project ",
   "main": "index.js",
+  "scripts": {
+    "start":"nodemon server.js"
+  },
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
@@ -20,6 +23,7 @@
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
     "http": "0.0.1-security",
+    "https": "^1.0.0",
     "is-empty": "^1.2.0",
     "json-web-token": "^3.2.0",
     "jsonwebtoken": "^8.5.1",

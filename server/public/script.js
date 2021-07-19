@@ -3,6 +3,7 @@ const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined)
 const myVideo = document.createElement('video')
 myVideo.muted = true
+
 var img=new Image()
 let canvas=document.querySelector('#canvas')
 let context=canvas.getContext("2d");
@@ -10,62 +11,49 @@ var dataUrl=canvas.toDataURL("image/png");
 var xht=new XMLHttpRequest()
 let studentSocketId;
 let studentSocketsInRoom=[];
-const studentId=Math.floor(Math.random() * 1000) + 1;
-console.log("student: "+studentId);
+let StudentCurrentEmotions={};
+var arr;
+const peers = {}
+
 
 navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
 }).then(stream => {
-  addVideoStream(myVideo, stream)
+  console.log("DR:  "+DR)
+  var mydocs=document.createElement('div');
+  mydocs.setAttribute('name',studentSocketId);
+  addVideoStream(myVideo, stream,mydocs)
   myVideo.id=studentSocketId;
+
   
   myPeer.on('call', call => {
     call.answer(stream)
     const video = document.createElement('video')
+    const docs=document.createElement('div')
     call.on('stream', userVideoStream => {
-      addVideoStream(video, userVideoStream)
+      addVideoStream(video, userVideoStream,docs)
     })  })
     socket.on('user-connected', userId => {
       connectToNewUser(userId, stream)
+      ,
+      studentSocketsInRoom.push(userId)
     
     
   })
-  var doctor=getUrlVars()['doctor']
+  
 })
-function getUrlVars()
-    {
-        var vars = [], hash;
-        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-        for(var i = 0; i < hashes.length; i++)
-        {
-            hash = hashes[i].split('=');
 
-            if($.inArray(hash[0], vars)>-1)
-            {
-                vars[hash[0]]+=","+hash[1];
-            }
-            else
-            {
-                vars.push(hash[0]);
-                vars[hash[0]] = hash[1];
-            }
-        }
 
-        return vars;
-    }
 
 function AzFun(){
-  
-  
-  
   img.onload=()=>{
     context.drawImage(myVideo,0,0,640,480)
     var student={
       url:canvas.toDataURL(),
       id:studentSocketId
     }
-    
+        
     $.ajax({
       url:'https://flask-emotion-service.herokuapp.com/getEmotion',
       type:'POST',
@@ -79,48 +67,128 @@ function AzFun(){
             console.log(data.getAllResponseHeaders());
           },
       success: function(response){
-          console.log(response)
-  }
-    })
+            StudentCurrentEmotions=response
+            
+            if(DR=="true"){
+              ColorMap()
+            }else{
+
+            }
+            }
+    }
+    
+   
+    )
   };
   img.src=dataUrl; 
+  
 }
-
 setInterval(AzFun,20000);
+
+
+socket.on('user-disconnected', userId => {
+  const videoRemove=document.getElementById(userId);
+ if(videoRemove.previousSibling!=null){
+  var previous=videoRemove.previousSibling;
+  if(previous) {
+    previous.parentNode.removeChild(previous);
+
+   }  }
+  if (peers[userId]) peers[userId].close();
+  if(studentSocketsInRoom[userId]) studentSocketsInRoom[userId].close() 
+})
 
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id),
   studentSocketId=id,
-  console.log(studentSocketId);
+
+  studentSocketsInRoom.push(studentSocketId)
+ 
 })
 
+function ColorMap()
+{   
+  
+  arr=Object.entries(StudentCurrentEmotions);
+  arr.forEach(element => {
+    var texter=document.createElement('p')
+      texter.classList.add("texter");
+      var studentVideo=document.getElementById(String(element[0]))
+    
 
+      if(studentVideo!=null)
+      {
+       var previous=studentVideo.previousSibling;
+        if(previous) {
+          previous.parentNode.removeChild(previous);
+      }
+          
+      if(texter==null)
+      {
+        
+      }
+      else{
+        
+        texter.innerHTML=String(element[1])
+        studentVideo.parentElement.insertBefore(texter,studentVideo)
+        }
+
+
+      studentVideo.classList.remove("Happy")
+      studentVideo.classList.remove("Sad")
+      studentVideo.classList.remove("Neutral")
+      studentVideo.classList.remove("no_face")
+      studentVideo.classList.remove("Angry")
+      studentVideo.classList.remove("confused")
+      studentVideo.classList.remove("Surprise")
+      studentVideo.classList.remove("Fear")
+      
+      
+      
+      studentVideo.classList.add(String(element[1]))
+        
+      
+      
+      
+    }
+  });
+ }
   
 
 
 function connectToNewUser(userId, stream ) {
   studentSocketsInRoom.push(userId)
+  var docs=document.createElement('div')
 
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
   
+  video.id=userId;
+  docs.setAttribute('name',userId);
+  
   call.on('stream', userVideoStream => {
-    addVideoStream(video, userVideoStream,userId)
+    addVideoStream(video, userVideoStream,docs)
   })
   call.on('close', () => {
     video.remove()
   })
-
   
+  peers[userId] = call
 }
 
-function addVideoStream(video, stream,userId) {
+function addVideoStream(video, stream,docs) {
   video.srcObject = stream
-  video.id=userId
+  
   video.addEventListener('loadedmetadata', () => {
     video.play()
+    
   })
+ 
+
+    docs.appendChild(video);
+    videoGrid.appendChild(docs);
   
-  videoGrid.append(video)
+ 
+  
 }
 

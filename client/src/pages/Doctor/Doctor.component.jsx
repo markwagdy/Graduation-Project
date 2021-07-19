@@ -3,7 +3,7 @@ import './Doctor.style.scss';
 import CourseCard from  '../../components/CourseCard/CourseCard.component';
 import CreateCourseAlert from '../../components/createcourseAlert/createcourseAlert.component';
 import axios from 'axios';
-
+import CreatedCourse from './CreatedCourseCard';
 
 
 class Doctor extends React.Component {
@@ -14,7 +14,10 @@ class Doctor extends React.Component {
   
     this.state={
       show:false,
-      doc:{}
+      doc:{
+        courses:[]
+      },
+      
     }
     this.openNav=this.openNav.bind(this);
     
@@ -23,7 +26,6 @@ class Doctor extends React.Component {
   }
   
  async componentDidMount() {
-  
 
    await axios.get(  `http://localhost:8000/api/getdoctor/${this.props.location.state.email}`)
     .then((res) => {
@@ -35,7 +37,11 @@ class Doctor extends React.Component {
   }).catch((error) => {
     console.log(error)
   });
+
  }
+
+
+
  handleCallback = (childData) =>{
   this.setState({doc: childData})
   console.log(this.state.doc)
@@ -50,6 +56,7 @@ class Doctor extends React.Component {
   }
 
     render(){
+
     return (
       <div className="bGd">
       <div className="BWBoarder">
@@ -60,10 +67,19 @@ class Doctor extends React.Component {
               <h2 style={{display: "inline-block", marginRight: "100px"}}> Welcome {this.state.doc.username}</h2>
           </div>
         </div>
-        <span onClick={this.openNav}>       
+
+        <div>
+          <span>   
+          {
+            this.state.doc.courses.map((index) => <div style={{display: "inline-block"}}> <CreatedCourse user={this.state.doc}courses={index}></CreatedCourse> </div>)
+          }  
+          </span>
+
+          <span style={{display: "inline-block"}} onClick={this.openNav}>
           <CourseCard></CourseCard>
-          
-        </span>
+          </span>
+        </div>
+        
       {
        this.state.show?
        <div>

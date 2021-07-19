@@ -152,13 +152,41 @@ getStudent=async(req,res)=>{
         if(!student){
             return res.status(404).json({success:false,error:'Students not found'})
         }
-        return res.status(200).json({success:true,username:student.username})
+        return res.status(200).json({success:true,student:student})
     })
     .populate('course')
     .exec()
     .catch(err => console.log(err))
 }
+addCourse=async(req,res)=>{
+  const body=req.body
+  if(!body)
+  {
+      return res.status(400).json({success:false,message:'you must provide a course to add'})
+  }
+  Student.findOne( {_id:req.params.id},(err,student)=>{
+      if(err)
+      {
+          return res.status(404).json({success:false,error:err})
+      }
+  student.courses.push(body.courseId)
 
+  student.save().then(()=>{
+      return res.status(200).json({
+          success:true,
+          id:body.courseId,
+          message:'course add',
+      })
+  })
+  .catch(error => {
+      return res.status(400).json({
+          error,
+          message:'course not added!',
+      })
+  })
+  })
+  
+}
 getStudentById=async(req,res)=>
 {
   await Student.findOne({_id:req.params.id},(err,student)=>{
@@ -184,5 +212,6 @@ module.exports={
     // createStudnet,
     reigsiterStudent,
     loginStudent,
+    addCourse,
    getStudentById
 }

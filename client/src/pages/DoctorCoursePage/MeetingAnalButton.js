@@ -10,7 +10,8 @@ class MeetingAnalButton extends Component {
           show:false,
           pie:[],
           doughnut:[],
-          horizontalbar:[]
+          horizontalbar:[],
+          lineChart:[]
       }
         this.myfunction=this.myfunction.bind(this);
     }
@@ -34,7 +35,13 @@ class MeetingAnalButton extends Component {
                 this.setState({doughnut:result});
             }
         )
+        fetch("http://flask-emotion-service.herokuapp.com/getLine").then(res=>res.json()).then(
+            result=>{
+                this.setState({lineChart:result});
+            }
+        )
     }
+
 
 
     render() { 

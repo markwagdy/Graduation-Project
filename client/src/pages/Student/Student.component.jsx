@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Student.style.scss';
-import Navbar from  '../../components/Navbar/Nav-bar.component';
+// import Navbar from  '../../components/Navbar/Nav-bar.component';
 import CourseCard from  '../../components/CourseCard/CourseCard.component';
-import { FaSuperscript } from 'react-icons/fa';
-import ReactDom from 'react-dom';
+// import { FaSuperscript } from 'react-icons/fa';
+// import ReactDom from 'react-dom';
 import CardAlert from '../../components/CardAlert/CardAlert.component';
 import axios from 'axios';
 import CreatedCourse from '../Doctor/CreatedCourseCard';
@@ -24,7 +24,6 @@ class Student extends React.Component {
   }
   async componentDidMount() {
   
-
     await axios.get(  `http://localhost:8000/api/getstudent/${this.props.location.state.email}`)
      .then((res) => {
     
@@ -48,7 +47,10 @@ class Student extends React.Component {
   }
   }
     render(){
+  
+      
     return (
+   
       <div className="bGs">
 
         <div className="BWBoarder">
@@ -62,7 +64,7 @@ class Student extends React.Component {
           <div>
           <span>   
           {
-            this.state.student.courses.map((index) => <div style={{display: "inline-block"}}>  <CreatedCourse courses={index}></CreatedCourse> </div>)
+            this.state.student.courses.map((index) => <div style={{display: "inline-block"}}>  <CreatedCourse user={this.state.student.role} courses={index}></CreatedCourse> </div>)
           }  
           </span>
 

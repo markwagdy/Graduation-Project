@@ -14,7 +14,7 @@ class Doctor extends React.Component {
       this.open = this.open.bind(this);
     }
     open(){
-        this.props.history.push('/doctor/course', { coursedata:this.state.coursedata})
+        this.props.history.push('/doctor/course', { coursedata:this.state.coursedata , user:this.props.user})
        
         }
     async componentDidMount() {

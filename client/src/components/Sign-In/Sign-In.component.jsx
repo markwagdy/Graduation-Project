@@ -23,6 +23,10 @@ class SignIn extends React.Component
                 errors:{}
             };
     }
+    
+    componentDidMount(){
+        localStorage.removeItem("user")
+    }
     onChangeUserEmail(e) {
         this.setState({ email: e.target.value })
     }
@@ -47,9 +51,9 @@ onSubmit(e){
         if (res.status === 200) {
             this.setState({ islogin: true })
         //    window.location = "/student";
+        localStorage.setItem("user",res.data.token)
         this.props.history.push('/student', { email:this.state.email })
     }
-        console.log(res.data)
     }).catch((error) => {
         console.log(error)
    
@@ -60,10 +64,11 @@ onSubmit(e){
     .then((res) => {
         if (res.status === 200) {
             this.setState({ islogin: true })
+            localStorage.setItem("user",res.data.token)
          //   window.location = "/doctor";
          this.props.history.push('/doctor', { email:this.state.email })
     }
-        console.log(res.data)
+
     }).catch((error) => {
         console.log(error)
    

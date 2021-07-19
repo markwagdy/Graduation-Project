@@ -121,7 +121,7 @@ class CreateCourseAlert extends Component
 
                   <div style={{marginTop:"15px"}}>
                     <h1 className="fontsC" style={{display: "inline-block", marginTop:"20px"}}> Course Description : </h1>
-                    <textarea className="txtarea1"  onChange={this.handleChange} value={this.state.courseDescription} placeholder="Description" /> <br></br> 
+                    <textarea className="txtarea1" name="courseDescription" onChange={this.handleChange} value={this.state.courseDescription} placeholder="Description" /> <br></br> 
                   </div> 
 
                   <div style={{marginTop:"5px"}}>

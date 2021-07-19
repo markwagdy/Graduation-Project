@@ -9,10 +9,18 @@ class CreateMeetButton extends Component {
       super(props);
       this.state={
         show:false,
-        meetingCreated:false
+        meetingCreated:false,
+        course:{
+          meetings:[]
+        },
+
     }
       this.myfunction=this.myfunction.bind(this);
       this.changeRoute=this.changeRoute.bind(this);
+      
+    
+    this.handleCallback=this.handleCallback.bind(this);
+ 
     }
 
     myfunction() {
@@ -24,19 +32,24 @@ class CreateMeetButton extends Component {
       window.location.assign('http://localhost:8000/?doctor=true');
       
     }
-    
+
+ handleCallback = (childData) =>{
+  this.setState({course: childData})
+  console.log(this.state.course)
+  this.props.parentCallback(this.state.course);
+} 
 
   render(){
   return ( 
     <div style={{paddingLeft:"80px", paddingBottom:"40px"}}>
     
-        <button  onClick={this.changeRoute} className="CreateMeetButton">
+        <button  onClick={this.myfunction} className="CreateMeetButton">
             <img style={{maxWidth:"100%"}}  src={newmeet} alt="Create New Meeting" />
         </button>
       
         {
           this.state.show?
-          <div style={{position:"fixed", zIndex:"1500"}}> <NewMeetForm/>  </div>
+          <div style={{position:"fixed", zIndex:"1500"}}> <NewMeetForm  parentCallback={this.handleCallback}  coursedata={this.props.coursedata} user={this.props.user}/>  </div>
           :""
         }
 

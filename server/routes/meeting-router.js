@@ -9,5 +9,5 @@ router.post('/meeting',MeetingCtrl.createMeeting);
 router.put('/meeting/:id',MeetingCtrl.updateMeeting);
 router.get('/meetings',MeetingCtrl.getMeetings);
 router.delete('/meeting/:id',MeetingCtrl.deleteMeetings);
-router.get('/meeting/getMeeting',MeetingCtrl.getMeetingById);
+router.get('/meeting/getMeeting/:_id',MeetingCtrl.getMeetingById);
 module.exports=router

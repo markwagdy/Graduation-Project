@@ -50,7 +50,7 @@
     "yarn": "^1.22.10"
   },
   "scripts": {
-    "start": "set PORT=3000 && react-scripts start && DEBUG=socket.io*",
+    "start": "set PORT=3000  && react-scripts start && DEBUG=socket.io*",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

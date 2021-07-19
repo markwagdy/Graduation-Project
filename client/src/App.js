@@ -12,7 +12,6 @@ import PrivateRoute from './components/PrivateRoute.jsx';
 import CourseStudent from './pages/StudentCoursePage/CourseStudent';
 import CourseDoctor from './pages/DoctorCoursePage/CourseDoctor';
 
-
 class App extends Component {
 
 

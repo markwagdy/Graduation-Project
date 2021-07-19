@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         const ROOM_ID="<%=roomId%>"
+        const DR="<%=doctor%>"
+       
     </script>
         <script src="/socket.io/socket.io.js" defer></script>
         <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js" defer></script>
@@ -14,25 +16,88 @@
 			  crossorigin="anonymous"></script>
         <script src="script.js" defer></script>
     
-        <title>Document</title>
+        <title>Live Meeting</title>
     <style>
         #video-grid{
             display: grid;
             grid-template-columns: repeat(auto-fill,300px);
             grid-auto-rows:300px ;
+            gap: 20px;
+            background-color:#181818;
+            border: 2px solid;
+            border-radius: 20px;
+            padding: 20px;
+            padding-bottom: 30px;
+            height: 1200px;
+            margin-top: 20px;
+            margin: 20px;
         }
+        
+        .texter{
+            font-weight: 100;
+            font-family: Arial, Helvetica, sans-serif;
+            color:seashell;
+            margin: 0px;
+            padding: 0px;
+            margin-bottom: 2px;
+        }
+        .grider div:nth-child(1){
+            grid-column: 1/3;
+            grid-row: 1/3;
+        }
+        body{
+        background-color: #606060;
+        }
+        
         video{
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border: 2px solid green;
-        }
+            
+            -o-transform : scaleX(-1);
+            -moz-transform : scaleX(-1);
+            -webkit-transform : scaleX(-1);
+            -ms-transform: scaleX(-1);
+            transform : scaleX(-1);
+            
+            }
+            
+            .Happy{
+                border: 8px solid blue;
+                
+            }
+            
+            
+            .Sad{
+                border:8px solid darkgoldenrod;
+
+            }
+            .Angry{
+                border:8px solid darkgreen;
+
+            }
+            .no_face{
+                border: 8px  solid red;
+            }
+            .Neutral{
+                border:8px solid yellowgreen;
+            }
+            .Fear{
+                border:8px solid deeppink;
+
+            }
+            .confused{
+                border: 8px solid sienna;
+            }
+            .Surprise{
+                border: 8px solid steelblue;
+            }
     </style>
 </head>
 <body>
-    <div id='video-grid'></div>
-    <canvas id="canvas" width="640p" height="480" style="display: none;" ></canvas>
-    <button id='snap'>Take Shot</button>
+    <div id='video-grid'class="grider"></div>
+    <canvas id="canvas" width="640p" height="480" style="display: none;" ></canvas>    
     <canvas id="canvas" width="640" height="480"></canvas>
+
 </body>
 </html>

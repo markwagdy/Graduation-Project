@@ -1,6 +1,6 @@
 require('dotenv').config();//yes
 const express = require("express");//yes
-const http = require("http"); //yes
+const https = require("https"); //yes
 const app = express();//yes
 
 const server = require('http').Server(app)
@@ -36,12 +36,28 @@ const peerServer=ExpressPeerServer(server,{
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use('/peerjs',peerServer)
+var dr;
 app.get('/', (req, res) => {
+  https.get('https://flask-emotion-service.herokuapp.com/getClear',()=>{
+    console.log("cleared")
+  })
+  dr=true;
   res.redirect(`/${uuidV4()}`)
 })
+
+
+
 app.get('/:room', (req, res) => {
-    res.render('room', { roomId: req.params.room })
+  if(dr){
+    res.render('room', { roomId: req.params.room ,doctor:dr})
+    dr=false;
+  }
+  else
+  {
+    res.render('room', { roomId: req.params.room ,doctor:dr})
+  }
   })
+
 io.on('connection', socket => {
     
     socket.on('join-room', (roomId, userId) => {
@@ -51,7 +67,9 @@ io.on('connection', socket => {
       socket.on('disconnect', () => {
         socket.to(roomId).broadcast.emit('user-disconnected', userId)
       })
-     
+      socket.on('error', function(){
+        socket.reconnect();
+      });
     })
   })
 
@@ -66,4 +84,4 @@ app.use('/api',courseRouter)
 app.use('/api',doctorRouter)
 app.use('/api',meetingRouter)
 
-server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+server.listen(PORT,"0.0.0.0", () => console.log(`Server is running on port ${PORT}`));

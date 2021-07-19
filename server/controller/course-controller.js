@@ -113,7 +113,7 @@ addmeeting=async(req,res)=>{
         {
             return res.status(404).json({success:false,error:err})
         }
-    console.log(Course)    
+  
     course.meetings.push(body.meetingId)
     // doctor.photo=body.photo
 

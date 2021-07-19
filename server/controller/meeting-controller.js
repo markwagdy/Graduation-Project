@@ -4,7 +4,6 @@ const { v4: uuidV4 } = require('uuid')
 
 createMeeting= (req,res) => {
     const body=req.body
-    console.log(body);
     if(!body)
     {
         return res.status(400).json({

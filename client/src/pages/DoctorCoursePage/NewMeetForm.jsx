@@ -81,6 +81,7 @@ class NewMeetForm extends Component
   //     inputLinkClicked: true
   //   })
   // }
+
   onSubmit(e){
     e.preventDefault(); 
     const userData={
@@ -105,7 +106,6 @@ class NewMeetForm extends Component
       this.state.course.meetings.push(res.data.id)
       console.log(this.state.course)
       this.props.parentCallback(this.state.course);
-      this.props.parentCallback1(this.state.meeting);
     }
     }).catch((error) => {
         console.log(error)

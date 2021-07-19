@@ -17,12 +17,12 @@ class PieChart extends Component{
             label: '# of Votes',
             data: [this.props.pieInfo.payingAttention,this.props.pieInfo.notPayingAttention],
             backgroundColor: [
-              '#c23939',
               '#e8e8e8',
+              '#c23939',
             ],
             borderColor: [
-              '#c23939',
               '#e8e8e8',
+              '#c23939',
             ],
             borderWidth: 1,
           },

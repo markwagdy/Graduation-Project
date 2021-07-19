@@ -117,16 +117,24 @@ button{
     box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.12);
     position: absolute;
     top: 0; right: 15%;
+    color: #0F5298;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 35px;
   }
 
 .report:hover{
     border-radius: 54px 54px 54px 54px;
-    background-color:#B8312F;
+    background-color:#0F5298;
     width: 200px;
     height: 170px;
     box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.12);
     position: absolute;
     top: 0; right: 15%;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 35px;
 }
 
 .meetanalbutt{

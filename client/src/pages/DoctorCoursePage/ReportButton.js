@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import reportico from './ico/reportico.png'
-import reporticohov from './ico/reporticohov.png'
 
 class ReportButton extends Component {
     state = {  }
@@ -11,12 +9,8 @@ class ReportButton extends Component {
 
     render() { 
         return ( 
-            <button className="report">
-                <img className="centerox"  
-                src={reportico} alt="drop" 
-                onMouseOver={e => (e.currentTarget.src = reporticohov)}
-                onMouseOut={e => (e.currentTarget.src = reportico)}
-                onClick={this.myfunction}/>
+            <button className="report" onClick={this.myfunction}>
+                Start Meeting
             </button>
          );
     }

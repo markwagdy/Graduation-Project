@@ -67,7 +67,7 @@ onChangeacadID(e) {
 
       if(this.state.role==='student'){
 
-      axios.post('http://localhost:8000/api/registerstudent', userObject)
+      axios.post('http://192.168.1.5:8000/api/registerstudent', userObject)
           .then((res) => {
              
             if (res.status === 200) {
@@ -83,7 +83,7 @@ onChangeacadID(e) {
       }
       else if (this.state.role==='doctor'){
          console.log(userObject)
-         axios.post('http://localhost:8000/api/registerdoctor', userObject)
+         axios.post('http://192.168.1.5:8000/api/registerdoctor', userObject)
          .then((res) => {
            if (res.status === 200) {
             this.setState({ islogin: true })

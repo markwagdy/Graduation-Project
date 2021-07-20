@@ -24,7 +24,7 @@ class Student extends React.Component {
   }
   async componentDidMount() {
   
-    await axios.get(  `http://localhost:8000/api/getstudent/${this.props.location.state.email}`)
+    await axios.get(  `http://192.168.1.5:8000/api/getstudent/${this.props.location.state.email}`)
      .then((res) => {
     
     if (res.status===200) {

@@ -4,7 +4,7 @@ class DropCI extends Component {
   render(){
   return ( 
 
-    <driv>
+    <div>
         <div className="Blackout"> </div>
         
     <div className="DropCI">
@@ -42,7 +42,7 @@ class DropCI extends Component {
 
     </div>
 
-    </driv>
+    </div>
 
   );
 }

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button,Alert} from 'reactstrap';
 import * as TiIcons from 'react-icons/ti';
 import './CourseCard.style.scss';
-import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 
 class CourseCard extends Component 
 {

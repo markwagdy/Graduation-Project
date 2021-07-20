@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './CoursePIN.style.scss';
-import CustomButton from '../CustomButton/Custom-Button.component';
 
 
 class CoursePIN extends Component

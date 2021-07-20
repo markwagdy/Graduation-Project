@@ -69,11 +69,11 @@ class CreateCourseAlert extends Component
       doctor:this.state.doctor
       //meetingId:"" 
     } 
-  axios.post('http://localhost:8000/api/Course', userData)
+  axios.post('http://192.168.1.5:8000/api/Course', userData)
     .then((res) => {
         if (res.status === 201) {
        this.setState({courseId:res.data.id})
-       axios.put(`http://localhost:8000/api/addCourse/${this.props.doctordata._id}`, {courseId:this.state.courseId} )
+       axios.put(`http://192.168.1.5:8000/api/addCourse/${this.props.doctordata._id}`, {courseId:this.state.courseId} )
     .then((res) => {
         if (res.status === 200) {
       this.state.doctor.courses.push(res.data.id)

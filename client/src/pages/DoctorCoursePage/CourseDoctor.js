@@ -30,10 +30,7 @@ class CourseDoctor extends Component {
 
       <Scrollbars style={{ height: 700 , width: 990}}>
       <OldMeeting role={this.props.location.state.user.role} coursedata={this.state.course} meetingdata={this.state.meeting}/>
-      {this.props.location.state.user.role === "doctor" ?
       <CreateMeetButton parentCallback={this.handleCallback} coursedata={this.state.course} user={this.props.location.state.user} history={this.props.history}/>
-      : null}
-
 
       </Scrollbars>
 

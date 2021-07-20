@@ -14,11 +14,16 @@ class Doctor extends React.Component {
       this.open = this.open.bind(this);
     }
     open(){
+      if(this.props.user.role==="doctor")
         this.props.history.push('/doctor/course', { coursedata:this.state.coursedata , user:this.props.user})
+        else {
+          this.props.history.push('/student/course', { coursedata:this.state.coursedata , user:this.props.user})
+
+        }
        
         }
     async componentDidMount() {
-             await axios.get(  `http://localhost:8000/api/Course/${this.state.courses}`)
+             await axios.get(  `http://192.168.1.5:8000/api/Course/${this.state.courses}`)
          .then((res) => {
         
         if (res.status===200) {

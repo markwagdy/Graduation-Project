@@ -12,10 +12,15 @@ class MeetingAnal extends Component {
             show:true,
         }
         this.closepopup=this.closepopup.bind(this); 
+        this.downEX=this.downEX.bind(this); 
     }
 
     closepopup(){
         this.setState({show:false});
+      }
+
+      downEX(){
+        window.location.assign('https://flask-emotion-service.herokuapp.com/download')
       }
 
   render(){
@@ -30,6 +35,7 @@ class MeetingAnal extends Component {
         <div style={{ width:"100%", height:"55px",backgroundColor:"#0F5298",textAlign:"center",paddingTop:"10px" }}> <h1 style={{color:"white"}}>Lecture Analytics</h1> </div>
        
         <div style={{paddingTop:"10px",marginLeft:"80px"}}>
+
             <div>
                  <div style={{width:"550px",boxShadow:"0px 2px 5px rgba(0, 0, 0, 0.2)",display: "inline-block"}}> <LineCH lineInfo={this.props.lineChart}/> </div>
                  <div style={{width:"275px",boxShadow:"0px 2px 5px rgba(0, 0, 0, 0.2)",display: "inline-block",marginLeft:"20px"}}><PieChart pieInfo={this.props.pie}/> </div>
@@ -39,6 +45,8 @@ class MeetingAnal extends Component {
                  <div style={{width:"200px",boxShadow:"0px 2px 5px rgba(0, 0, 0, 0.2)",paddingBottom:"10px",display: "inline-block"}}> <Doughnut doughInfo={this.props.doughnut}/> </div>
                  <div style={{width:"400px",boxShadow:"0px 2px 5px rgba(0, 0, 0, 0.2)",paddingBottom:"10px",display: "inline-block",marginLeft:"20px"}}> <HorizontalBar barInfo={this.props.horizontalbar}/> </div>
             </div>
+
+            <button onClick={this.downEX.bind(this)} type="submit" className="downEX">  Download Excel Sheet  </button> 
         </div>
     </div>
     </div>

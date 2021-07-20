@@ -17,7 +17,7 @@ class OldMeetCard extends Component {
       }
       async componentDidMount() {
 
-        await axios.get(  `http://localhost:8000/api/meeting/getMeeting/${this.props.index}`)
+        await axios.get(  `http://192.168.1.5:8000/api/meeting/getMeeting/${this.props.index}`)
          .then((res) => {
         
         if (res.status===200) {
@@ -33,13 +33,11 @@ class OldMeetCard extends Component {
   return ( 
     <div>
         <div className="OldMeetCard">
-        {this.props.role === "doctor" ?
        <MeetingAnalButton/>
-      : null}
+      
 
-            {this.props.role === "doctor" ?    
              <ReportButton/>
-             : null}
+           
 
              
              <h1 style={{display: "inline-block",  fontSize: "30px"}}>{this.state.meeting.MeetingName}</h1>

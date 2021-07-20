@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './CardAlert.style.scss';
 import CustomButton from '../CustomButton/Custom-Button.component';
 import axios from 'axios';
-import CoursePIN from '../CoursePIN/CoursePIN.component';
 
 
 class CardAlert extends Component
@@ -38,13 +37,13 @@ class CardAlert extends Component
   }
   onSubmit(e){
     e.preventDefault(); 
-     axios.get(`http://localhost:8000/api/CourseByPin/${this.state.coursePin}` )
+     axios.get(`http://192.168.1.5:8000/api/CourseByPin/${this.state.coursePin}` )
     .then((res) => {
         if (res.status === 200) {
       this.state.student.courses.push(res.data.coursedata._id)
 
       this.setState({course:res.data.coursedata})
-      axios.put(`http://localhost:8000/api/addCoursestudent/${this.state.student._id}`, {courseId:this.state.course._id} )
+      axios.put(`http://192.168.1.5:8000/api/addCoursestudent/${this.state.student._id}`, {courseId:this.state.course._id} )
     .then((res) => {
         if (res.status === 200) {
       this.props.parentCallback(this.state.student);

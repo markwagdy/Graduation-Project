@@ -83,7 +83,15 @@ function AzFun(){
   img.src=dataUrl; 
   
 }
-setInterval(AzFun,20000);
+
+if(DR=="true"){
+  setInterval(AzFun,20000);
+
+}
+else{
+  setInterval(AzFun,20000);
+
+}
 
 
 socket.on('user-disconnected', userId => {

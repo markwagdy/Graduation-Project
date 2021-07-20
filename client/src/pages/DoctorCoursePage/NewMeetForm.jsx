@@ -95,12 +95,12 @@ class NewMeetForm extends Component
       courseId:this.state.course._id
     } 
     console.log(userData)
-  axios.post('http://localhost:8000/api/meeting', userData)
+  axios.post('http://192.168.1.5:8000/api/meeting', userData)
     .then((res) => {
         if (res.status === 201) {
        this.setState({meetingId:res.data.id})
        this.setState({meeting:res.data.meeting})
-       axios.put(`http://localhost:8000/api/addMeeting/${this.props.coursedata._id}`, {meetingId:this.state.meetingId} )
+       axios.put(`http://192.168.1.5:8000/api/addMeeting/${this.props.coursedata._id}`, {meetingId:this.state.meetingId} )
     .then((res) => {
         if (res.status === 200) {
       this.state.course.meetings.push(res.data.id)

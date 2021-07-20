@@ -2,13 +2,32 @@ import React, { Component } from 'react';
 import joinmeetbg from "./ico/joinmeetbg.png"
 import join from "./ico/join.png"
 import joinhov from "./ico/joinHov.png"
+import axios from 'axios';
 
 class JoinMeetButton extends Component {
-
+  constructor(props){
+    super(props);
+    this.state={
+     roomID:"" 
+    }
+    this.myfunction = this.myfunction.bind(this);
+  }
     myfunction() {
-      window.location.href="/Meeting/"
+      window.location.href= `http://192.168.1.5:8000/${this.state.roomID}`
     }
     
+    async componentDidMount() {
+                await axios.get(  `http://192.168.1.5:8000/hi/URLID`)
+            .then((res) => { 
+          if (res.status===200) {
+            console.log(res.data.data)
+            this.setState({roomID:res.data.data})
+            // this.setState({coursedata:res.data.coursedata})
+            }
+          }).catch((error) => {
+            console.log(error)
+          }); 
+          } 
 
   render(){
   return ( 

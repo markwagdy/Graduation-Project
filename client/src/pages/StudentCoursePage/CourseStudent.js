@@ -10,14 +10,24 @@ import './CourseStudentStyle.scss';
 // document.body.style.backgroundColor = "#0f5298";
 
 class CourseStudent extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+    course:this.props.location.state.coursedata,
+  }
+    // this.handleCallback=this.handleCallback.bind(this);}
+    // handleCallback = (childData) =>{
+    //   this.setState({course: childData})
+    //   console.log(this.state.course)
+    } 
   render(){
   return ( 
     <div className="BWBoarder">
-      <Hbar />
+      <Hbar coursedata={this.state.course} role={this.props.location.state.user.role}/>
       <SideSection/>
 
       <Scrollbars style={{ height: 700 , width: 990}}>
-      <OldMeeting/>
+      <OldMeeting role={this.props.location.state.user.role} coursedata={this.state.course} meetingdata={this.state.meeting}/>
       <JoinMeetButton/>
       </Scrollbars>
 

@@ -1,34 +1,62 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class OldMeetCard extends Component {
+    constructor(props){
+        super(props);
+    
+      
+        this.state={
+          show:false,
+        meeting:"",
+          
+        }
+       
+      }
+      async componentDidMount() {
+
+        await axios.get(  `http://192.168.1.5:8000/api/meeting/getMeeting/${this.props.index}`)
+         .then((res) => {
+        
+        if (res.status===200) {
+         console.log(res)
+         this.setState({meeting:res.data.data})
+         }
+       }).catch((error) => {
+         console.log(error)
+       });
+     
+      }
   render(){
   return ( 
     <div>
-        <div className="OldMeetCardStudent">
-             
-             <h1 style={{display: "inline-block",  fontSize: "30px"}}>Lecture X, Name</h1>
-             <h5 style={{position:"absolute",right:"0",margin:"25px 100px 0px 0px",fontSize: "30px"}} >Finished</h5>
+        <div className="OldMeetCard">
+         
+             <h1 style={{display: "inline-block",  fontSize: "30px"}}>{this.state.meeting.MeetingName}</h1>
+             <h5 style={{display: "inline-block", paddingLeft:"50px"}} >Scheduled</h5>
 
-             <div class="grid-container grid-in-card-Student">
+             <div class="grid-container grid-in-card">
                     <div class="grid-item grid-item-in-card">
                         <p> Created By </p>
                     </div>
                     <div class="grid-item grid-item-in-card">
-                        <p> DATA </p>
+                        <p>{this.props.coursedata.doctorName} </p>
                     </div>
                     <div class="grid-item grid-item-in-card">
                         <p> On </p>
                     </div>
                     <div class="grid-item grid-item-in-card">
-                        <p> DATA </p>
+                        <p> {this.state.meeting.Day} / {this.state.meeting.Month} / {this.state.meeting.Year} </p>
                     </div>
                     <div class="grid-item grid-item-in-card">
-                        <p> Duration (H:M:S) </p>
+                        <p> time (H:M:S) </p>
                     </div>
                     <div class="grid-item grid-item-in-card">
-                        <p> DATA </p>
+                        <p> {this.state.meeting.Hour} : {this.state.meeting.Minute} : {this.state.meeting.Second} </p>
                     </div>
                 </div>
+        
+            
         
         </div>
 

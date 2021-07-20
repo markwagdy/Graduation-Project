@@ -265,7 +265,7 @@ button{
     border-radius: 0px 0px 54px 54px;
     background-color:white;
     width: 1000px;
-    height: 600px;
+    height: 670px;
     box-shadow: 0px 19px 26px rgba(0, 0, 0, 0.03);
     position: fixed;
     overflow: auto;
@@ -273,3 +273,21 @@ button{
     z-index: 1500;
     top:100px; left:250px;
 }
+
+.downEX{
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: #0F5298;
+    width: 150px;
+    height: 60px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+    position: relative;
+    margin-left: 37%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-family:  sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+  }

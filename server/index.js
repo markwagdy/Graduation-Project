@@ -2,7 +2,7 @@ require('dotenv').config();//yes
 const express = require("express");//yes
 const https = require("https"); //yes
 const app = express();//yes
-
+var roomy;
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
@@ -15,6 +15,8 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
  
 const cors = require("cors");
+
+var roomURL;
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -42,12 +44,12 @@ app.get('/', (req, res) => {
     console.log("cleared")
   })
   dr=true;
-  res.redirect(`/${uuidV4()}`)
+   roomy=uuidV4();
+  res.redirect(`/${roomy}`)
 })
 
-
-
 app.get('/:room', (req, res) => {
+
   if(dr){
     res.render('room', { roomId: req.params.room ,doctor:dr})
     dr=false;
@@ -57,6 +59,21 @@ app.get('/:room', (req, res) => {
     res.render('room', { roomId: req.params.room ,doctor:dr})
   }
   })
+
+  app.get('/hi/URLID',(req,res)=> {
+    if (roomy == null){
+      
+    }
+    else{
+      // res.data = roomy;
+      console.log(roomy);
+      res.status(200).json({
+        sucess:true,
+        data:roomy
+      })
+    }
+  }
+)
 
 io.on('connection', socket => {
     

@@ -46,7 +46,7 @@ onSubmit(e){
     password:this.state.password    
     } 
     console.log(userData)
-    axios.post('http://localhost:8000/api/loginstudent', userData)
+    axios.post('http://192.168.1.5:8000/api/loginstudent', userData)
     .then((res) => {
         if (res.status === 200) {
             this.setState({ islogin: true })
@@ -60,7 +60,7 @@ onSubmit(e){
     });
     if(this.state.islogin===false){
 
-    axios.post('http://localhost:8000/api/logindoctor', userData)
+    axios.post('http://192.168.1.5:8000/api/logindoctor', userData)
     .then((res) => {
         if (res.status === 200) {
             this.setState({ islogin: true })

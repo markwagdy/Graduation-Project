@@ -19,7 +19,6 @@ class CoursePIN extends Component
     dummy.select();
     document.execCommand("copy");
     document.body.removeChild(dummy);
-    console.log(this.props.pin)
   
 
   }
@@ -47,19 +46,19 @@ class CoursePIN extends Component
           <div className="imgcontainer">
          <span onClick={this.closepopup} class="close" title="Close Modal">&times;</span>
          </div>
-         <div className="bannerP"> Add New Course</div>
-            <div style={{paddingLeft:"20px",paddingTop:"40px"}}> 
+         <div className="bannerP">Course Added</div>
+            <div style={{paddingTop:"40px",textAlign:"center"}}> 
                <div>
                   <h1 className="fontsP" style={{display: "inline-block"}}>Course PIN</h1>
                  <br></br> 
                 </div>
 
 
-                <div style={{marginTop:"30px", marginLeft:"30px"}}>
+                <div style={{marginTop:"30px"}}>
                 <h1 className="fontsP" id="pin" style={{display: "inline-block"}}>{this.props.pin}</h1>
                 </div>
                 {/* <CustomButton onClick={() => this.onSubmit1.bind(this)} class="EnterbtnP">Copy</CustomButton> */}
-                <h1 className="fontsP" style={{display: "inline-block"}}>copied to your clipboard</h1>
+                <h1 className="fontsP" style={{display: "inline-block",color:"gray",fontSize:"25px",paddingTop:"10px"}}>Copied To Your Clipboard</h1>
                  <br></br> 
                
             </div>

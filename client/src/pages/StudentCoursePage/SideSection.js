@@ -6,8 +6,8 @@ class SideSection extends Component {
   render(){
   return ( 
     <div className="SideSection">
-      <Calender/>   
-      <Notes/>
+      {/* <Calender/>    */}
+      <Notes coursedata={this.props.coursedata}/>
     </div>
 
   );

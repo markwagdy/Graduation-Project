@@ -39,7 +39,10 @@ class CardAlert extends Component
     e.preventDefault(); 
      axios.get(`http://192.168.1.5:8000/api/CourseByPin/${this.state.coursePin}` )
     .then((res) => {
+
+
         if (res.status === 200) {
+          if(this.state.student.courses.indexOf(res.data.coursedata._id) < 0){
       this.state.student.courses.push(res.data.coursedata._id)
 
       this.setState({course:res.data.coursedata})
@@ -52,13 +55,14 @@ class CardAlert extends Component
         console.log(error)
    
     });
-    }
+    }}
     }).catch((error) => {
         console.log(error)
    
     });
     
     this.showpin(); 
+    
  }
 
 

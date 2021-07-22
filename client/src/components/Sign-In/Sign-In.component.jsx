@@ -25,8 +25,7 @@ class SignIn extends React.Component
     }
     
     componentDidMount(){
-        localStorage.removeItem("user")
-    }
+        }
     onChangeUserEmail(e) {
         this.setState({ email: e.target.value })
     }
@@ -45,7 +44,6 @@ onSubmit(e){
 
     password:this.state.password    
     } 
-    console.log(userData)
     axios.post('http://192.168.1.5:8000/api/loginstudent', userData)
     .then((res) => {
         if (res.status === 200) {

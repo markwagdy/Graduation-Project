@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BackButton from './BackButton'
 import DropButton from './DropButton'
+import LogOutComp from '../../components/logOut/LogOutComp';
 
 class Hbar extends Component {
     render() { 
@@ -15,8 +16,11 @@ class Hbar extends Component {
       <div style={{display: "inline-block"}}> <CourseAnalButton/></div>
       : null} */}
 
-
-                <h6>COURSE BY DR. {this.props.coursedata.doctorName}</h6>
+            <div style={{display:"block"}}> 
+                <h6 style={{display: "inline-block"}}>COURSE BY DR. {this.props.coursedata.doctorName}</h6>
+                <LogOutComp></LogOutComp>
+            </div>
+               
             </div>
 
          );

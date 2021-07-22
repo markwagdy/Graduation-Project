@@ -21,7 +21,7 @@ handleChange=()=>{
     return(
     <div className='homepage'>
         <div className="img" >
-        <h2 className="slogan">SLOGAN</h2>
+        <h2 className="slogan">RAVEN</h2>
         <div className='right-half'>
         <h1 className={`${isSignedUp?'mini-title':'title2'}`} >WELCOME</h1>
         {

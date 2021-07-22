@@ -22,15 +22,17 @@ class CourseStudent extends Component {
     } 
   render(){
   return ( 
-    <div className="BWBoarder">
-      <Hbar coursedata={this.state.course} role={this.props.location.state.user.role}/>
-      <SideSection/>
 
-      <Scrollbars style={{ height: 700 , width: 990}}>
-      <OldMeeting role={this.props.location.state.user.role} coursedata={this.state.course} meetingdata={this.state.meeting}/>
-      <JoinMeetButton/>
-      </Scrollbars>
+    <div className="BlueBG">
+      <div className="BWBoarder">
+        <Hbar coursedata={this.state.course} role={this.props.location.state.user.role}/>
+        <SideSection coursedata={this.state.course}/>
 
+        <Scrollbars style={{ height: 700 , width: 990}}>
+        <OldMeeting role={this.props.location.state.user.role} coursedata={this.state.course} meetingdata={this.state.meeting}/>
+        <JoinMeetButton coursedata={this.state.course} />
+        </Scrollbars>
+      </div>
     </div>
 
   );

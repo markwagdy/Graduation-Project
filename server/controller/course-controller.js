@@ -63,6 +63,50 @@ updateCourse=async(req,res)=>{
     })
     
 }
+addnote=async(req,res)=>{
+    const body=req.body
+    if(!body)
+    {
+        return res.status(400).json({success:false,message:'you must provide a note to add'})
+    }
+    Course.findOne( {_id:req.params.id},(err,course)=>{
+        if(err)
+        {
+            return res.status(404).json({success:false,error:err})
+        }
+  
+    course.notes.push(body.note)
+    // doctor.photo=body.photo
+
+    course.save().then(()=>{
+        return res.status(200).json({
+            success:true,
+            message:'note added',
+            notes:course.notes
+        })
+    })
+    .catch(error => {
+        return res.status(400).json({
+            error,
+            message:'note not added!',
+        })
+    })
+    })
+    
+}
+getNotes=async(req,res)=>{
+
+    const id = req.params._id;
+    await Course.findOne({ _id:req.params._id},(err,course)=>{
+        if(err){
+            return res.status(400).json({success:false,error:err})
+        }
+        if(!course){
+            return res.status(404).json({success:false,error:'course not found'})
+        }
+        return res.status(200).json({success:true,notes:course.notes})
+    }).catch(err => console.log(err))
+}
 getCourse=async(req,res)=>{
 
     const id = req.params._id;
@@ -139,5 +183,7 @@ module.exports={
     updateCourse,
     getCourse,
     getCourseByPin,
-    createCourse
+    createCourse,
+    addnote,
+    getNotes
 }

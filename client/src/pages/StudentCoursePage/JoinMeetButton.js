@@ -48,18 +48,13 @@ class JoinMeetButton extends Component {
                 <h1 style={{position:"absolute",color:"white",fontSize:"20px", display:"inline-block",marginTop:"22px",marginLeft:"20px"}}> 
                       Created By 
                 </h1>  
-                <h1 style={{position:"absolute",color:"white",fontSize:"20px", display:"inline-block",marginTop:"22px",marginLeft:"200px"}}>
-                       Duration
-                </h1> 
+        
             </div> 
 
             <div>
             <h1 style={{position:"absolute",color:"white",fontSize:"20px", display:"inline-block",marginTop:"42px",marginLeft:"20px",fontWeight:"lighter"}}>
-                      7ot esm el dr
-            </h1> 
-            <h1 style={{position:"absolute",color:"white",fontSize:"20px", display:"inline-block",marginTop:"42px",marginLeft:"200px",fontWeight:"lighter"}}>
-                    7ot el duration
-            </h1> 
+{this.props.coursedata.doctorName}            </h1> 
+         
 
             <h1 style={{position:"absolute",color:"white",fontSize:"35px", display:"inline-block",marginTop:"65px"}}>
                       Occurring Now!

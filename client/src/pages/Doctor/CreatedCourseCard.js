@@ -27,7 +27,6 @@ class Doctor extends React.Component {
          .then((res) => {
         
         if (res.status===200) {
-         console.log(res)
          this.setState({coursedata:res.data.coursedata})
          }
        }).catch((error) => {

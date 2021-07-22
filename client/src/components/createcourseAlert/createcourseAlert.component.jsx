@@ -66,7 +66,8 @@ class CreateCourseAlert extends Component
       creditHours:this.state.creditHours,
     //courseId:this.state.courseId,
       //drEmail:"",
-      doctor:this.state.doctor
+      doctor:this.state.doctor,
+      notes:[]
       //meetingId:"" 
     } 
   axios.post('http://192.168.1.5:8000/api/Course', userData)
@@ -77,7 +78,6 @@ class CreateCourseAlert extends Component
     .then((res) => {
         if (res.status === 200) {
       this.state.doctor.courses.push(res.data.id)
-      console.log(this.state.doctor)
       this.props.parentCallback(this.state.doctor);
     }
     }).catch((error) => {

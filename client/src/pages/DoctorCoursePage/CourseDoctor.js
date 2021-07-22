@@ -4,8 +4,7 @@ import SideSection from './SideSection'
 import OldMeeting from './OldMeeting'
 import CreateMeetButton from './CreateMeetButton'
 import Scrollbars  from 'react-custom-scrollbars';
-import './CourseDoctorStyle.scss';
-
+import './CourseDoctorStyle.scss'
 
 // document.body.style.backgroundColor = "#0f5298";
 
@@ -26,12 +25,11 @@ class CourseDoctor extends Component {
       <div className="BlueBG">
        <div className="BWBoarder">
       <Hbar coursedata={this.state.course} role={this.props.location.state.user.role}/>
-      <SideSection/>
+      <SideSection coursedata={this.state.course}/>
 
       <Scrollbars style={{ height: 700 , width: 990}}>
       <OldMeeting role={this.props.location.state.user.role} coursedata={this.state.course} meetingdata={this.state.meeting}/>
       <CreateMeetButton parentCallback={this.handleCallback} coursedata={this.state.course} user={this.props.location.state.user} history={this.props.history}/>
-
       </Scrollbars>
 
     </div>

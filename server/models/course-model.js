@@ -13,6 +13,7 @@ const Course=new Schema(
     semesterYear:{type:Number,required:true},
     semesterType:{type:String,required:true},
     creditHours:{type:Number,required:true},
+    notes:[{type:String}],
    // courseId:{type:String,required:true},
    // student:[{type:mongoose.SchemaTypes.ObjectId,ref:'students'}], //el ref bykon esm el collection bt3 students
     //drEmail:{type:mongoose.SchemaTypes.Email,required:true},

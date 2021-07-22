@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import photo from './ico/fbPP.jpg'
 
 class Notaya extends Component {
   render(){
@@ -6,15 +7,16 @@ class Notaya extends Component {
       <div style={{display:"block",height:"135px",paddingLeft:"25px"}}> 
 
             <div className="NoteSenderName">
-            Dr./Yasser Sami
+                 DR./ 
+               {this.props.coursedata.doctorName}
             </div>
 
-            <div className="NotayaSora" style={{display: "inline-block",marginRight:"5px"}}>
-                    {/* <img src="" alt="Italian Trulli"/> */}
-            </div>
+            <img className="NotayaSora" style={{display: "inline-block",marginRight:"5px",height:"60px"}} src={photo} alt="Dr photo" />
+
+            {/* <div className="NotayaSora" style={{display: "inline-block",marginRight:"5px"}}> </div> */}
 
            <div className="Notaya" style={{display: "inline-block"}}>
-                msg
+                {this.props.index}
            </div>
            
            <hr className="hr1"></hr>

@@ -4,6 +4,7 @@ import CourseCard from  '../../components/CourseCard/CourseCard.component';
 import CreateCourseAlert from '../../components/createcourseAlert/createcourseAlert.component';
 import axios from 'axios';
 import CreatedCourse from './CreatedCourseCard';
+import LogOutComp from '../../components/logOut/LogOutComp';
 
 
 class Doctor extends React.Component {
@@ -31,7 +32,6 @@ class Doctor extends React.Component {
     .then((res) => {
    
    if (res.status===200) {
-    console.log(res)
     this.setState({doc:res.data.doc})
     }
   }).catch((error) => {
@@ -44,7 +44,6 @@ class Doctor extends React.Component {
 
  handleCallback = (childData) =>{
   this.setState({doc: childData})
-  console.log(this.state.doc)
 } 
   openNav(){
     if(this.state.show)
@@ -64,7 +63,11 @@ class Doctor extends React.Component {
         <div className="Hbar">
           <div style={{overflow: "hidden", display:"flex", justifyContent: "space-between" }}> 
               <h1 style={{display: "inline-block"}}>Raven</h1>
-              <h2 style={{display: "inline-block", marginRight: "100px"}}> Welcome {this.state.doc.username}</h2>
+              <div style={{display: "inline-block"}}> 
+                  <h2 style={{marginRight: "100px"}}> Welcome {this.state.doc.username}</h2>
+                  <LogOutComp></LogOutComp>
+              </div>
+             
           </div>
         </div>
 
@@ -77,6 +80,7 @@ class Doctor extends React.Component {
 
           <span style={{display: "inline-block"}} onClick={this.openNav}>
           <CourseCard></CourseCard>
+          
           </span>
         </div>
         
